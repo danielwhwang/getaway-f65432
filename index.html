@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>September Getaway · Four Options</title>
+<style>
+:root{
+  --bg:#FAF7F2; --card:#FFFFFF; --ink:#2B2622; --mid:#6F6459; --line:#E7DED2;
+  --clay:#B4553A; --clay-soft:#F4E7E1; --gold:#B8893B; --green:#5B7A4E;
+  --shadow:0 1px 2px rgba(43,38,34,.06),0 8px 24px rgba(43,38,34,.07);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+.serif{font-family:Georgia,"Iowan Old Style","Times New Roman",serif}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+header{padding:44px 0 28px;border-bottom:1px solid var(--line)}
+h1{font-family:Georgia,serif;font-size:clamp(30px,5vw,44px);line-height:1.12;margin:0 0 10px;letter-spacing:-.4px}
+.dek{color:var(--mid);max-width:64ch;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 13px;font-size:13px;color:var(--mid)}
+.chip b{color:var(--ink);font-weight:600}
+
+.controls{position:sticky;top:0;z-index:20;background:rgba(250,247,242,.94);
+  backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line);padding:14px 0;margin-bottom:34px}
+.ctrow{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tab{font:inherit;font-size:15px;font-weight:600;cursor:pointer;border:1px solid var(--line);
+  background:#fff;color:var(--mid);padding:9px 17px;border-radius:10px;transition:.15s}
+.tab:hover{border-color:var(--clay);color:var(--clay)}
+.tab[aria-selected="true"]{background:var(--clay);border-color:var(--clay);color:#fff}
+.party{display:flex;align-items:center;gap:9px;font-size:14px;color:var(--mid)}
+.seg{display:flex;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fff}
+.seg button{font:inherit;font-size:14px;font-weight:600;cursor:pointer;border:0;background:transparent;
+  color:var(--mid);padding:8px 15px}
+.seg button[aria-pressed="true"]{background:var(--ink);color:#fff}
+
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:132px;gap:9px;margin-bottom:30px}
+.gal figure{margin:0;overflow:hidden;border-radius:12px;position:relative;background:#EFE8DE}
+.gal img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.gal figure:hover img{transform:scale(1.045)}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 11px 8px;font-size:12px;color:#fff;
+  background:linear-gradient(transparent,rgba(20,16,13,.78));line-height:1.3}
+.gal figure:nth-child(1){grid-column:span 2;grid-row:span 2}
+.gal figure:nth-child(4){grid-column:span 2}
+
+.lede{font-family:Georgia,serif;font-size:20px;line-height:1.55;margin:0 0 22px;max-width:66ch}
+.tagline{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--clay);background:var(--clay-soft);padding:5px 11px;border-radius:6px;margin-bottom:14px}
+
+.cols{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:start}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;box-shadow:var(--shadow)}
+.card+.card{margin-top:18px}
+h2{font-family:Georgia,serif;font-size:21px;margin:0 0 16px;letter-spacing:-.2px}
+h3{font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--mid);margin:0 0 10px}
+
+ol.days{list-style:none;padding:0;margin:0;counter-reset:d}
+ol.days li{counter-increment:d;position:relative;padding:0 0 15px 42px;border-left:2px solid var(--line);margin-left:13px}
+ol.days li:last-child{border-left-color:transparent;padding-bottom:0}
+ol.days li::before{content:counter(d);position:absolute;left:-14px;top:-2px;width:26px;height:26px;border-radius:50%;
+  background:#fff;border:2px solid var(--line);color:var(--mid);font-size:12px;font-weight:700;
+  display:flex;align-items:center;justify-content:center}
+ol.days b{display:block;font-size:15px}
+ol.days span{color:var(--mid);font-size:14px}
+
+table{width:100%;border-collapse:collapse;font-size:14px}
+td,th{padding:8px 0;text-align:left;border-bottom:1px solid var(--line)}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--mid);font-weight:600}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr.tot td{border-bottom:0;border-top:2px solid var(--ink);font-weight:700;padding-top:11px;font-size:15px}
+.big{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:4px 0 18px}
+.big div{border-radius:11px;padding:14px 15px;border:1px solid var(--line)}
+.big .pts{background:#F2F6F0;border-color:#D6E3D0}
+.big .csh{background:#FBF6EC;border-color:#EADFC8}
+.big small{display:block;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mid);font-weight:700;margin-bottom:3px}
+.big strong{font-family:Georgia,serif;font-size:27px;font-weight:400;letter-spacing:-.5px}
+.big em{display:block;font-style:normal;font-size:12.5px;color:var(--mid);margin-top:3px}
+
+.flag{display:flex;gap:10px;font-size:14px;padding:11px 0;border-bottom:1px solid var(--line)}
+.flag:last-child{border-bottom:0;padding-bottom:0}
+.flag i{font-style:normal;font-size:15px;flex-shrink:0;width:20px}
+.flag b{font-weight:600}
+.flag span{color:var(--mid)}
+
+footer{margin:52px 0 60px;padding-top:26px;border-top:1px solid var(--line);font-size:13px;color:var(--mid)}
+footer h3{margin-top:22px}
+footer p{max-width:78ch}
+.cred{font-size:11.5px;line-height:1.7;color:#8C8175}
+@media(max-width:860px){
+  .cols{grid-template-columns:1fr}
+  .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:118px}
+  .gal figure:nth-child(1){grid-column:span 2;grid-row:span 2}
+  .gal figure:nth-child(4){grid-column:span 1}
+  .ctrow{justify-content:flex-start}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Nine days, one base, September</h1>
+  <p class="dek">Four ways to spend Sep 19 to 27. Costs are all-in per trip, built from live exchange rates
+  and mid-range lodging. Two numbers each: flight on points, flight on cash.</p>
+  <div class="meta">
+    <span class="chip"><b>Sat Sep 19 to Sun Sep 27</b></span>
+    <span class="chip"><b>8 nights</b>, 9 days</span>
+    <span class="chip">Only <b>5 PTO days</b> burned</span>
+    <span class="chip">From <b>PDX</b></span>
+  </div>
+</header>
+</div>
+
+<div class="controls">
+  <div class="wrap ctrow">
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="party">
+      <span>Travelers</span>
+      <div class="seg">
+        <button id="p1" aria-pressed="true">1 person</button>
+        <button id="p2" aria-pressed="false">2 people</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="gal" id="gal"></div>
+  <span class="tagline" id="tagline"></span>
+  <p class="lede serif" id="lede"></p>
+
+  <div class="cols">
+    <div>
+      <div class="card">
+        <h2 id="ititle">The shape of it</h2>
+        <ol class="days" id="days"></ol>
+      </div>
+      <div class="card">
+        <h2>Worth knowing</h2>
+        <div id="flags"></div>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <h2>What it costs</h2>
+        <div class="big">
+          <div class="pts"><small>Flight on points</small><strong id="tPts"></strong><em id="ePts"></em></div>
+          <div class="csh"><small>Flight on cash</small><strong id="tCash"></strong><em id="eCash"></em></div>
+        </div>
+        <table>
+          <thead><tr><th>Line item</th><th class="n">Points</th><th class="n">Cash</th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+        <p style="font-size:12.5px;color:var(--mid);margin:14px 0 0" id="fxnote"></p>
+      </div>
+    </div>
+  </div>
+
+<footer>
+  <h3 style="margin-top:0">How these numbers were built</h3>
+  <p>Lodging is mid-range, the kind of place that is clearly nice without being a splurge, and it does
+  not double for a second person because you share the room. Food, local transport, and activities do
+  scale with a second person. Every total carries a 10 percent buffer and is rounded to the nearest hundred.
+  The points column assumes you cover the fare with Chase UR or Amex MR and pay only taxes and surcharges
+  in cash.</p>
+  <p><b>Exchange rates used, pulled 2026-08-18:</b> 1 EUR = $1.158 &middot; 100 MXN = $5.87 &middot; 1000 JPY = $6.26.
+  The yen at roughly 160 to the dollar is the single biggest swing factor on this page. Tokyo is priced like a
+  bargain right now, and that is a currency story, not a Japan story.</p>
+  <p><b>What is not included:</b> your unused card credits. Depending on what is left for 2026, the Chase
+  Edit credit, the select-hotel credit, the flexible travel credit, and the Amex second-half hotel credit could
+  take several hundred dollars off any of these. Check both accounts before booking.</p>
+  <h3>Photos</h3>
+  <p class="cred" id="creds"></p>
+</footer>
+</div>
+
+<script>
+const FX = "Rates as of 2026-08-18. ";
+const D = {
+ hawaii:{
+  name:"Hawaii", sub:"Kauai",
+  tag:"The rest one",
+  lede:"You land, you unpack once, and the logistics are over. September is Kauai's quietest and cheapest month, sitting between the summer families and the holiday crowds, with weather that behaves. This is the option that most unambiguously feels like a vacation, and it is also, surprisingly, the most expensive one on this page.",
+  days:[
+   ["Arrive","Fly PDX to Lihue, pick up the car, get to the room. Beach, dinner, early night. No agenda."],
+   ["Nothing","Deliberately. Beach, pool, a long lunch. The trip does not start until you have had one useless day."],
+   ["Waimea Canyon","Drive up in the morning, Kalalau Lookout in the afternoon when the clouds lift. Best light of the trip."],
+   ["Na Pali","Boat along the coast, or the helicopter if the weather cooperates. This is the photo you came for."],
+   ["North shore","Hanalei Bay, the taro fields, Wailua Falls. Slow day, short drives, no hiking."],
+   ["Nothing again","Same as day 2. Read something. Swim."],
+   ["Loose","Whatever you skipped, or nothing. Sunset dinner somewhere with a view."],
+   ["Fly home","Morning at the beach, afternoon flight, home the same day."]],
+  flags:[
+   ["✈️","Almost no jet lag","Three hour change westbound. You get about 7.5 usable days out of 9, the best ratio here."],
+   ["🚗","You do need a car","Kauai has no real transit. It is short drives from one base, not a road trip, but budget for it."],
+   ["💰","The expensive one","Resort rates plus a car plus $95-a-day food. Domestic does not mean cheap."],
+   ["🏨","Points could gut the biggest line","Chase UR into Hyatt at the Grand Hyatt Kauai would erase most of the $2,720 lodging line. Worth pricing before you pay cash."]],
+  c:{flightCash:620,flightPts:50,ptsNote:"~45k UR via United",hotel:2720,hotelNote:"8 nights, mid-range resort",
+     car:520,food1:855,food2:1485,local1:0,local2:0,act1:350,act2:650},
+  fx:"No currency risk. Everything is priced in dollars."},
+
+ japan:{
+  name:"Japan", sub:"Tokyo, one base",
+  tag:"The best value",
+  lede:"The yen is sitting near 160 to the dollar, which makes Tokyo cheaper right now than Lisbon. One base in Shinjuku or Shibuya, no internal flights, and one of the great eating cities on earth. Late September is warm and the typhoon risk is dropping, though it is not yet the crisp autumn Japan is famous for.",
+  days:[
+   ["Arrive","Long flight, land in the afternoon, train in. Eat something simple nearby and sleep."],
+   ["Asakusa","Sensoji early before the crowds, then Yanaka's old lanes. Ease into the time zone on foot."],
+   ["Shibuya and Harajuku","Meiji Shrine in the morning, the crossing at dusk, back streets in between."],
+   ["Tsukiji and Ginza","Outer market for breakfast, then Ginza. This is the eating day."],
+   ["Day trip","Hakone for the Fuji views and the onsen, or Kamakura for temples and the coast. Pick by the forecast."],
+   ["Slow","Shimokitazawa in the afternoon, Kabukicho neon after dark. Nothing scheduled."],
+   ["Loose","Whatever you missed. A proper dinner booked in advance."],
+   ["Fly home","Cross the date line, land in Portland the same day you left."]],
+  flags:[
+   ["💴","The weak yen is doing the work","At 160 to the dollar this is the cheapest trip here on points. That is a currency window, not a permanent state."],
+   ["🌤️","Not peak Japan","Late September is warm and humid with residual typhoon risk. The famous autumn color is a November thing."],
+   ["✈️","Jet lag is real","About 6 usable days out of 9, and the westbound return is the rough direction."],
+   ["⚠️","Watch the gout","Seafood, beer, and dashi are high purine and they are in everything. Worth planning some lighter days."]],
+  c:{flightCash:1150,flightPts:120,ptsNote:"~60k MR via ANA or Aeroplan",hotel:1300,hotelNote:"8 nights, ¥26k/night",
+     car:0,food1:480,food2:845,local1:180,local2:330,act1:280,act2:520},
+  fx:FX+"Hotel and food priced in yen at ¥159.7 to the dollar, then converted."},
+
+ lisbon:{
+  name:"Lisbon", sub:"and Sintra",
+  tag:"The story one",
+  lede:"Late September in Lisbon is 75 degrees and gold, which is close to the best light any European city gets. It is walkable, the food is excellent without being dairy-dominated, and it is on the trending edge without being ruined yet. Six real days on the ground once you subtract the flying, which is enough for one city and one day trip.",
+  days:[
+   ["Arrive","Overnight flight, land midday. Drop bags in Chiado or Principe Real, walk, eat, stay up until a normal bedtime."],
+   ["Alfama","The old quarter on foot, the cathedral, then the miradouros for golden hour. The best walking day."],
+   ["Belem","The tower, the monastery, and the pasteis at the original bakery. Tram or ferry back."],
+   ["Sintra","Train out, Pena Palace and the Quinta. Go early, it fills up by eleven."],
+   ["Slow city day","LX Factory, Time Out Market, Bairro Alto after dark. No schedule."],
+   ["Coast","Cascais by train, or Setubal for the seafood. Out and back, no car."],
+   ["Loose","The Gulbenkian, a last miradouro, a dinner you booked ahead."],
+   ["Fly home","Long day back, arrive Portland the same evening."]],
+  flags:[
+   ["✈️","Two and a half days lost to travel","Nine hours of time change. About 6 usable days, and the first one or two are foggy. That is the real cost of Europe on a one week trip."],
+   ["🚶","Very steep","Lisbon is built on hills and cobblestone. Manageable, but it is a lot of walking on hard uneven surfaces."],
+   ["🍮","Lactose warning","The entire pastry culture is custard and the cheese is everywhere. Navigable, not accidentally."],
+   ["💶","The euro is strong","At $1.158 to the euro this costs meaningfully more in dollars than it did a few years ago."]],
+  c:{flightCash:950,flightPts:200,ptsNote:"~60k UR via Flying Blue or Iberia",hotel:1480,hotelNote:"8 nights, €160/night",
+     car:0,food1:575,food2:990,local1:220,local2:380,act1:70,act2:140},
+  fx:FX+"Hotel and food priced in euros at $1.158, then converted."},
+
+ cdmx:{
+  name:"Mexico City", sub:"Roma and Condesa",
+  tag:"The cheapest",
+  lede:"Five and a half hours from Portland, no meaningful jet lag, and one of the best eating cities anywhere. You have been before, but a return with no agenda is a different trip than a first visit with a checklist. Late September is the tail of the rainy season, which means dramatic afternoon skies rather than washouts.",
+  days:[
+   ["Arrive","Short flight, land with the day intact. Settle into Roma Norte and walk the neighborhood."],
+   ["Centro Historico","Bellas Artes, the Zocalo, Templo Mayor. Rooftop drink over the cathedral at dusk."],
+   ["Teotihuacan","Out early to beat the heat and the buses. Back by mid afternoon."],
+   ["Coyoacan","Casa Azul and the market. The prettiest neighborhood in the city."],
+   ["Chapultepec","The Anthropology Museum deserves most of a day. Castle after, if you have it in you."],
+   ["Eat","A proper food crawl, or Xochimilco if you want something sillier."],
+   ["Slow","Condesa, a long lunch, Biblioteca Vasconcelos for the photo."],
+   ["Fly home","Afternoon flight, home the same night."]],
+  flags:[
+   ["✅","Best time-to-cost ratio","No jet lag, short flight, about 7 usable days out of 9. Cheapest trip on the page."],
+   ["🌧️","Rainy season tail","Expect a hard afternoon burst most days. It clears. Bring a layer and plan indoor afternoons."],
+   ["⚠️","Gout and altitude","Organ meats are everywhere and the city sits at 7,300 feet, which dehydrates you fast. Both push uric acid the wrong way."],
+   ["🔁","You have been","Which is either the flaw or the appeal. Nothing here will surprise you, and that may be the point."]],
+  c:{flightCash:520,flightPts:100,ptsNote:"~35k UR via United",hotel:1270,hotelNote:"8 nights, MXN 2,700/night",
+     car:0,food1:475,food2:845,local1:180,local2:310,act1:90,act2:170},
+  fx:FX+"Hotel and food priced in pesos at 17.05 to the dollar, then converted."}
+};
+
+const IMGS = {"lisbon": [{"f": "lisbon1.jpg", "cap": "Alfama, the old quarter", "cred": "Matti Blume", "lic": "CC BY-SA 4.0", "src": "Alfama, Lisbon (DSC03367).jpg"}, {"f": "lisbon2.jpg", "cap": "Tram 28 climbing the hills", "cred": "TheDumpy", "lic": "CC BY-SA 4.0", "src": "The Iconic Tram 28 Lisbon, Portugal.jpg"}, {"f": "lisbon3.jpg", "cap": "Torre de Belem", "cred": "Berthold Werner", "lic": "CC BY-SA 4.0", "src": "Lisbon Torre de Bel\u00e9m BW 2018-10-03 16-34-03.jpg"}, {"f": "lisbon4.jpg", "cap": "Pastel de nata at Belem", "cred": "Amanda  Coutinho from S\u00e3o Paulo, Brasil", "lic": "CC BY 2.0", "src": "Pastel de Bel\u00e9m - Portugal (50530260537).jpg"}, {"f": "lisbon5.jpg", "cap": "Praca do Comercio on the Tagus", "cred": "Jakub Ha\u0142un", "lic": "CC BY 4.0", "src": "Eastern part of Pra\u00e7a do Com\u00e9rcio with the statue of King Jos\u00e9 I, 20250603 1934 8996.jpg"}, {"f": "lisbon6.jpg", "cap": "Pena Palace, Sintra", "cred": "Jakub Ha\u0142un", "lic": "CC BY 4.0", "src": "Pena Palace, Sintra, Portugal, 20250606 1037 0005.jpg"}], "cdmx": [{"f": "cdmx1.jpg", "cap": "Palacio de Bellas Artes", "cred": "Diego Delso</bd", "lic": "CC BY-SA 3.0", "src": "Palacio de Bellas Artes, M\u00e9xico D.F., M\u00e9xico, 2013-10-13, DD 40.jpg"}, {"f": "cdmx2.jpg", "cap": "Pyramid of the Sun, Teotihuacan", "cred": "Daniel Case", "lic": "CC BY-SA 3.0", "src": "Pyramid of the Sun, Teotihuacan, from path to parking lot.jpg"}, {"f": "cdmx3.jpg", "cap": "Tacos al pastor", "cred": "City Foodsters", "lic": "CC BY 2.0", "src": "(El Flaco) Al Pastor Tacos.jpg"}, {"f": "cdmx4.jpg", "cap": "Casa Azul, Frida Kahlo Museum", "cred": "Phyrexian", "lic": "CC BY-SA 4.0", "src": "Ciudad de M\u00e9xico - Museo Frida Kahlo 7129.jpg"}, {"f": "cdmx5.jpg", "cap": "Biblioteca Vasconcelos", "cred": "Diego Delso</bd", "lic": "CC BY-SA 4.0", "src": "Biblioteca Vasconcelos, Ciudad de M\u00e9xico, M\u00e9xico, 2015-07-20, DD 04-06 HDR.JPG"}, {"f": "cdmx6.jpg", "cap": "Condesa streets", "cred": "Lazjak", "lic": "CC BY-SA 4.0", "src": "Condesa Mexico City neighborhood main street jacaranda flowering.jpg"}], "hawaii": [{"f": "hawaii1.jpg", "cap": "Na Pali Coast", "cred": "Wikimedia Commons", "lic": "Public domain", "src": "Na Pali Coast - Kauai.jpg"}, {"f": "hawaii2.jpg", "cap": "Hanalei Bay", "cred": "tdlucas5000 from Lakewood Ca., United States", "lic": "CC BY 2.0", "src": "Hanalei Bay Kauai (14851281055).jpg"}, {"f": "hawaii3.jpg", "cap": "Waimea Canyon", "cred": "<span title=\"German-American photographer, Wikipedian, and Ex", "lic": "CC BY-SA 4.0", "src": "Waimea Canyon, Kaua\u02bbi.jpg"}, {"f": "hawaii4.jpg", "cap": "Poipu Beach", "cred": "Polihale", "lic": "CC BY-SA 3.0", "src": "Aerial-Poipu-Beach-Park-Kauai.jpg"}, {"f": "hawaii5.jpg", "cap": "Kalalau Valley Lookout", "cred": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:WeLoveHawaii&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:WeLoveHawaii (page does no", "lic": "CC BY-SA 4.0", "src": "Kalalau Valley Lookout.jpg"}, {"f": "hawaii6.jpg", "cap": "Wailua Falls", "cred": "Robert Linsdell from St. Andrews, Canada", "lic": "CC BY 2.0", "src": "Wailua Falls, Maalo Rd, Kapaa (503177) (17125523156).jpg"}], "japan": [{"f": "japan1.jpg", "cap": "Shibuya Crossing", "cred": "Syced", "lic": "CC0", "src": "Shibuya crossing, seen from Shibuya Stream.jpg"}, {"f": "japan2.jpg", "cap": "Sensoji pagoda, Asakusa", "cred": "Jakub Ha\u0142un", "lic": "CC BY 4.0", "src": "Five-storied Pagoda, Sensoji, Tokyo, 20240824 1103 5616.jpg"}, {"f": "japan3.jpg", "cap": "Meiji Shrine", "cred": "Tokuzo in Edomura", "lic": "CC BY-SA 4.0", "src": "Courtyard of Meiji Shrine 20190717.jpg"}, {"f": "japan4.jpg", "cap": "Nigiri", "cred": "Tim Reckmann from Hamm, Deutschland", "lic": "CC BY 2.0", "src": "Nigiri Sushi (25966163204).jpg"}, {"f": "japan5.jpg", "cap": "Kabukicho neon, Shinjuku", "cred": "Basile Morin", "lic": "CC BY-SA 4.0", "src": "Colorful neon street signs in Kabukich\u014d, Shinjuku, Tokyo.jpg"}, {"f": "japan6.jpg", "cap": "Chureito Pagoda and Mount Fuji", "cred": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Stjepko_Krehula&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Stjepko Krehula (page d", "lic": "CC BY 4.0", "src": "Chureito Pagoda and Mount Fuji 2023-03-07.jpg"}]};
+const ORDER = ["hawaii","japan","lisbon","cdmx"];
+let city = localStorage.getItem("sep_city") || "hawaii";
+let n = +(localStorage.getItem("sep_n") || 1);
+if(!D[city]) city = "hawaii";
+
+const $ = i => document.getElementById(i);
+
+function fmt(v){ return "$" + (Math.round(v/100)*100).toLocaleString(); }
+function fmtx(v){ return "$" + Math.round(v).toLocaleString(); }
+
+function calc(c, n){
+  const food  = n===1 ? c.food1  : c.food2;
+  const local = n===1 ? c.local1 : c.local2;
+  const act   = n===1 ? c.act1   : c.act2;
+  const ground = c.hotel + (c.car||0) + food + local + act;
+  return {
+    food, local, act, ground,
+    flightPts: c.flightPts * n,
+    flightCash: c.flightCash * n,
+    totPts:  (ground + c.flightPts*n)  * 1.10,
+    totCash: (ground + c.flightCash*n) * 1.10
+  };
+}
+
+function render(){
+  const d = D[city], c = d.c, t = calc(c, n);
+
+  $("gal").innerHTML = IMGS[city].map(i =>
+    `<figure><img src="img/${i.f}" alt="${i.cap}" loading="lazy"><figcaption>${i.cap}</figcaption></figure>`).join("");
+
+  $("tagline").textContent = d.tag;
+  $("lede").textContent = d.lede;
+  $("ititle").textContent = d.name + (d.sub ? " · " + d.sub : "");
+  $("days").innerHTML = d.days.map(x => `<li><b>${x[0]}</b><span>${x[1]}</span></li>`).join("");
+  $("flags").innerHTML = d.flags.map(f =>
+    `<div class="flag"><i>${f[0]}</i><div><b>${f[1]}</b><br><span>${f[2]}</span></div></div>`).join("");
+
+  $("tPts").textContent  = fmt(t.totPts);
+  $("tCash").textContent = fmt(t.totCash);
+  const per = n===2 ? " total for two" : " for one";
+  $("ePts").textContent  = c.ptsNote + per;
+  $("eCash").textContent = "Economy fare paid in cash" + per;
+
+  const rows = [
+    ["Flights" + (n===2?" (x2)":""), t.flightPts, t.flightCash, c.ptsNote],
+    ["Lodging", c.hotel, c.hotel, c.hotelNote]
+  ];
+  if(c.car) rows.push(["Rental car", c.car, c.car, "8 days"]);
+  rows.push(["Food", t.food, t.food, n===2?"two people, 9 days":"9 days"]);
+  if(t.local) rows.push(["Local transport", t.local, t.local, ""]);
+  rows.push(["Activities", t.act, t.act, ""]);
+  rows.push(["Buffer (10%)", t.totPts-(t.ground+t.flightPts), t.totCash-(t.ground+t.flightCash), ""]);
+
+  $("rows").innerHTML = rows.map(r =>
+    `<tr><td>${r[0]}${r[3]?`<br><span style="font-size:12px;color:var(--mid)">${r[3]}</span>`:""}</td>
+     <td class="n">${fmtx(r[1])}</td><td class="n">${fmtx(r[2])}</td></tr>`).join("")
+    + `<tr class="tot"><td>Total</td><td class="n">${fmt(t.totPts)}</td><td class="n">${fmt(t.totCash)}</td></tr>`;
+
+  $("fxnote").textContent = d.fx;
+  $("creds").innerHTML = IMGS[city].map(i =>
+    `${i.cap}: ${i.cred} / ${i.lic}, via Wikimedia Commons.`).join("<br>");
+
+  [...document.querySelectorAll(".tab")].forEach(b =>
+    b.setAttribute("aria-selected", b.dataset.c === city));
+  $("p1").setAttribute("aria-pressed", n===1);
+  $("p2").setAttribute("aria-pressed", n===2);
+  document.title = d.name + " · September Getaway";
+}
+
+$("tabs").innerHTML = ORDER.map(k =>
+  `<button class="tab" role="tab" data-c="${k}">${D[k].name}</button>`).join("");
+document.querySelectorAll(".tab").forEach(b => b.onclick = () => {
+  city = b.dataset.c; localStorage.setItem("sep_city", city); render();
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+$("p1").onclick = () => { n=1; localStorage.setItem("sep_n",1); render(); };
+$("p2").onclick = () => { n=2; localStorage.setItem("sep_n",2); render(); };
+render();
+</script>
+</body></html>

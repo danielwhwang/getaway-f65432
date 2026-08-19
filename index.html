@@ -126,13 +126,13 @@ footer p{max-width:78ch}
 <div class="wrap">
 <header>
   <h1>Nine days, one base, September</h1>
-  <p class="dek">Six ways to spend Sep 19 to 27. Costs are all-in per trip, built from live exchange rates
+  <p class="dek">Six ways to spend Sep 19 to 27. Costs are all-in per trip apart from PDX positioning, which is called out on each city tab, and are built from live exchange rates
   and mid-range lodging. Two numbers each: flight on points, flight on cash.</p>
   <div class="meta">
     <span class="chip"><b>Sat Sep 19 to Sun Sep 27</b></span>
     <span class="chip"><b>8 nights</b>, 9 days</span>
     <span class="chip">Only <b>5 PTO days</b> burned</span>
-    <span class="chip">From <b>PDX</b></span>
+    <span class="chip">From <b>PDX</b>, positioning noted</span>
   </div>
 </header>
 </div>
@@ -178,6 +178,12 @@ footer p{max-width:78ch}
           <tbody id="rows"></tbody>
         </table>
         <p style="font-size:12.5px;color:var(--mid);margin:14px 0 0" id="fxnote"></p>
+      </div>
+      <div class="card">
+        <h2>Award space, as of Aug 19</h2>
+        <p class="cnote" id="awStamp"></p>
+        <div class="scroll"><table class="cmp" id="awTbl"></table></div>
+        <p class="cnote" id="awNote" style="margin:12px 0 0"></p>
       </div>
     </div>
   </div>
@@ -241,7 +247,7 @@ const D = {
    ["🚗","You do need a car","Kauai has no real transit. It is short drives from one base, not a road trip, but budget for it."],
    ["💰","The expensive one","Resort rates plus a car plus $95-a-day food. Domestic does not mean cheap."],
    ["🏨","Points could gut the biggest line","Chase UR into Hyatt at the Grand Hyatt Kauai would erase most of the $2,720 lodging line. Worth pricing before you pay cash."]],
-  c:{flightCash:620,flightPts:50,ptsNote:"~45k UR via United",hotel:2720,hotelNote:"8 nights, mid-range resort",
+  c:{flightCash:620,flightPts:91,ptsNote:"30k miles round trip, Aeroplan or United",hotel:2720,hotelNote:"8 nights, mid-range resort",
      car:520,food1:855,food2:1485,local1:0,local2:0,act1:350,act2:650},
   fx:"No currency risk. Everything is priced in dollars."},
 
@@ -259,11 +265,11 @@ const D = {
    ["Loose","Whatever you missed. A proper dinner booked in advance."],
    ["Fly home","Cross the date line, land in Portland the same day you left."]],
   flags:[
-   ["💴","The weak yen is doing the work","At 160 to the dollar Japan is priced like a bargain, though Osaka now undercuts Tokyo by about $300. That is a currency window, not a permanent state."],
+   ["💴","The weak yen is doing the work","At 160 to the dollar Japan is priced like a bargain. Osaka undercuts Tokyo on the ground, but once award surcharges are counted Tokyo comes out about $600 cheaper overall, and Tokyo is the only city here with award space out of PDX. That currency window is not a permanent state."],
    ["🌤️","Not peak Japan","Late September is warm and humid with residual typhoon risk. The famous autumn color is a November thing."],
    ["✈️","Jet lag is real","About 6 usable days out of 9, and the westbound return is the rough direction."],
    ["⚠️","Watch the gout","Seafood, beer, and dashi are high purine and they are in everything. Worth planning some lighter days."]],
-  c:{flightCash:1150,flightPts:120,ptsNote:"~60k MR via ANA or Aeroplan",hotel:1300,hotelNote:"8 nights, ¥26k/night",
+  c:{flightCash:1150,flightPts:128,ptsNote:"66k miles round trip, Delta via Flying Blue",hotel:1300,hotelNote:"8 nights, ¥26k/night",
      car:0,food1:480,food2:845,local1:180,local2:330,act1:280,act2:520},
   fx:FX+"Hotel and food priced in yen at ¥159.7 to the dollar, then converted."},
 
@@ -282,10 +288,10 @@ const D = {
    ["Fly home","Morning at the beach, afternoon flight, home the same day."]],
   flags:[
    ["\u{1F697}","No car needed, and that is the point","Waikiki is flat and walkable, with buses and rideshare for everything else. This is the direct answer to Kauai's biggest flaw."],
-   ["\u{1F4B5}","About $1,100 cheaper than Kauai","Cheaper flights, cheaper rooms, no rental car, cheaper food. Same islands, same weather, same three hour time change."],
+   ["\u{1F4B5}","About $1,200 cheaper than Kauai","Cheaper flights, cheaper rooms, no rental car, cheaper food. Same islands, same weather, same three hour time change."],
    ["\u{1F371}","Real Asian food","Japanese, Korean, Chinese, and local plate lunch at prices Kauai cannot match. The one Hawaii option that feeds you the way you like to eat."],
    ["\u{1F3D9}\uFE0F","Busier and less dramatic","Waikiki is a city beach, not Na Pali. If the picture in your head is empty coastline, that is Kauai, not here. Skip Diamond Head itself, that is a climb."]],
-  c:{flightCash:480,flightPts:60,ptsNote:"~40k UR via United, or Hawaiian via MR",hotel:2160,hotelNote:"8 nights, Waikiki mid-range",
+  c:{flightCash:480,flightPts:90,ptsNote:"30k miles round trip, Aeroplan or United",hotel:2160,hotelNote:"8 nights, Waikiki mid-range",
      car:0,food1:720,food2:1250,local1:200,local2:340,act1:280,act2:520},
   fx:"No currency risk. Everything is priced in dollars."},
 
@@ -305,9 +311,9 @@ const D = {
   flags:[
    ["\u{1F362}","The food city, not the big city","Cheaper, more casual, and more street-level than Tokyo. Closer to the local-and-filling eating you actually said you want."],
    ["\u{1F686}","Nara, Kobe, and Kyoto are all trains","Thirty to sixty minutes on rails, no driving to a viewpoint, and you sleep in the same bed all eight nights."],
-   ["\u{1F4B4}","Tied for cheapest on the board","The weak yen plus Osaka lodging running well under Tokyo puts this level with Mexico City, which is not where you would expect Japan to land."],
+   ["\u{1F4B4}","The surcharge is what kills it","The ground costs really are the cheapest here, but the flight is not. Osaka's only economy award space runs through JAL on Qantas points and carries about $964 per person round trip in surcharges, against $128 for Tokyo. That is what moves Osaka from tied-for-cheapest to fourth, and it is the single biggest thing the live award search changed."],
    ["\u{1F501}","It is Japan again","Fourth time in two years, and Tokyo is already on this page. The counter-argument is that Osaka is a genuinely different trip, not a repeat."]],
-  c:{flightCash:1200,flightPts:130,ptsNote:"~60k MR via ANA, or United via UR",hotel:1100,hotelNote:"8 nights, \u00A522k/night",
+  c:{flightCash:1200,flightPts:964,ptsNote:"87k miles round trip, JAL via Qantas",hotel:1100,hotelNote:"8 nights, \u00A522k/night",
      car:0,food1:450,food2:790,local1:230,local2:420,act1:200,act2:370},
   fx:FX+"Hotel and food priced in yen at \u00A5159.7 to the dollar, then converted."},
 
@@ -325,11 +331,11 @@ const D = {
    ["Loose","Sentosa if you want water, the Botanic Gardens if you want shade, Little India if you want noise."],
    ["Fly home","A late departure. Changi is worth the extra two hours, so go early."]],
   flags:[
-   ["\u2708\uFE0F","The best points story on this page","Singapore KrisFlyer takes both Chase UR and Amex MR, which nothing else here does. If a business or Suites seat opens, this is the trip where the flight is worth chasing."],
+   ["\u2708\uFE0F","The best points story on this page","Singapore KrisFlyer takes both Chase UR and Amex MR, which nothing else here does. Premium economy is wide open at 79k each way with no surcharge and nine seats, and business is showing too at 148k each way. The premium economy seat is the one worth taking; business at 296k round trip is not."],
    ["\u{1F35C}","Exactly your kind of eating","Hawker centres are cheap, local, casual, and filling. Not a fine dining city unless you make it one, which suits you."],
    ["\u{1F321}\uFE0F","Hot and humid, every single day","Around 88F with afternoon rain year-round. The city is built for it, everything is close and air conditioned, but budget a downshift day mid-trip."],
    ["\u23F1\uFE0F","Eight nights is long here","Most people do Singapore in four or five. It works as a slow base, but do not expect to be busy on day seven."]],
-  c:{flightCash:1250,flightPts:120,ptsNote:"~80k UR via United or KrisFlyer",hotel:1820,hotelNote:"8 nights, SGD 290/night",
+  c:{flightCash:1250,flightPts:81,ptsNote:"83k miles round trip, United or KrisFlyer",hotel:1820,hotelNote:"8 nights, SGD 290/night",
      car:0,food1:520,food2:910,local1:150,local2:260,act1:220,act2:400},
   fx:FX+"Hotel and food priced in Singapore dollars at 1.278 to the dollar, then converted."},
 
@@ -351,12 +357,14 @@ const D = {
    ["🌧️","Rainy season tail","Expect a hard afternoon burst most days. It clears. Bring a layer and plan indoor afternoons."],
    ["⚠️","Gout and altitude","Organ meats are everywhere and the city sits at 7,300 feet, which dehydrates you fast. Both push uric acid the wrong way."],
    ["🔁","You have been","Which is either the flaw or the appeal. Nothing here will surprise you, and that may be the point."]],
-  c:{flightCash:520,flightPts:100,ptsNote:"~35k UR via United",hotel:1270,hotelNote:"8 nights, MXN 2,700/night",
+  c:{flightCash:520,flightPts:214,ptsNote:"28k miles round trip, Aeromexico via Flying Blue",hotel:1270,hotelNote:"8 nights, MXN 2,700/night",
      car:0,food1:475,food2:845,local1:180,local2:310,act1:90,act2:170},
   fx:FX+"Hotel and food priced in pesos at 17.05 to the dollar, then converted."}
 };
 
 const IMGS = {"hawaii": [{"f": "hawaii1.jpg", "cap": "Na Pali Coast", "cred": "Wikimedia Commons", "lic": "Public domain", "src": "Na Pali Coast - Kauai.jpg"}, {"f": "hawaii2.jpg", "cap": "Hanalei Bay", "cred": "tdlucas5000 from Lakewood Ca., United States", "lic": "CC BY 2.0", "src": "Hanalei Bay Kauai (14851281055).jpg"}, {"f": "hawaii3.jpg", "cap": "Waimea Canyon", "cred": "Frank Schulenburg", "lic": "CC BY-SA 4.0", "src": "Waimea Canyon, Kaua\u02bbi.jpg"}, {"f": "hawaii4.jpg", "cap": "Poipu Beach", "cred": "Polihale", "lic": "CC BY-SA 3.0", "src": "Aerial-Poipu-Beach-Park-Kauai.jpg"}, {"f": "hawaii5.jpg", "cap": "Kalalau Valley Lookout", "cred": "Paxson Woelber", "lic": "CC BY-SA 3.0", "src": "Kalalau Valley from the Kalalau Lookout.jpg"}, {"f": "hawaii6.jpg", "cap": "Wailua Falls", "cred": "Robert Linsdell from St. Andrews, Canada", "lic": "CC BY 2.0", "src": "Wailua Falls, Maalo Rd, Kapaa (503177) (17125523156).jpg"}], "honolulu": [{"f": "honolulu1.jpg", "cap": "Waikiki and Diamond Head at night", "cred": "Paul Smits", "lic": "CC BY 2.0", "src": "Waikiki Beach and Diamond Head at night.jpg"}, {"f": "honolulu2.jpg", "cap": "Waikiki Beach", "cred": "Frank Schulenburg", "lic": "CC BY-SA 4.0", "src": "Waikiki Beach (2024)-L1004709.jpg"}, {"f": "honolulu3.jpg", "cap": "Diamond Head", "cred": "Robert Linsdell from St. Andrews, Canada", "lic": "CC BY 2.0", "src": "Diamond Head Volcanic Cone, Honolulu (503700) (20631033769).jpg"}, {"f": "honolulu4.jpg", "cap": "Hanauma Bay", "cred": "Eric.frederich at English Wikipedia", "lic": "CC BY 2.5", "src": "Hanauma Bay Panoramic.jpg"}, {"f": "honolulu5.jpg", "cap": "Poke", "cred": "Daderot", "lic": "CC0", "src": "Poke bowl - Cambridge, MA.jpg"}, {"f": "honolulu6.jpg", "cap": "Mana Nalu mural, downtown Honolulu", "cred": "John Pugh", "lic": "CC BY-SA 4.0", "src": "Mana Nalu, Trompe L'oeil Mural by John Pugh, Honolulu, HI.jpg"}], "japan": [{"f": "japan1.jpg", "cap": "Shibuya Crossing", "cred": "Syced", "lic": "CC0", "src": "Shibuya crossing, seen from Shibuya Stream.jpg"}, {"f": "japan2.jpg", "cap": "Sensoji pagoda, Asakusa", "cred": "Jakub Ha\u0142un", "lic": "CC BY 4.0", "src": "Five-storied Pagoda, Sensoji, Tokyo, 20240824 1103 5616.jpg"}, {"f": "japan3.jpg", "cap": "Meiji Shrine", "cred": "Tokuzo in Edomura", "lic": "CC BY-SA 4.0", "src": "Courtyard of Meiji Shrine 20190717.jpg"}, {"f": "japan4.jpg", "cap": "Nigiri", "cred": "Tim Reckmann from Hamm, Deutschland", "lic": "CC BY 2.0", "src": "Nigiri Sushi (25966163204).jpg"}, {"f": "japan5.jpg", "cap": "Kabukicho neon, Shinjuku", "cred": "Basile Morin", "lic": "CC BY-SA 4.0", "src": "Colorful neon street signs in Kabukich\u014d, Shinjuku, Tokyo.jpg"}, {"f": "japan6.jpg", "cap": "Chureito Pagoda and Mount Fuji", "cred": "Stjepko Krehula", "lic": "CC BY 4.0", "src": "Chureito Pagoda and Mount Fuji 2023-03-07.jpg"}], "osaka": [{"f": "osaka1.jpg", "cap": "Dotonbori at night", "cred": "Martin Falbisoner", "lic": "CC BY-SA 4.0", "src": "Dotonbori, Osaka, at night, November 2016.jpg"}, {"f": "osaka2.jpg", "cap": "Osaka Castle", "cred": "DXR", "lic": "CC BY-SA 4.0", "src": "Osaka Castle, Keep tower, South view 20190415 1.jpg"}, {"f": "osaka3.jpg", "cap": "Takoyaki", "cred": "Fumikas Sagisavas", "lic": "CC0", "src": "Takoyaki balls (1).jpg"}, {"f": "osaka4.jpg", "cap": "The Dotonbori canal", "cred": "32linesky", "lic": "CC BY-SA 4.0", "src": "Osaka Dotonbori Canal.jpg"}, {"f": "osaka5.jpg", "cap": "Tsutenkaku and Shinsekai", "cred": "Sakai Yayoi", "lic": "CC0", "src": "Shinsekai and Tsutenkaku Tower.jpg"}, {"f": "osaka6.jpg", "cap": "Nara deer at Todaiji", "cred": "Immanuel Giel", "lic": "CC0", "src": "Deer at Todaiji (2).jpg"}], "singapore": [{"f": "singapore1.jpg", "cap": "Marina Bay at dusk", "cred": "Benh LIEU SONG (Flickr)", "lic": "CC BY-SA 4.0", "src": "Singapore Marina Bay Dusk 2018-02-27.jpg"}, {"f": "singapore2.jpg", "cap": "Supertree Grove, Gardens by the Bay", "cred": "Mustang Joe", "lic": "CC0", "src": "Supertree Grove, Gardens by the Bay, Singapore1.jpg"}, {"f": "singapore3.jpg", "cap": "Alexandra Food Centre", "cred": "Exec8", "lic": "CC BY-SA 4.0", "src": "Singapore Hawker Alexandra Food Centre.jpg"}, {"f": "singapore4.jpg", "cap": "Hainanese chicken rice", "cred": "Pauloleong2002", "lic": "CC BY-SA 4.0", "src": "Hainanese chicken rice in Singapore.jpg"}, {"f": "singapore5.jpg", "cap": "Chinatown shophouses", "cred": "yeowatzup", "lic": "CC BY 2.0", "src": "Shophouses, Chinatown, Singapore (2317630623).jpg"}, {"f": "singapore6.jpg", "cap": "Singapore Botanic Gardens", "cred": "Basile Morin", "lic": "CC BY-SA 4.0", "src": "Bandstand and green trees a sunny afternoon with blue sky at Singapore Botanic Gardens.jpg"}], "cdmx": [{"f": "cdmx1.jpg", "cap": "Palacio de Bellas Artes", "cred": "Jeses", "lic": "CC BY-SA 2.5", "src": "Mexico City Palacio de bellas artes.jpg"}, {"f": "cdmx2.jpg", "cap": "Pyramid of the Sun, Teotihuacan", "cred": "Daniel Case", "lic": "CC BY-SA 3.0", "src": "Pyramid of the Sun, Teotihuacan, from path to parking lot.jpg"}, {"f": "cdmx3.jpg", "cap": "Tacos al pastor", "cred": "City Foodsters", "lic": "CC BY 2.0", "src": "(El Flaco) Al Pastor Tacos.jpg"}, {"f": "cdmx4.jpg", "cap": "Casa Azul, Frida Kahlo Museum", "cred": "Phyrexian", "lic": "CC BY-SA 4.0", "src": "Ciudad de M\u00e9xico - Museo Frida Kahlo 7129.jpg"}, {"f": "cdmx5.jpg", "cap": "Biblioteca Vasconcelos", "cred": "Diego Delso", "lic": "CC BY-SA 4.0", "src": "Biblioteca Vasconcelos, Ciudad de M\u00e9xico, M\u00e9xico, 2015-07-20, DD 04-06 HDR.JPG"}, {"f": "cdmx6.jpg", "cap": "Condesa streets", "cred": "Lazjak", "lic": "CC BY-SA 4.0", "src": "Condesa Mexico City neighborhood main street jacaranda flowering.jpg"}]};
+const AWARD = {"hawaii":{"economy":{"out":{"mi":15000,"cash":45,"seats":9,"al":"UA","ns":true,"src":"aeroplan","pair":"LAX-LIH","n":27,"two":17},"back":{"mi":15000,"cash":46,"seats":9,"al":"UA","ns":true,"src":"aeroplan","pair":"LIH-LAX","n":26,"two":20}},"business":{"out":{"mi":70600,"cash":6,"seats":7,"al":"UA","ns":false,"src":"united","pair":"LAX-LIH","n":8,"two":6},"back":{"mi":73400,"cash":17,"seats":3,"al":"AS","ns":false,"src":"qantas","pair":"LIH-SEA","n":10,"two":6}},"_pos":"No award space out of PDX for Kauai. These fares start at LAX, so add PDX positioning separately: roughly $120 to $200 round trip in cash, or about 12k miles. It is not in the totals above."},"japan":{"economy":{"out":{"mi":33000,"cash":38,"seats":9,"al":"DL","ns":false,"src":"flyingblue","pair":"PDX-HND","n":50,"two":50},"back":{"mi":33000,"cash":90,"seats":9,"al":"DL","ns":false,"src":"flyingblue","pair":"HND-PDX","n":49,"two":43}},"premium":{"out":{"mi":80500,"cash":0,"seats":9,"al":"SQ","ns":true,"src":"singapore","pair":"LAX-NRT","n":6,"two":6},"back":{"mi":65000,"cash":57,"seats":9,"al":"UA","ns":true,"src":"united","pair":"NRT-LAX","n":15,"two":10}},"business":{"out":{"mi":147500,"cash":0,"seats":9,"al":"SQ","ns":true,"src":"singapore","pair":"LAX-NRT","n":3,"two":2},"back":{"mi":147500,"cash":0,"seats":6,"al":"SQ","ns":true,"src":"singapore","pair":"NRT-LAX","n":3,"two":3}},"_pos":"Departs PDX on both legs. No positioning needed, which no other city here can say."},"honolulu":{"economy":{"out":{"mi":15000,"cash":45,"seats":9,"al":"UA","ns":true,"src":"aeroplan","pair":"LAX-HNL","n":32,"two":29},"back":{"mi":15000,"cash":45,"seats":9,"al":"UA","ns":true,"src":"aeroplan","pair":"HNL-LAX","n":30,"two":30}},"premium":{"out":{"mi":61700,"cash":6,"seats":8,"al":"DL","ns":true,"src":"delta","pair":"LAX-HNL","n":1,"two":1},"back":null},"business":{"out":{"mi":67000,"cash":18,"seats":3,"al":"AS, HA","ns":true,"src":"qantas","pair":"LAX-HNL","n":9,"two":8},"back":{"mi":65300,"cash":18,"seats":5,"al":"AA, AS, HA","ns":true,"src":"qantas","pair":"HNL-LAX","n":12,"two":9}},"_pos":"The cheapest fare starts at LAX. PDX has its own award at 28k miles plus $18 each way if you would rather not position, which costs about 13k more miles per leg and saves the drive south."},"osaka":{"economy":{"out":{"mi":43500,"cash":474,"seats":5,"al":"HA, JL","ns":true,"src":"qantas","pair":"LAX-KIX","n":5,"two":4},"back":{"mi":43500,"cash":490,"seats":2,"al":"AA, AS, CI, GK, JL","ns":true,"src":"qantas","pair":"KIX-LAX","n":3,"two":3}},"premium":{"out":{"mi":85000,"cash":474,"seats":1,"al":"JL","ns":true,"src":"qantas","pair":"LAX-KIX","n":1,"two":0},"back":{"mi":85000,"cash":494,"seats":2,"al":"JL","ns":true,"src":"qantas","pair":"KIX-LAX","n":1,"two":1}},"_pos":"No award space out of PDX for Osaka. These fares start at LAX, so add PDX positioning separately: roughly $120 to $200 round trip in cash, or about 12k miles. It is not in the totals above."},"singapore":{"economy":{"out":{"mi":41700,"cash":6,"seats":9,"al":"BR, LH, SQ, UA","ns":true,"src":"united","pair":"SEA-SIN","n":17,"two":17},"back":{"mi":41600,"cash":75,"seats":9,"al":"BR, LH, SQ, UA","ns":true,"src":"united","pair":"SIN-LAX","n":16,"two":16}},"premium":{"out":{"mi":79000,"cash":0,"seats":9,"al":"SQ","ns":true,"src":"singapore","pair":"LAX-SIN","n":6,"two":6},"back":{"mi":79000,"cash":0,"seats":9,"al":"SQ","ns":true,"src":"singapore","pair":"SIN-LAX","n":5,"two":5}},"business":{"out":{"mi":148000,"cash":0,"seats":9,"al":"SQ","ns":true,"src":"singapore","pair":"SEA-SIN","n":2,"two":2},"back":{"mi":148000,"cash":0,"seats":9,"al":"SQ","ns":true,"src":"singapore","pair":"SIN-LAX","n":3,"two":2}},"_pos":"No award space out of PDX for Singapore. The outbound starts at SEA and the return lands at LAX, so this needs positioning on both ends. Budget roughly $150 to $250 in cash beyond the totals above."},"cdmx":{"economy":{"out":{"mi":14000,"cash":90,"seats":7,"al":"AM","ns":true,"src":"flyingblue","pair":"LAX-MEX","n":17,"two":12},"back":{"mi":14000,"cash":124,"seats":7,"al":"AM","ns":true,"src":"flyingblue","pair":"MEX-LAX","n":19,"two":17}},"business":{"out":{"mi":43600,"cash":85,"seats":5,"al":"AA","ns":true,"src":"qantas","pair":"LAX-MEX","n":10,"two":6},"back":{"mi":28000,"cash":128,"seats":3,"al":"AM","ns":true,"src":"flyingblue","pair":"MEX-LAX","n":12,"two":8}},"_pos":"No award space out of PDX for Mexico City. These fares start at LAX, so add PDX positioning separately: roughly $120 to $200 round trip in cash, or about 12k miles. It is not in the totals above."}};
+const AWARD_STAMP = "A snapshot pulled from seats.aero on 2026-08-19, not a live feed. Award space moves daily, and nothing is held until it is ticketed.";
 const ORDER = ["hawaii","honolulu","japan","osaka","singapore","cdmx"];
 let city = localStorage.getItem("sep_city") || "hawaii";
 let n = +(localStorage.getItem("sep_n") || 1);
@@ -382,6 +390,28 @@ function calc(c, n){
   };
 }
 
+const CABN = {economy:"Economy", premium:"Premium economy", business:"Business"};
+function leg(r){
+  if(!r) return '<td class="c">none</td>';
+  const mi = (Math.round(r.mi/100)/10) + "k";
+  const fee = r.cash === 0 ? "no surcharge" : "+$" + r.cash;
+  return `<td class="c">${mi}<span class="sub">${fee} · ${r.seats} seat${r.seats===1?"":"s"} · ${esc(r.al)} · ${r.ns?"nonstop":"connecting"} · ${esc(r.pair)}</span></td>`;
+}
+function renderAward(){
+  const a = AWARD[city];
+  $("awStamp").textContent = AWARD_STAMP;
+  if(!a){ $("awTbl").innerHTML=""; $("awNote").textContent=""; return; }
+  let h = '<thead><tr><th>Cabin</th><th class="c">Outbound Sep 18-20</th><th class="c">Return Sep 26-28</th></tr></thead><tbody>';
+  for(const k of ["economy","premium","business"]){
+    if(!a[k]) continue;
+    h += `<tr><td>${CABN[k]}</td>` + leg(a[k].out) + leg(a[k].back) + `</tr>`;
+  }
+  $("awTbl").innerHTML = h + "</tbody>";
+  $("awNote").textContent = a._pos + " Miles are per person, one way, and the cheapest found; "
+    + "where a row shows 1 seat, that was all the search could see. Surcharge is cash per person per leg. "
+    + "The cost table above prices the economy award and does not include positioning.";
+}
+
 function renderCity(){
   const d = D[city], c = d.c, t = calc(c, n);
 
@@ -398,7 +428,7 @@ function renderCity(){
   $("tPts").textContent  = fmt(t.totPts);
   $("tCash").textContent = fmt(t.totCash);
   const per = n===2 ? " total for two" : " for one";
-  $("ePts").textContent  = c.ptsNote + per;
+  $("ePts").textContent  = c.ptsNote + (n===2 ? ", per person" : "");
   $("eCash").textContent = "Economy fare paid in cash" + per;
 
   const rows = [
@@ -417,13 +447,14 @@ function renderCity(){
     + `<tr class="tot"><td>Total</td><td class="n">${fmt(t.totPts)}</td><td class="n">${fmt(t.totCash)}</td></tr>`;
 
   $("fxnote").textContent = d.fx;
+  renderAward();
   $("creds").innerHTML = IMGS[city].map(i =>
     `${esc(i.cap)}: ${esc(i.cred)} / ${esc(i.lic)}, via Wikimedia Commons.`).join("<br>");
 }
 
 const LEVERS = [
-  ["\u2708\ufe0f","Flights are the softest number here.","Every fare above is an estimate. Nothing is real until the seats.aero award search comes back and tells you what is actually bookable on Chase UR or Amex MR for these dates."],
-  ["\ud83c\udfe8","Kauai on Hyatt points changes the ranking.","Lodging is $2,720 of a $4,900 solo Kauai trip. Chase UR into Hyatt at the Grand Hyatt Kauai would erase most of that single line and pull Kauai down toward Honolulu."],
+  ["\u2708\ufe0f","The award search has come back, and it moved two cities.","Every city tab now carries a seats.aero snapshot for the departure windows Sep 18 to 20 and Sep 26 to 28, pulled 2026-08-19. Three things fell out of it. Osaka is no longer cheap: every economy award into Osaka carries roughly $470 to $490 per person per leg in surcharges, about $964 round trip, against $128 for Tokyo. Tokyo is the strongest Japan option and the only city here with award space out of PDX, at 66k miles round trip. And five of the six cities have no PDX award space at all, so their fares start at LAX or SEA and need positioning that is not in these totals."],
+  ["\ud83c\udfe8","Kauai on Hyatt points changes the ranking.","Lodging is $2,720 of a $5,000 solo Kauai trip. Chase UR into Hyatt at the Grand Hyatt Kauai would erase most of that single line and pull Kauai down toward Honolulu."],
   ["\ud83d\udcb3","Card credits are not in any of these totals.","The unused 2026 Chase and Amex hotel and dining credits could take several hundred dollars off any column. The Chase select-hotel credit expires 2026-12-31 and does not roll over."],
   ["\ud83d\udcb4","The yen is the biggest single swing factor.","Tokyo is priced at about 160 to the dollar. That is a currency window, not a permanent state, and it is most of why both Japanese cities land where they do."],
   ["\ud83d\udecf\ufe0f","A second traveler does not double the trip.","The room is shared, so lodging and the rental car stay flat. Only food, local transport, and activities scale. That is why the two-person column is never twice the solo one."]

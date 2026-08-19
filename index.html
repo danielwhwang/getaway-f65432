@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>September Getaway · Four Options</title>
+<title>September Getaway · Six Options</title>
 <style>
 :root{
   --bg:#FAF7F2; --card:#FFFFFF; --ink:#2B2622; --mid:#6F6459; --line:#E7DED2;
@@ -126,7 +126,7 @@ footer p{max-width:78ch}
 <div class="wrap">
 <header>
   <h1>Nine days, one base, September</h1>
-  <p class="dek">Four ways to spend Sep 19 to 27. Costs are all-in per trip, built from live exchange rates
+  <p class="dek">Six ways to spend Sep 19 to 27. Costs are all-in per trip, built from live exchange rates
   and mid-range lodging. Two numbers each: flight on points, flight on cash.</p>
   <div class="meta">
     <span class="chip"><b>Sat Sep 19 to Sun Sep 27</b></span>
@@ -185,7 +185,7 @@ footer p{max-width:78ch}
 <div id="compare" hidden>
   <div class="card">
     <h2>Every total, side by side</h2>
-    <p class="cnote">All four cities, solo and with a companion, flight on points and flight on cash. Everything is a
+    <p class="cnote">All six cities, solo and with a companion, flight on points and flight on cash. Everything is a
     trip total for the full 8 nights, buffer included. In each row the cheapest city is marked.</p>
     <div class="scroll"><table class="cmp"><thead id="cmpTotH"></thead><tbody id="cmpTotB"></tbody></table></div>
   </div>
@@ -209,9 +209,9 @@ footer p{max-width:78ch}
   scale with a second person. Every total carries a 10 percent buffer and is rounded to the nearest hundred.
   The points column assumes you cover the fare with Chase UR or Amex MR and pay only taxes and surcharges
   in cash.</p>
-  <p><b>Exchange rates used, pulled 2026-08-18:</b> 1 EUR = $1.158 &middot; 100 MXN = $5.87 &middot; 1000 JPY = $6.26.
-  The yen at roughly 160 to the dollar is the single biggest swing factor on this page. Tokyo is priced like a
-  bargain right now, and that is a currency story, not a Japan story.</p>
+  <p><b>Exchange rates used, pulled 2026-08-18:</b> 1000 JPY = $6.26 &middot; 1 SGD = $0.78 &middot; 100 MXN = $5.87.
+  The yen at roughly 160 to the dollar is the single biggest swing factor on this page. Both Japanese cities are
+  priced like bargains right now, and that is a currency story, not a Japan story.</p>
   <p><b>What is not included:</b> your unused card credits. Depending on what is left for 2026, the Chase
   Edit credit, the select-hotel credit, the flexible travel credit, and the Amex second-half hotel credit could
   take several hundred dollars off any of these. Check both accounts before booking.</p>
@@ -224,7 +224,7 @@ footer p{max-width:78ch}
 const FX = "Rates as of 2026-08-18. ";
 const D = {
  hawaii:{
-  name:"Hawaii", sub:"Kauai",
+  name:"Kauai", sub:"Hawaii",
   tag:"The rest one",
   lede:"You land, you unpack once, and the logistics are over. September is Kauai's quietest and cheapest month, sitting between the summer families and the holiday crowds, with weather that behaves. This is the option that most unambiguously feels like a vacation, and it is also, surprisingly, the most expensive one on this page.",
   days:[
@@ -246,9 +246,9 @@ const D = {
   fx:"No currency risk. Everything is priced in dollars."},
 
  japan:{
-  name:"Japan", sub:"Tokyo, one base",
+  name:"Tokyo", sub:"one base",
   tag:"The best value",
-  lede:"The yen is sitting near 160 to the dollar, which makes Tokyo cheaper right now than Lisbon. One base in Shinjuku or Shibuya, no internal flights, and one of the great eating cities on earth. Late September is warm and the typhoon risk is dropping, though it is not yet the crisp autumn Japan is famous for.",
+  lede:"The yen is sitting near 160 to the dollar, which makes Tokyo cheaper right now than it has any business being. One base in Shinjuku or Shibuya, no internal flights, and one of the great eating cities on earth. Late September is warm and the typhoon risk is dropping, though it is not yet the crisp autumn Japan is famous for.",
   days:[
    ["Arrive","Long flight, land in the afternoon, train in. Eat something simple nearby and sleep."],
    ["Asakusa","Sensoji early before the crowds, then Yanaka's old lanes. Ease into the time zone on foot."],
@@ -259,7 +259,7 @@ const D = {
    ["Loose","Whatever you missed. A proper dinner booked in advance."],
    ["Fly home","Cross the date line, land in Portland the same day you left."]],
   flags:[
-   ["💴","The weak yen is doing the work","At 160 to the dollar this is the cheapest trip here on points. That is a currency window, not a permanent state."],
+   ["💴","The weak yen is doing the work","At 160 to the dollar Japan is priced like a bargain, though Osaka now undercuts Tokyo by about $300. That is a currency window, not a permanent state."],
    ["🌤️","Not peak Japan","Late September is warm and humid with residual typhoon risk. The famous autumn color is a November thing."],
    ["✈️","Jet lag is real","About 6 usable days out of 9, and the westbound return is the rough direction."],
    ["⚠️","Watch the gout","Seafood, beer, and dashi are high purine and they are in everything. Worth planning some lighter days."]],
@@ -267,27 +267,71 @@ const D = {
      car:0,food1:480,food2:845,local1:180,local2:330,act1:280,act2:520},
   fx:FX+"Hotel and food priced in yen at ¥159.7 to the dollar, then converted."},
 
- lisbon:{
-  name:"Lisbon", sub:"and Sintra",
-  tag:"The story one",
-  lede:"Late September in Lisbon is 75 degrees and gold, which is close to the best light any European city gets. It is walkable, the food is excellent without being dairy-dominated, and it is on the trending edge without being ruined yet. Six real days on the ground once you subtract the flying, which is enough for one city and one day trip.",
+ honolulu:{
+  name:"Honolulu", sub:"Oahu",
+  tag:"The rest one, without the car",
+  lede:"Everything Kauai gives you, minus the rental car and about eleven hundred dollars. Waikiki is flat, walkable, and served by buses, so you can land and never drive. The food is the real surprise: Japanese, Korean, Chinese, and local plate lunch at prices Kauai cannot touch. This is the option that tests whether the thing you actually wanted from Hawaii was the empty coastline or just the rest.",
   days:[
-   ["Arrive","Overnight flight, land midday. Drop bags in Chiado or Principe Real, walk, eat, stay up until a normal bedtime."],
-   ["Alfama","The old quarter on foot, the cathedral, then the miradouros for golden hour. The best walking day."],
-   ["Belem","The tower, the monastery, and the pasteis at the original bakery. Tram or ferry back."],
-   ["Sintra","Train out, Pena Palace and the Quinta. Go early, it fills up by eleven."],
-   ["Slow city day","LX Factory, Time Out Market, Bairro Alto after dark. No schedule."],
-   ["Coast","Cascais by train, or Setubal for the seafood. Out and back, no car."],
-   ["Loose","The Gulbenkian, a last miradouro, a dinner you booked ahead."],
-   ["Fly home","Long day back, arrive Portland the same evening."]],
+   ["Arrive","Fly PDX to Honolulu nonstop. No rental counter, straight to Waikiki. Beach walk, dinner, early night."],
+   ["Nothing","Deliberately. Beach, pool, a long lunch. The trip does not start until you have had one useless day."],
+   ["Waikiki and Kapahulu","Walk the beach in the morning, then the food street behind it. Leonard's, Ono Seafood, Rainbow Drive-In. All flat, all walkable."],
+   ["Pearl Harbor","Bus or rideshare out in the morning, back by mid-afternoon. The one thing worth structuring a day around."],
+   ["Chinatown and Kakaako","Morning market, then the mural district. The best photography on the island that is not a landscape."],
+   ["Nothing again","Same as day 2. Read something. Swim."],
+   ["North shore","The one day a rental car earns itself. Haleiwa, the shrimp trucks, the beaches. Or skip it and stay put."],
+   ["Fly home","Morning at the beach, afternoon flight, home the same day."]],
   flags:[
-   ["✈️","Two and a half days lost to travel","Nine hours of time change. About 6 usable days, and the first one or two are foggy. That is the real cost of Europe on a one week trip."],
-   ["🚶","Very steep","Lisbon is built on hills and cobblestone. Manageable, but it is a lot of walking on hard uneven surfaces."],
-   ["🍮","Lactose warning","The entire pastry culture is custard and the cheese is everywhere. Navigable, not accidentally."],
-   ["💶","The euro is strong","At $1.158 to the euro this costs meaningfully more in dollars than it did a few years ago."]],
-  c:{flightCash:950,flightPts:200,ptsNote:"~60k UR via Flying Blue or Iberia",hotel:1480,hotelNote:"8 nights, €160/night",
-     car:0,food1:575,food2:990,local1:220,local2:380,act1:70,act2:140},
-  fx:FX+"Hotel and food priced in euros at $1.158, then converted."},
+   ["\u{1F697}","No car needed, and that is the point","Waikiki is flat and walkable, with buses and rideshare for everything else. This is the direct answer to Kauai's biggest flaw."],
+   ["\u{1F4B5}","About $1,100 cheaper than Kauai","Cheaper flights, cheaper rooms, no rental car, cheaper food. Same islands, same weather, same three hour time change."],
+   ["\u{1F371}","Real Asian food","Japanese, Korean, Chinese, and local plate lunch at prices Kauai cannot match. The one Hawaii option that feeds you the way you like to eat."],
+   ["\u{1F3D9}\uFE0F","Busier and less dramatic","Waikiki is a city beach, not Na Pali. If the picture in your head is empty coastline, that is Kauai, not here. Skip Diamond Head itself, that is a climb."]],
+  c:{flightCash:480,flightPts:60,ptsNote:"~40k UR via United, or Hawaiian via MR",hotel:2160,hotelNote:"8 nights, Waikiki mid-range",
+     car:0,food1:720,food2:1250,local1:200,local2:340,act1:280,act2:520},
+  fx:"No currency risk. Everything is priced in dollars."},
+
+ osaka:{
+  name:"Osaka", sub:"and Nara",
+  tag:"The food one",
+  lede:"Tokyo is the capital, Osaka is where people eat. It is flatter, cheaper, and more street-level than Tokyo in every way, and the local word for the eating culture translates roughly as ruining yourself with food. Nara, Kobe, and Kyoto are all short train rides, so you get variety without ever packing a second time or touching a car.",
+  days:[
+   ["Arrive","Land at Kansai, train to Namba, drop bags. Find one bowl of something and go to bed."],
+   ["Nothing","Deliberately. Coffee, a walk along the river, konbini snacks. The first day back from a 16 hour change is a write-off, so plan for it."],
+   ["Dotonbori and Namba","Kuromon market in the morning, Dotonbori after dark for the neon. The photograph everyone comes for, five minutes from everywhere."],
+   ["Osaka Castle","Flat, green, and the one big set piece. Half a day, then back down for takoyaki."],
+   ["Nara","Forty-five minutes by train, no car. Deer, the great temple, and the flattest famous day trip in Japan."],
+   ["Nothing again","Same as day 2. A sento, a coffee shop, an afternoon with no plan."],
+   ["Kobe or Shinsekai","Beef if you want the splurge, Tsutenkaku and the old streets if you want the grit. Both are train rides."],
+   ["Fly home","Morning in the city, afternoon train back to Kansai."]],
+  flags:[
+   ["\u{1F362}","The food city, not the big city","Cheaper, more casual, and more street-level than Tokyo. Closer to the local-and-filling eating you actually said you want."],
+   ["\u{1F686}","Nara, Kobe, and Kyoto are all trains","Thirty to sixty minutes on rails, no driving to a viewpoint, and you sleep in the same bed all eight nights."],
+   ["\u{1F4B4}","Tied for cheapest on the board","The weak yen plus Osaka lodging running well under Tokyo puts this level with Mexico City, which is not where you would expect Japan to land."],
+   ["\u{1F501}","It is Japan again","Fourth time in two years, and Tokyo is already on this page. The counter-argument is that Osaka is a genuinely different trip, not a repeat."]],
+  c:{flightCash:1200,flightPts:130,ptsNote:"~60k MR via ANA, or United via UR",hotel:1100,hotelNote:"8 nights, \u00A522k/night",
+     car:0,food1:450,food2:790,local1:230,local2:420,act1:200,act2:370},
+  fx:FX+"Hotel and food priced in yen at \u00A5159.7 to the dollar, then converted."},
+
+ singapore:{
+  name:"Singapore", sub:"one island, one base",
+  tag:"The easy one",
+  lede:"The most frictionless city in Asia and the one that best matches how you actually like to eat. Hawker centres are cheap, local, casual, and filling, which is the opposite of the fine dining you already decided was wasted on you. It is flat, the MRT goes everywhere, distances are short, and everything is air conditioned. The trade is that it is hot and humid every single day, and eight nights is a long time here.",
+  days:[
+   ["Arrive","Land at Changi, MRT or Grab to the hotel. A food court dinner, then sleep. You crossed fifteen hours, do not fight it."],
+   ["Nothing","Pool in the morning, one hawker centre in the evening. Maxwell or Old Airport Road. Do not plan a second thing."],
+   ["Marina Bay","Gardens by the Bay late afternoon, Supertree light show after dark. The best photography in the city and all of it is flat boardwalk."],
+   ["Chinatown and Tiong Bahru","Shophouse rows, the wet market, and the best coffee in the city. Short walks with frequent sitting."],
+   ["Katong and the east","Peranakan houses, laksa, and Joo Chiat. This is the day people skip and then wish they had not."],
+   ["Nothing again","Pool, a long lunch, air conditioning. The heat makes a downshift day mandatory here, not optional."],
+   ["Loose","Sentosa if you want water, the Botanic Gardens if you want shade, Little India if you want noise."],
+   ["Fly home","A late departure. Changi is worth the extra two hours, so go early."]],
+  flags:[
+   ["\u2708\uFE0F","The best points story on this page","Singapore KrisFlyer takes both Chase UR and Amex MR, which nothing else here does. If a business or Suites seat opens, this is the trip where the flight is worth chasing."],
+   ["\u{1F35C}","Exactly your kind of eating","Hawker centres are cheap, local, casual, and filling. Not a fine dining city unless you make it one, which suits you."],
+   ["\u{1F321}\uFE0F","Hot and humid, every single day","Around 88F with afternoon rain year-round. The city is built for it, everything is close and air conditioned, but budget a downshift day mid-trip."],
+   ["\u23F1\uFE0F","Eight nights is long here","Most people do Singapore in four or five. It works as a slow base, but do not expect to be busy on day seven."]],
+  c:{flightCash:1250,flightPts:120,ptsNote:"~80k UR via United or KrisFlyer",hotel:1820,hotelNote:"8 nights, SGD 290/night",
+     car:0,food1:520,food2:910,local1:150,local2:260,act1:220,act2:400},
+  fx:FX+"Hotel and food priced in Singapore dollars at 1.278 to the dollar, then converted."},
 
  cdmx:{
   name:"Mexico City", sub:"Roma and Condesa",
@@ -312,13 +356,14 @@ const D = {
   fx:FX+"Hotel and food priced in pesos at 17.05 to the dollar, then converted."}
 };
 
-const IMGS = {"lisbon": [{"f": "lisbon1.jpg", "cap": "Tram 28 climbing the hills", "cred": "TheDumpy", "lic": "CC BY-SA 4.0", "src": "The Iconic Tram 28 Lisbon, Portugal.jpg"}, {"f": "lisbon2.jpg", "cap": "Alfama, the old quarter", "cred": "Matti Blume", "lic": "CC BY-SA 4.0", "src": "Alfama, Lisbon (DSC03367).jpg"}, {"f": "lisbon3.jpg", "cap": "Torre de Belem", "cred": "Berthold Werner", "lic": "CC BY-SA 4.0", "src": "Lisbon Torre de Bel\u00e9m BW 2018-10-03 16-34-03.jpg"}, {"f": "lisbon4.jpg", "cap": "Pastel de nata at Belem", "cred": "Amanda  Coutinho from S\u00e3o Paulo, Brasil", "lic": "CC BY 2.0", "src": "Pastel de Bel\u00e9m - Portugal (50530260537).jpg"}, {"f": "lisbon5.jpg", "cap": "Praca do Comercio on the Tagus", "cred": "Jakub Ha\u0142un", "lic": "CC BY 4.0", "src": "Eastern part of Pra\u00e7a do Com\u00e9rcio with the statue of King Jos\u00e9 I, 20250603 1934 8996.jpg"}, {"f": "lisbon6.jpg", "cap": "Pena Palace, Sintra", "cred": "Jakub Ha\u0142un", "lic": "CC BY 4.0", "src": "Pena Palace, Sintra, Portugal, 20250606 1037 0005.jpg"}], "cdmx": [{"f": "cdmx1.jpg", "cap": "Palacio de Bellas Artes", "cred": "Jeses", "lic": "CC BY-SA 2.5", "src": "Mexico City Palacio de bellas artes.jpg"}, {"f": "cdmx2.jpg", "cap": "Pyramid of the Sun, Teotihuacan", "cred": "Daniel Case", "lic": "CC BY-SA 3.0", "src": "Pyramid of the Sun, Teotihuacan, from path to parking lot.jpg"}, {"f": "cdmx3.jpg", "cap": "Tacos al pastor", "cred": "City Foodsters", "lic": "CC BY 2.0", "src": "(El Flaco) Al Pastor Tacos.jpg"}, {"f": "cdmx4.jpg", "cap": "Casa Azul, Frida Kahlo Museum", "cred": "Phyrexian", "lic": "CC BY-SA 4.0", "src": "Ciudad de M\u00e9xico - Museo Frida Kahlo 7129.jpg"}, {"f": "cdmx5.jpg", "cap": "Biblioteca Vasconcelos", "cred": "Diego Delso</bd", "lic": "CC BY-SA 4.0", "src": "Biblioteca Vasconcelos, Ciudad de M\u00e9xico, M\u00e9xico, 2015-07-20, DD 04-06 HDR.JPG"}, {"f": "cdmx6.jpg", "cap": "Condesa streets", "cred": "Lazjak", "lic": "CC BY-SA 4.0", "src": "Condesa Mexico City neighborhood main street jacaranda flowering.jpg"}], "hawaii": [{"f": "hawaii1.jpg", "cap": "Na Pali Coast", "cred": "Wikimedia Commons", "lic": "Public domain", "src": "Na Pali Coast - Kauai.jpg"}, {"f": "hawaii2.jpg", "cap": "Hanalei Bay", "cred": "tdlucas5000 from Lakewood Ca., United States", "lic": "CC BY 2.0", "src": "Hanalei Bay Kauai (14851281055).jpg"}, {"f": "hawaii3.jpg", "cap": "Waimea Canyon", "cred": "<span title=\"German-American photographer, Wikipedian, and Ex", "lic": "CC BY-SA 4.0", "src": "Waimea Canyon, Kaua\u02bbi.jpg"}, {"f": "hawaii4.jpg", "cap": "Poipu Beach", "cred": "Polihale", "lic": "CC BY-SA 3.0", "src": "Aerial-Poipu-Beach-Park-Kauai.jpg"}, {"f": "hawaii5.jpg", "cap": "Kalalau Valley Lookout", "cred": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Mudflattop&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Mudflattop (page does not ex", "lic": "CC BY-SA 3.0", "src": "Kalalau Valley from the Kalalau Lookout.jpg"}, {"f": "hawaii6.jpg", "cap": "Wailua Falls", "cred": "Robert Linsdell from St. Andrews, Canada", "lic": "CC BY 2.0", "src": "Wailua Falls, Maalo Rd, Kapaa (503177) (17125523156).jpg"}], "japan": [{"f": "japan1.jpg", "cap": "Shibuya Crossing", "cred": "Syced", "lic": "CC0", "src": "Shibuya crossing, seen from Shibuya Stream.jpg"}, {"f": "japan2.jpg", "cap": "Sensoji pagoda, Asakusa", "cred": "Jakub Ha\u0142un", "lic": "CC BY 4.0", "src": "Five-storied Pagoda, Sensoji, Tokyo, 20240824 1103 5616.jpg"}, {"f": "japan3.jpg", "cap": "Meiji Shrine", "cred": "Tokuzo in Edomura", "lic": "CC BY-SA 4.0", "src": "Courtyard of Meiji Shrine 20190717.jpg"}, {"f": "japan4.jpg", "cap": "Nigiri", "cred": "Tim Reckmann from Hamm, Deutschland", "lic": "CC BY 2.0", "src": "Nigiri Sushi (25966163204).jpg"}, {"f": "japan5.jpg", "cap": "Kabukicho neon, Shinjuku", "cred": "Basile Morin", "lic": "CC BY-SA 4.0", "src": "Colorful neon street signs in Kabukich\u014d, Shinjuku, Tokyo.jpg"}, {"f": "japan6.jpg", "cap": "Chureito Pagoda and Mount Fuji", "cred": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Stjepko_Krehula&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Stjepko Krehula (page d", "lic": "CC BY 4.0", "src": "Chureito Pagoda and Mount Fuji 2023-03-07.jpg"}]};
-const ORDER = ["hawaii","japan","lisbon","cdmx"];
+const IMGS = {"hawaii": [{"f": "hawaii1.jpg", "cap": "Na Pali Coast", "cred": "Wikimedia Commons", "lic": "Public domain", "src": "Na Pali Coast - Kauai.jpg"}, {"f": "hawaii2.jpg", "cap": "Hanalei Bay", "cred": "tdlucas5000 from Lakewood Ca., United States", "lic": "CC BY 2.0", "src": "Hanalei Bay Kauai (14851281055).jpg"}, {"f": "hawaii3.jpg", "cap": "Waimea Canyon", "cred": "Frank Schulenburg", "lic": "CC BY-SA 4.0", "src": "Waimea Canyon, Kaua\u02bbi.jpg"}, {"f": "hawaii4.jpg", "cap": "Poipu Beach", "cred": "Polihale", "lic": "CC BY-SA 3.0", "src": "Aerial-Poipu-Beach-Park-Kauai.jpg"}, {"f": "hawaii5.jpg", "cap": "Kalalau Valley Lookout", "cred": "Paxson Woelber", "lic": "CC BY-SA 3.0", "src": "Kalalau Valley from the Kalalau Lookout.jpg"}, {"f": "hawaii6.jpg", "cap": "Wailua Falls", "cred": "Robert Linsdell from St. Andrews, Canada", "lic": "CC BY 2.0", "src": "Wailua Falls, Maalo Rd, Kapaa (503177) (17125523156).jpg"}], "honolulu": [{"f": "honolulu1.jpg", "cap": "Waikiki and Diamond Head at night", "cred": "Paul Smits", "lic": "CC BY 2.0", "src": "Waikiki Beach and Diamond Head at night.jpg"}, {"f": "honolulu2.jpg", "cap": "Waikiki Beach", "cred": "Frank Schulenburg", "lic": "CC BY-SA 4.0", "src": "Waikiki Beach (2024)-L1004709.jpg"}, {"f": "honolulu3.jpg", "cap": "Diamond Head", "cred": "Robert Linsdell from St. Andrews, Canada", "lic": "CC BY 2.0", "src": "Diamond Head Volcanic Cone, Honolulu (503700) (20631033769).jpg"}, {"f": "honolulu4.jpg", "cap": "Hanauma Bay", "cred": "Eric.frederich at English Wikipedia", "lic": "CC BY 2.5", "src": "Hanauma Bay Panoramic.jpg"}, {"f": "honolulu5.jpg", "cap": "Poke", "cred": "Daderot", "lic": "CC0", "src": "Poke bowl - Cambridge, MA.jpg"}, {"f": "honolulu6.jpg", "cap": "Mana Nalu mural, downtown Honolulu", "cred": "John Pugh", "lic": "CC BY-SA 4.0", "src": "Mana Nalu, Trompe L'oeil Mural by John Pugh, Honolulu, HI.jpg"}], "japan": [{"f": "japan1.jpg", "cap": "Shibuya Crossing", "cred": "Syced", "lic": "CC0", "src": "Shibuya crossing, seen from Shibuya Stream.jpg"}, {"f": "japan2.jpg", "cap": "Sensoji pagoda, Asakusa", "cred": "Jakub Ha\u0142un", "lic": "CC BY 4.0", "src": "Five-storied Pagoda, Sensoji, Tokyo, 20240824 1103 5616.jpg"}, {"f": "japan3.jpg", "cap": "Meiji Shrine", "cred": "Tokuzo in Edomura", "lic": "CC BY-SA 4.0", "src": "Courtyard of Meiji Shrine 20190717.jpg"}, {"f": "japan4.jpg", "cap": "Nigiri", "cred": "Tim Reckmann from Hamm, Deutschland", "lic": "CC BY 2.0", "src": "Nigiri Sushi (25966163204).jpg"}, {"f": "japan5.jpg", "cap": "Kabukicho neon, Shinjuku", "cred": "Basile Morin", "lic": "CC BY-SA 4.0", "src": "Colorful neon street signs in Kabukich\u014d, Shinjuku, Tokyo.jpg"}, {"f": "japan6.jpg", "cap": "Chureito Pagoda and Mount Fuji", "cred": "Stjepko Krehula", "lic": "CC BY 4.0", "src": "Chureito Pagoda and Mount Fuji 2023-03-07.jpg"}], "osaka": [{"f": "osaka1.jpg", "cap": "Dotonbori at night", "cred": "Martin Falbisoner", "lic": "CC BY-SA 4.0", "src": "Dotonbori, Osaka, at night, November 2016.jpg"}, {"f": "osaka2.jpg", "cap": "Osaka Castle", "cred": "DXR", "lic": "CC BY-SA 4.0", "src": "Osaka Castle, Keep tower, South view 20190415 1.jpg"}, {"f": "osaka3.jpg", "cap": "Takoyaki", "cred": "Fumikas Sagisavas", "lic": "CC0", "src": "Takoyaki balls (1).jpg"}, {"f": "osaka4.jpg", "cap": "The Dotonbori canal", "cred": "32linesky", "lic": "CC BY-SA 4.0", "src": "Osaka Dotonbori Canal.jpg"}, {"f": "osaka5.jpg", "cap": "Tsutenkaku and Shinsekai", "cred": "Sakai Yayoi", "lic": "CC0", "src": "Shinsekai and Tsutenkaku Tower.jpg"}, {"f": "osaka6.jpg", "cap": "Nara deer at Todaiji", "cred": "Immanuel Giel", "lic": "CC0", "src": "Deer at Todaiji (2).jpg"}], "singapore": [{"f": "singapore1.jpg", "cap": "Marina Bay at dusk", "cred": "Benh LIEU SONG (Flickr)", "lic": "CC BY-SA 4.0", "src": "Singapore Marina Bay Dusk 2018-02-27.jpg"}, {"f": "singapore2.jpg", "cap": "Supertree Grove, Gardens by the Bay", "cred": "Mustang Joe", "lic": "CC0", "src": "Supertree Grove, Gardens by the Bay, Singapore1.jpg"}, {"f": "singapore3.jpg", "cap": "Alexandra Food Centre", "cred": "Exec8", "lic": "CC BY-SA 4.0", "src": "Singapore Hawker Alexandra Food Centre.jpg"}, {"f": "singapore4.jpg", "cap": "Hainanese chicken rice", "cred": "Pauloleong2002", "lic": "CC BY-SA 4.0", "src": "Hainanese chicken rice in Singapore.jpg"}, {"f": "singapore5.jpg", "cap": "Chinatown shophouses", "cred": "yeowatzup", "lic": "CC BY 2.0", "src": "Shophouses, Chinatown, Singapore (2317630623).jpg"}, {"f": "singapore6.jpg", "cap": "Singapore Botanic Gardens", "cred": "Basile Morin", "lic": "CC BY-SA 4.0", "src": "Bandstand and green trees a sunny afternoon with blue sky at Singapore Botanic Gardens.jpg"}], "cdmx": [{"f": "cdmx1.jpg", "cap": "Palacio de Bellas Artes", "cred": "Jeses", "lic": "CC BY-SA 2.5", "src": "Mexico City Palacio de bellas artes.jpg"}, {"f": "cdmx2.jpg", "cap": "Pyramid of the Sun, Teotihuacan", "cred": "Daniel Case", "lic": "CC BY-SA 3.0", "src": "Pyramid of the Sun, Teotihuacan, from path to parking lot.jpg"}, {"f": "cdmx3.jpg", "cap": "Tacos al pastor", "cred": "City Foodsters", "lic": "CC BY 2.0", "src": "(El Flaco) Al Pastor Tacos.jpg"}, {"f": "cdmx4.jpg", "cap": "Casa Azul, Frida Kahlo Museum", "cred": "Phyrexian", "lic": "CC BY-SA 4.0", "src": "Ciudad de M\u00e9xico - Museo Frida Kahlo 7129.jpg"}, {"f": "cdmx5.jpg", "cap": "Biblioteca Vasconcelos", "cred": "Diego Delso", "lic": "CC BY-SA 4.0", "src": "Biblioteca Vasconcelos, Ciudad de M\u00e9xico, M\u00e9xico, 2015-07-20, DD 04-06 HDR.JPG"}, {"f": "cdmx6.jpg", "cap": "Condesa streets", "cred": "Lazjak", "lic": "CC BY-SA 4.0", "src": "Condesa Mexico City neighborhood main street jacaranda flowering.jpg"}]};
+const ORDER = ["hawaii","honolulu","japan","osaka","singapore","cdmx"];
 let city = localStorage.getItem("sep_city") || "hawaii";
 let n = +(localStorage.getItem("sep_n") || 1);
 if(city !== "compare" && !D[city]) city = "hawaii";
 
 const $ = i => document.getElementById(i);
+const esc = t => String(t).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
 function fmt(v){ return "$" + (Math.round(v/100)*100).toLocaleString(); }
 function fmtx(v){ return "$" + Math.round(v).toLocaleString(); }
@@ -341,7 +386,7 @@ function renderCity(){
   const d = D[city], c = d.c, t = calc(c, n);
 
   $("gal").innerHTML = IMGS[city].map(i =>
-    `<figure><img src="img/${i.f}" alt="${i.cap}" loading="lazy"><figcaption>${i.cap}</figcaption></figure>`).join("");
+    `<figure><img src="img/${i.f}" alt="${esc(i.cap)}" loading="lazy"><figcaption>${esc(i.cap)}</figcaption></figure>`).join("");
 
   $("tagline").textContent = d.tag;
   $("lede").textContent = d.lede;
@@ -373,14 +418,14 @@ function renderCity(){
 
   $("fxnote").textContent = d.fx;
   $("creds").innerHTML = IMGS[city].map(i =>
-    `${i.cap}: ${i.cred} / ${i.lic}, via Wikimedia Commons.`).join("<br>");
+    `${esc(i.cap)}: ${esc(i.cred)} / ${esc(i.lic)}, via Wikimedia Commons.`).join("<br>");
 }
 
 const LEVERS = [
   ["\u2708\ufe0f","Flights are the softest number here.","Every fare above is an estimate. Nothing is real until the seats.aero award search comes back and tells you what is actually bookable on Chase UR or Amex MR for these dates."],
-  ["\ud83c\udfe8","Hawaii on Hyatt points changes the ranking.","Lodging is $2,720 of a $4,900 solo Hawaii trip. Chase UR into Hyatt at the Grand Hyatt Kauai would erase most of that single line and pull Hawaii down toward the others."],
+  ["\ud83c\udfe8","Kauai on Hyatt points changes the ranking.","Lodging is $2,720 of a $4,900 solo Kauai trip. Chase UR into Hyatt at the Grand Hyatt Kauai would erase most of that single line and pull Kauai down toward Honolulu."],
   ["\ud83d\udcb3","Card credits are not in any of these totals.","The unused 2026 Chase and Amex hotel and dining credits could take several hundred dollars off any column. The Chase select-hotel credit expires 2026-12-31 and does not roll over."],
-  ["\ud83d\udcb4","The yen is the biggest single swing factor.","Tokyo is priced at about 160 to the dollar. That is a currency window, not a permanent state, and it is most of why Tokyo looks cheap next to Lisbon."],
+  ["\ud83d\udcb4","The yen is the biggest single swing factor.","Tokyo is priced at about 160 to the dollar. That is a currency window, not a permanent state, and it is most of why both Japanese cities land where they do."],
   ["\ud83d\udecf\ufe0f","A second traveler does not double the trip.","The room is shared, so lodging and the rental car stay flat. Only food, local transport, and activities scale. That is why the two-person column is never twice the solo one."]
 ];
 
@@ -451,7 +496,7 @@ function render(){
     b.setAttribute("aria-selected", b.dataset.c === city));
   $("p1").setAttribute("aria-pressed", n===1);
   $("p2").setAttribute("aria-pressed", n===2);
-  document.title = (cmp ? "Compare all four" : D[city].name) + " · September Getaway";
+  document.title = (cmp ? "Compare all six" : D[city].name) + " · September Getaway";
 }
 
 $("tabs").innerHTML = ORDER.map(k =>

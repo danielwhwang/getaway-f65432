@@ -86,6 +86,29 @@ tr.tot td{border-bottom:0;border-top:2px solid var(--ink);font-weight:700;paddin
 .flag b{font-weight:600}
 .flag span{color:var(--mid)}
 
+[hidden]{display:none!important}
+
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -4px;padding:0 4px}
+table.cmp{min-width:660px;font-size:14px}
+table.cmp th.c,table.cmp td.c{text-align:right;font-variant-numeric:tabular-nums;padding-left:14px;white-space:nowrap}
+table.cmp th:first-child,table.cmp td:first-child{position:sticky;left:0;background:var(--card);z-index:1;padding-right:14px}
+table.cmp th.c{color:var(--ink);font-size:12.5px}
+table.cmp th.c span{display:block;font-weight:400;color:var(--mid);font-size:11px;letter-spacing:0;text-transform:none}
+table.cmp td.c .sub{white-space:normal;max-width:150px;margin-left:auto}
+table.cmp th:first-child,table.cmp td:first-child{max-width:250px}
+table.cmp tr.sect td{border-bottom:0;padding-top:16px;font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--mid);font-weight:700}
+table.cmp tr.grand td{border-bottom:0;border-top:2px solid var(--ink);font-weight:700;padding-top:11px;font-size:16px}
+table.cmp tr.grand2 td{border-bottom:0;font-weight:700;font-size:16px;padding-top:2px}
+.win{color:var(--green)}
+.win::after{content:" \2713";font-size:12px}
+.sub{display:block;font-size:11.5px;color:var(--mid);font-weight:400;letter-spacing:0}
+.cnote{font-size:13px;color:var(--mid);margin:-6px 0 16px;max-width:74ch}
+.lev{display:flex;gap:10px;font-size:14px;padding:11px 0;border-bottom:1px solid var(--line)}
+.lev:last-child{border-bottom:0;padding-bottom:0}
+.lev i{font-style:normal;font-size:15px;flex-shrink:0;width:20px}
+.lev span{color:var(--mid)}
+.tab.alt[aria-selected="false"]{border-style:dashed}
+
 footer{margin:52px 0 60px;padding-top:26px;border-top:1px solid var(--line);font-size:13px;color:var(--mid)}
 footer h3{margin-top:22px}
 footer p{max-width:78ch}
@@ -158,6 +181,26 @@ footer p{max-width:78ch}
       </div>
     </div>
   </div>
+
+<div id="compare" hidden>
+  <div class="card">
+    <h2>Every total, side by side</h2>
+    <p class="cnote">All four cities, solo and with a companion, flight on points and flight on cash. Everything is a
+    trip total for the full 8 nights, buffer included. In each row the cheapest city is marked.</p>
+    <div class="scroll"><table class="cmp"><thead id="cmpTotH"></thead><tbody id="cmpTotB"></tbody></table></div>
+  </div>
+
+  <div class="card">
+    <h2>Line by line</h2>
+    <p class="cnote" id="cmpWho"></p>
+    <div class="scroll"><table class="cmp"><thead id="cmpRowH"></thead><tbody id="cmpRowB"></tbody></table></div>
+  </div>
+
+  <div class="card">
+    <h2>What could still move these numbers</h2>
+    <div id="levers"></div>
+  </div>
+</div>
 
 <footer>
   <h3 style="margin-top:0">How these numbers were built</h3>
@@ -273,7 +316,7 @@ const IMGS = {"lisbon": [{"f": "lisbon1.jpg", "cap": "Tram 28 climbing the hills
 const ORDER = ["hawaii","japan","lisbon","cdmx"];
 let city = localStorage.getItem("sep_city") || "hawaii";
 let n = +(localStorage.getItem("sep_n") || 1);
-if(!D[city]) city = "hawaii";
+if(city !== "compare" && !D[city]) city = "hawaii";
 
 const $ = i => document.getElementById(i);
 
@@ -294,7 +337,7 @@ function calc(c, n){
   };
 }
 
-function render(){
+function renderCity(){
   const d = D[city], c = d.c, t = calc(c, n);
 
   $("gal").innerHTML = IMGS[city].map(i =>
@@ -331,16 +374,89 @@ function render(){
   $("fxnote").textContent = d.fx;
   $("creds").innerHTML = IMGS[city].map(i =>
     `${i.cap}: ${i.cred} / ${i.lic}, via Wikimedia Commons.`).join("<br>");
+}
+
+const LEVERS = [
+  ["\u2708\ufe0f","Flights are the softest number here.","Every fare above is an estimate. Nothing is real until the seats.aero award search comes back and tells you what is actually bookable on Chase UR or Amex MR for these dates."],
+  ["\ud83c\udfe8","Hawaii on Hyatt points changes the ranking.","Lodging is $2,720 of a $4,900 solo Hawaii trip. Chase UR into Hyatt at the Grand Hyatt Kauai would erase most of that single line and pull Hawaii down toward the others."],
+  ["\ud83d\udcb3","Card credits are not in any of these totals.","The unused 2026 Chase and Amex hotel and dining credits could take several hundred dollars off any column. The Chase select-hotel credit expires 2026-12-31 and does not roll over."],
+  ["\ud83d\udcb4","The yen is the biggest single swing factor.","Tokyo is priced at about 160 to the dollar. That is a currency window, not a permanent state, and it is most of why Tokyo looks cheap next to Lisbon."],
+  ["\ud83d\udecf\ufe0f","A second traveler does not double the trip.","The room is shared, so lodging and the rental car stay flat. Only food, local transport, and activities scale. That is why the two-person column is never twice the solo one."]
+];
+
+function head(label){
+  return `<tr><th>${label}</th>` + ORDER.map(k =>
+    `<th class="c">${D[k].name}${D[k].sub?`<span>${D[k].sub}</span>`:"<span>&nbsp;</span>"}</th>`).join("") + "</tr>";
+}
+function markMin(vals){
+  const m = Math.min(...vals);
+  return vals.map(v => v === m);
+}
+function row(label, note, vals, fmtf, mark, cls){
+  const win = mark ? markMin(vals) : vals.map(()=>false);
+  return `<tr class="${cls||""}"><td>${label}${note?`<span class="sub">${note}</span>`:""}</td>` +
+    vals.map((v,i) => `<td class="c${win[i]?" win":""}">${fmtf(v)}</td>`).join("") + "</tr>";
+}
+
+function renderCompare(){
+  const one = ORDER.map(k => calc(D[k].c, 1));
+  const two = ORDER.map(k => calc(D[k].c, 2));
+
+  $("cmpTotH").innerHTML = head("Trip total");
+  $("cmpTotB").innerHTML =
+    `<tr class="sect"><td colspan="${ORDER.length+1}">Solo</td></tr>` +
+    row("Flight on points", "fare covered with UR or MR, taxes in cash", one.map(t=>t.totPts), fmt, true) +
+    row("Flight on cash", "economy fare paid outright", one.map(t=>t.totCash), fmt, true) +
+    `<tr class="sect"><td colspan="${ORDER.length+1}">Two people</td></tr>` +
+    row("Flight on points", "trip total for two", two.map(t=>t.totPts), fmt, true) +
+    row("Flight on cash", "trip total for two", two.map(t=>t.totCash), fmt, true) +
+    row("Per person, on points", "two people, split down the middle", two.map(t=>t.totPts/2), fmt, true);
+
+  const t = n===1 ? one : two;
+  $("cmpWho").innerHTML = `Follows the travelers switch above. Showing <b>${n===1?"1 person":"2 people"}</b>. ` +
+    (n===1 ? "Flip it to 2 people and the food, transport, and activity lines move; lodging and the car do not."
+           : "Lodging and the rental car do not double, because you share them.");
+
+  $("cmpRowH").innerHTML = head("Line item");
+  const cs = ORDER.map(k => D[k].c);
+  const ground = t.map(x=>x.ground);
+  $("cmpRowB").innerHTML =
+    row("Lodging", "8 nights, mid-range", cs.map(c=>c.hotel), fmtx, false) +
+    row("Rental car", "only where you need one", cs.map(c=>c.car||0), fmtx, false) +
+    row("Food", n===1?"9 days":"9 days, two people", t.map(x=>x.food), fmtx, false) +
+    row("Local transport", "transit, taxis, day trips", t.map(x=>x.local), fmtx, false) +
+    row("Activities", "", t.map(x=>x.act), fmtx, false) +
+    row("On the ground, subtotal", "everything except flights", ground, fmtx, true) +
+    `<tr class="sect"><td colspan="${ORDER.length+1}">Getting there</td></tr>` +
+    row("Flight, paid in cash", n===2?"two economy fares":"one economy fare", t.map(x=>x.flightCash), fmtx, true) +
+    `<tr><td>Flight, taxes only on points<span class="sub">what the fare itself costs in miles varies by city</span></td>` +
+      ORDER.map((k,i) => `<td class="c">${fmtx(t[i].flightPts)}<span class="sub">${D[k].c.ptsNote}</span></td>`).join("") + `</tr>` +
+    row("Buffer, 10 percent", "on the points version", t.map(x=>x.totPts-(x.ground+x.flightPts)), fmtx, false) +
+    row("Total on points", "", t.map(x=>x.totPts), fmt, true, "grand") +
+    row("Buffer, 10 percent", "on the cash version", t.map(x=>x.totCash-(x.ground+x.flightCash)), fmtx, false) +
+    row("Total on cash", "", t.map(x=>x.totCash), fmt, true, "grand");
+
+  $("levers").innerHTML = LEVERS.map(l =>
+    `<div class="lev"><i>${l[0]}</i><div><b>${l[1]}</b><br><span>${l[2]}</span></div></div>`).join("");
+}
+
+function render(){
+  const cmp = city === "compare";
+  ["gal","tagline","lede"].forEach(id => $(id).hidden = cmp);
+  document.querySelector(".cols").hidden = cmp;
+  $("compare").hidden = !cmp;
+  if(cmp) renderCompare(); else renderCity();
 
   [...document.querySelectorAll(".tab")].forEach(b =>
     b.setAttribute("aria-selected", b.dataset.c === city));
   $("p1").setAttribute("aria-pressed", n===1);
   $("p2").setAttribute("aria-pressed", n===2);
-  document.title = d.name + " · September Getaway";
+  document.title = (cmp ? "Compare all four" : D[city].name) + " · September Getaway";
 }
 
 $("tabs").innerHTML = ORDER.map(k =>
-  `<button class="tab" role="tab" data-c="${k}">${D[k].name}</button>`).join("");
+  `<button class="tab" role="tab" data-c="${k}">${D[k].name}</button>`).join("")
+  + `<button class="tab alt" role="tab" data-c="compare">Compare costs</button>`;
 document.querySelectorAll(".tab").forEach(b => b.onclick = () => {
   city = b.dataset.c; localStorage.setItem("sep_city", city); render();
   window.scrollTo({top:0,behavior:"smooth"});

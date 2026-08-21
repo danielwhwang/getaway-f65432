@@ -34,6 +34,20 @@ h1{font-family:Georgia,serif;font-size:clamp(30px,5vw,44px);line-height:1.12;mar
 .seg button[aria-pressed="true"]{background:var(--clay);color:#fff}
 .seglab{font-size:12px;color:var(--mid);letter-spacing:.06em;text-transform:uppercase;font-weight:700;margin-right:2px}
 .segwrap{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:132px;gap:9px;margin-bottom:26px}
+.gal figure{margin:0;overflow:hidden;border-radius:12px;position:relative;background:#EFE8DE}
+.gal img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.gal figure:hover img{transform:scale(1.045)}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 11px 8px;font-size:12px;color:#fff;
+  background:linear-gradient(transparent,rgba(20,16,13,.78));line-height:1.3}
+.gal figure:nth-child(1){grid-column:span 2;grid-row:span 2}
+.gal figure:nth-child(4){grid-column:span 2}
+@media(max-width:700px){
+  .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:118px}
+  .gal figure:nth-child(1){grid-column:span 2;grid-row:span 2}
+  .gal figure:nth-child(4){grid-column:span 1}
+}
+.creds{font-size:11.5px;color:var(--mid);line-height:1.55;margin:0}
 .tagline{display:inline-block;background:var(--clay-soft);color:var(--clay);font-size:12.5px;font-weight:700;
   letter-spacing:.07em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
 .lede{font-size:19px;line-height:1.6;margin:14px 0 26px;max-width:70ch}
@@ -111,6 +125,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px;colo
 
 <div class="wrap">
   <div id="cityView">
+    <div class="gal" id="gal"></div>
     <span class="tagline" id="tagline"></span>
     <p class="lede serif" id="lede"></p>
     <div class="cols">
@@ -146,6 +161,10 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px;colo
         </div>
       </div>
     </div>
+    <div class="card">
+      <h2>Photo credits</h2>
+      <p class="creds" id="creds"></p>
+    </div>
   </div>
 
   <div id="cmpView" hidden>
@@ -180,8 +199,10 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px;colo
 </footer>
 
 <script>
+const IMGS = {"vancouver":[{"f":"vancouver1.jpg","cap":"Vancouver skyline","cred":"Quintin Soloviev","lic":"CC BY 4.0","src":"Skyline of Vancouver, BC.jpg"},{"f":"vancouver2.jpg","cap":"The Stanley Park seawall","cred":"Dietmar Rabich","lic":"CC BY-SA 4.0","src":"Vancouver (BC, Canada), Stanley Park, Stanley Park Seawall Path -- 2022 -- 2056.jpg"},{"f":"vancouver3.jpg","cap":"Granville Island Public Market","cred":"Ymblanter","lic":"CC BY-SA 4.0","src":"Granville Island Public Market 1.jpg"},{"f":"vancouver4.jpg","cap":"Gastown","cred":"Xicotencatl","lic":"CC BY-SA 4.0","src":"Vancouver Gastown 01.JPG"},{"f":"vancouver5.jpg","cap":"Millennium Gate, Chinatown","cred":"MRDXII","lic":"CC BY-SA 3.0","src":"Millennium Gate, Vancouver's Chinatown National Historic Site of Canada, WLM2012.jpg"},{"f":"vancouver6.jpg","cap":"English Bay","cred":"Xicotencatl","lic":"CC BY-SA 4.0","src":"English Bay Vancouver 04.jpg"}],"mexico":[{"f":"cdmx1.jpg","cap":"Palacio de Bellas Artes","cred":"Jeses","lic":"CC BY-SA 2.5","src":"Mexico City Palacio de bellas artes.jpg"},{"f":"cdmx2.jpg","cap":"Pyramid of the Sun, Teotihuacan","cred":"Daniel Case","lic":"CC BY-SA 3.0","src":"Pyramid of the Sun, Teotihuacan, from path to parking lot.jpg"},{"f":"cdmx3.jpg","cap":"Tacos al pastor","cred":"City Foodsters","lic":"CC BY 2.0","src":"(El Flaco) Al Pastor Tacos.jpg"},{"f":"cdmx4.jpg","cap":"Casa Azul, Frida Kahlo Museum","cred":"Phyrexian","lic":"CC BY-SA 4.0","src":"Ciudad de M\u00e9xico - Museo Frida Kahlo 7129.jpg"},{"f":"cdmx5.jpg","cap":"Biblioteca Vasconcelos","cred":"Diego Delso","lic":"CC BY-SA 4.0","src":"Biblioteca Vasconcelos, Ciudad de M\u00e9xico, M\u00e9xico, 2015-07-20, DD 04-06 HDR.JPG"},{"f":"cdmx6.jpg","cap":"Condesa streets","cred":"Lazjak","lic":"CC BY-SA 4.0","src":"Condesa Mexico City neighborhood main street jacaranda flowering.jpg"}],"vegas":[{"f":"vegas1.jpg","cap":"The Strip at night","cred":"King of Hearts","lic":"CC BY-SA 4.0","src":"Las Vegas Strip from Resorts World February 2023 HDR 1.jpg"},{"f":"vegas2.jpg","cap":"The Bellagio fountains","cred":"Rob Young from United Kingdom","lic":"CC BY 2.0","src":"Bellagio Fountains (1150330184).jpg"},{"f":"vegas3.jpg","cap":"Fremont Street","cred":"ZappaOMatic","lic":"CC BY-SA 4.0","src":"Fremont Street Experience March 2020 1.jpg"},{"f":"vegas4.jpg","cap":"Caesars Palace","cred":"Christian David","lic":"CC BY-SA 4.0","src":"Caesars Palace and fountains, Las Vegas - April 2026.jpg"},{"f":"vegas5.jpg","cap":"The Las Vegas sign","cred":"Dietmar Rabich","lic":"CC BY-SA 4.0","src":"Las Vegas (Nevada, USA), Fabulous Las Vegas -- 2012 -- 6260.jpg"},{"f":"vegas6.jpg","cap":"Red Rock Canyon, half an hour out","cred":"Sixflashphoto","lic":"CC BY-SA 4.0","src":"Red Rock Canyon HDR 5.jpg"}],"honolulu":[{"f":"honolulu1.jpg","cap":"Waikiki and Diamond Head at night","cred":"Paul Smits","lic":"CC BY 2.0","src":"Waikiki Beach and Diamond Head at night.jpg"},{"f":"honolulu2.jpg","cap":"Waikiki Beach","cred":"Frank Schulenburg","lic":"CC BY-SA 4.0","src":"Waikiki Beach (2024)-L1004709.jpg"},{"f":"honolulu3.jpg","cap":"Diamond Head","cred":"Robert Linsdell from St. Andrews, Canada","lic":"CC BY 2.0","src":"Diamond Head Volcanic Cone, Honolulu (503700) (20631033769).jpg"},{"f":"honolulu4.jpg","cap":"Hanauma Bay","cred":"Eric.frederich at English Wikipedia","lic":"CC BY 2.5","src":"Hanauma Bay Panoramic.jpg"},{"f":"honolulu5.jpg","cap":"Poke","cred":"Daderot","lic":"CC0","src":"Poke bowl - Cambridge, MA.jpg"},{"f":"honolulu6.jpg","cap":"Mana Nalu mural, downtown Honolulu","cred":"John Pugh","lic":"CC BY-SA 4.0","src":"Mana Nalu, Trompe L'oeil Mural by John Pugh, Honolulu, HI.jpg"}],"sandiego":[{"f":"sandiego1.jpg","cap":"San Diego at night","cred":"Whoismanu","lic":"CC BY-SA 3.0","src":"Sandiego skyline at night.JPG"},{"f":"sandiego2.jpg","cap":"La Jolla Cove","cred":"Rickbramhall","lic":"CC BY-SA 4.0","src":"La Jolla Cove 2.jpg"},{"f":"sandiego3.jpg","cap":"El Prado, Balboa Park","cred":"Rhododendrites","lic":"CC BY-SA 4.0","src":"El Prado Balboa Park 2.jpg"},{"f":"sandiego4.jpg","cap":"Coronado Beach","cred":"Adam Jones from Kelowna, BC, Canada","lic":"CC BY-SA 2.0","src":"Municipal Beach - Coronado - San Diego, CA - USA - 02 (6927467281).jpg"},{"f":"sandiego5.jpg","cap":"Sunset Cliffs","cred":"Saltytog","lic":"CC BY 4.0","src":"Sunset Cliffs, San Diego.jpg"},{"f":"sandiego6.jpg","cap":"Little Italy","cred":"formulanone from Huntsville, United States","lic":"CC BY-SA 2.0","src":"San Diego Little Italy (17748354360).jpg"}],"chicago":[{"f":"chicago1.jpg","cap":"The river and the skyline","cred":"Spatms","lic":"CC BY-SA 4.0","src":"Chicago Skyline on the Chicago River.jpg"},{"f":"chicago2.jpg","cap":"Under Cloud Gate","cred":"Roman Boed from The Netherlands","lic":"CC BY 2.0","src":"Chicago from under the Cloud Gate (9694666470).jpg"},{"f":"chicago3.jpg","cap":"The L","cred":"Lars Juhl Jensen","lic":"CC BY 3.0","src":"Chicago L Train And Cityscape (263954441).jpeg"},{"f":"chicago4.jpg","cap":"The Art Institute","cred":"Diego Delso","lic":"CC BY-SA 3.0","src":"Art Institute of Chicago, Illinois, Estados Unidos, 2012-10-20, DD 01.jpg"},{"f":"chicago5.jpg","cap":"The architecture boat tour","cred":"Roy Luck","lic":"CC BY 2.0","src":"Wendella architecture tour on Chicago River (9433676806).jpg"},{"f":"chicago6.jpg","cap":"Deep dish","cred":"Prayitno / Thank you for (12 millions +) view from Los Angeles, USA","lic":"CC BY 2.0","src":"Deep-Dish Pizza Chicago Style (16934681309).jpg"}]};
 const D = {
  vancouver:{
+  hi:"Richmond, for the best Chinese food outside Asia",
   name:"Vancouver", sub:"4 nights", tag:"The easy yes",
   lede:"One hour from PDX, nonstop, and her passport gets used. It is the lowest-effort way to make a trip feel like a trip, and the Asian food is the real reason to go rather than a consolation prize. You said there is not much you want to see there. That is fine, and it is the point.",
   doNote:"You called this an eating trip. Built that way on purpose.",
@@ -200,6 +221,7 @@ const D = {
   c:{fc:280, fm:12000, fp:116, lodge:800, car:0, food:800, local:120, act:150}},
 
  mexico:{
+  hi:"Coyoacan markets and a long lunch",
   name:"Mexico City", sub:"5 nights", tag:"The foreign one",
   lede:"The only option here that feels genuinely like another country the moment you land, which is the thing you actually want to give her. It costs you the most in travel time and in hosting, because there is no PDX award space and everything routes through LAX. Five nights, not four, precisely because two of them go to airports.",
   doNote:"Neither of you has been. That is a feature: you are both figuring it out, so you are not the guide.",
@@ -219,6 +241,7 @@ const D = {
   c:{fc:450, fm:28000, fp:214, lodge:750, car:0, food:780, local:150, act:250}},
 
  vegas:{
+  hi:"Pool all day, one booked show at night",
   name:"Las Vegas", sub:"3 nights", tag:"The zero-planning one",
   lede:"Two hours nonstop, and the city does the work for you. For someone who has essentially never taken a trip, Vegas reads as unambiguously a big deal, and you can make it feel special without planning a single thing. Three nights is the ceiling. September still runs near 95F, so this is a pool-and-indoors trip, not a walking one.",
   doNote:"The one place where doing no planning is the correct strategy rather than laziness.",
@@ -236,6 +259,7 @@ const D = {
   c:{fc:200, fm:29900, fp:12, lodge:660, car:0, food:800, local:150, act:400}},
 
  honolulu:{
+  hi:"A deliberately useless day on the beach",
   name:"Honolulu", sub:"5 nights", tag:"The big one",
   lede:"The option that most unambiguously reads as a real vacation to someone who has not had one. Nonstop from PDX, no rental car needed, and the whole thing can be beach and food with no itinerary at all. It is the most expensive here, and it is also the one she would remember.",
   doNote:"Waikiki as a base means you can do nothing for five days without it feeling like a waste.",
@@ -255,6 +279,7 @@ const D = {
   c:{fc:550, fm:56400, fp:36, lodge:1350, car:0, food:1080, local:120, act:300}},
 
  sandiego:{
+  hi:"La Jolla, the coast, and the seals",
   name:"San Diego", sub:"4 nights", tag:"The low-risk one",
   lede:"Mid-70s and dry in late September, flat, and close enough that nothing is a commitment. It is the least exciting option on this page and the hardest one to get wrong. If what you want is four pleasant days with someone you have known seven weeks, this is the unglamorous right answer.",
   doNote:"The only city here where a rental car genuinely helps, which you have said is fine.",
@@ -273,6 +298,7 @@ const D = {
   c:{fc:280, fm:32200, fp:12, lodge:920, car:280, food:850, local:0, act:250}},
 
  chicago:{
+  hi:"The architecture boat tour, sightseeing sitting down",
   name:"Chicago", sub:"4 nights", tag:"The city one",
   lede:"Nonstop from PDX with nine award seats each way, genuinely flat, and the transit is the kind you said you like. Late September is its best month by some distance. It is a serious eating city that is not Asia, and it gives her a big American city without New York prices or New York walking.",
   doNote:"Flat, transit-first, and the sitting-down version of sightseeing is unusually good here.",
@@ -367,6 +393,10 @@ function legCell(r){
 
 function renderCity(){
   const d = D[city], c = d.c, t = calc(c), f = FLY[city];
+  $("gal").innerHTML = IMGS[city].map(i =>
+    '<figure><img src="img/'+esc(i.f)+'" alt="'+esc(i.cap)+'" loading="lazy"><figcaption>'+esc(i.cap)+"</figcaption></figure>").join("");
+  $("creds").innerHTML = IMGS[city].map(i =>
+    esc(i.cap)+": "+esc(i.cred)+" / "+esc(i.lic)+", via Wikimedia Commons.").join("<br>");
   $("tagline").textContent = d.tag;
   $("lede").textContent = d.lede;
   $("doTitle").textContent = d.name + " · " + d.sub;
@@ -416,7 +446,7 @@ function cmpHead(){
 function renderCmp(){
   $("cA").innerHTML = cmpHead() + "<tbody>"
    + "<tr><td>What it is</td>" + ORDER.map(k => '<td class="c">'+esc(D[k].tag)+"</td>").join("") + "</tr>"
-   + "<tr><td>The day you would remember</td>" + ORDER.map(k => '<td class="c"><span class="sub" style="max-width:170px">'+esc(D[k].days[1][0])+": "+esc(D[k].days[1][1].slice(0,90))+"</span></td>").join("") + "</tr>"
+   + "<tr><td>The day you would remember</td>" + ORDER.map(k => '<td class="c"><span class="sub" style="max-width:190px">'+esc(D[k].hi)+"</span></td>").join("") + "</tr>"
    + "<tr><td>Feels like abroad</td>" + ORDER.map(k => '<td class="c">'+(k==="mexico"?"Completely":k==="vancouver"?"Somewhat":"No, but it is a flight")+"</td>").join("") + "</tr>"
    + "</tbody>";
 

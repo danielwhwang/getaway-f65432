@@ -110,12 +110,12 @@ a{color:var(--sea)}
 <header>
   <h1>September getaway · the beach five</h1>
   <p class="sub">Four nights away, then home to decompress. Real flight and lodging
-  prices for these exact dates, both people, pulled 2026-08-20.</p>
+  prices for these exact dates, both people, pulled 2026-08-20 and corrected 2026-08-21. Flights are firm; lodging is a live market and moves, so check the trust note on any room before you prepay.</p>
   <div class="chips">
     <span class="chip">Out Sat Sep 19 · back Wed Sep 23</span>
     <span class="chip">4 nights · 2 people</span>
     <span class="chip">Lodging target $1,200 to $1,800</span>
-    <span class="chip" id="stamp">Prices live 2026-08-20</span>
+    <span class="chip" id="stamp">Prices live 2026-08-20 · Kauai corrected 2026-08-21</span>
   </div>
 </header>
 
@@ -189,8 +189,8 @@ a{color:var(--sea)}
 <footer>
   <p><b>Where the numbers come from.</b> Award space and surcharges: seats.aero via award-search,
   pulled 2026-08-20, filtered to routes with 2 or more seats out of PDX. Cash fares: Kayak, lowest
-  round trip per person, 2026-08-20. Lodging: Booking.com, 4 stars and up, 2 adults, 1 room, exact
-  dates, totals as displayed 2026-08-20.</p>
+  round trip per person, 2026-08-20. Lodging: Booking.com, 2 adults, 1 room, exact
+  dates, totals as displayed 2026-08-20. Hawaii and Mexico are 4 star and up; the Kauai set was re-pulled 2026-08-21 after the Grand Hyatt figure was found to be wrong, and that pull reaches down into condos, an inn and privately let units, because the south shore has almost nothing at 4 star in your band.</p>
   <p>Room totals as shown by Booking generally include tax but <b>not</b> Hawaii resort fees, which run
   roughly $35 to $50 a night at Waikiki and Kaanapali properties. Every total on this page carries a
   10 percent buffer on top and is rounded to the nearest $100. Mexico all-inclusive rates include food
@@ -248,25 +248,25 @@ var D = [
   },
   {
     k:"lih", n:"Kauai", sub:"Poipu and the south shore",
-    hi:"The most beautiful of the three, and the Grand Hyatt is unexpectedly inside your budget.",
+    hi:"The best looking of the three islands, but the price that put it on this board was a bad read. Corrected, it is the most expensive option here.",
     air:{cash:371, stops:"1 stop", carrier:"Alaska", miles:null, tax:null, seats:"1 stop each way",
          note:"Cheapest cash fare of the five at $371, but the only Hawaii island without a nonstop, so it is the longest Hawaii travel day."},
-    strike:"No nonstop from PDX, so it is the longest Hawaii travel day.",
+    strike:"The Grand Hyatt figure on this page was wrong by $3,032, and that number was the entire reason Kauai was here.",
     eff:3,
     water:"Poipu Beach is protected and calm, and monk seals haul out on it regularly. North shore water in late September starts getting rough, so south shore is the right base.",
-    good:["Grand Hyatt Kauai at $1,712 for four nights is a genuine anomaly. It is normally far more.","Least developed and best looking of the three islands.","Poipu is flat, calm, and easy."],
-    bad:["No nonstop from PDX, so it is the longest Hawaii travel day.","You will drive more here than anywhere else on the board, and driving to see things is exactly what you have ruled out before.","Most expensive total of the five once the car and the room are in."],
+    good:["Cheapest cash fare of the five at $371 per person, connection and all.","Least developed and best looking of the three islands.","Poipu is flat, calm and easy, which suits your toe as well as Waikiki does.","A cheap version of Kauai does exist: Poipu condos and vacation rentals run roughly $1,100 to $1,400 for the four nights."],
+    bad:["THE CORRECTION. Grand Hyatt Kauai was listed here at $1,712, taken from an island-wide search card. Re-pulled from the hotel's own Booking page on 2026-08-21 it is $4,744, with a single room type left. That one line moved Kauai from a bargain to the most expensive resort on the board.","No nonstop from PDX, so it is the longest Hawaii travel day of the three islands.","You will drive more here than anywhere else on this board.","There is no Kauai equivalent of Kaanapali: nothing beachfront on the south shore lands at Maui's condo price with Maui's review scores."],
     lodge:[
-      {n:"Grand Hyatt Kauai Resort & Spa", p:1712, r:"8.8", t:["5 star","Poipu","Best value here"], note:"Saltwater lagoon, river pool, on Shipwreck Beach. Priced like a 4-star this week."},
-      {n:"Royal Sonesta Kauai Resort", p:1692, r:"8.3", t:["Lihue"], note:"Kalapaki Bay, closest to the airport, calm swimming."},
-      {n:"Kiahuna Plantation", p:1438, r:"9.3", t:["Poipu","Kitchen"], note:"Garden cottages across from Poipu Beach Park."},
-      {n:"Kauai Beach Resort", p:1220, r:"9.0", t:["Cheapest in band"], note:"Lihue, four pools, long beach that is better for walking than swimming."},
-      {n:"THE ISO HOTEL", p:1298, r:"7.9", t:["Kapaa"], note:"East side, newer, more of a base than a resort."},
-      {n:"Timbers Kauai Ocean Club", p:7121, r:"10", t:["Far above band"], note:"Listed only so you can see where the ceiling is."}
+      {n:"Kiahuna Plantation - Poipu", p:1408, r:"8.0", v:false, t:["In band","Kitchen"], note:"Condo resort across the road from Poipu Beach Park. The cheapest real resort on the south shore, and the pick below. Card price only, and the same listing read $3,234 the day before, so treat it as soft."},
+      {n:"Kiahuna Plantation 96", p:1121, r:"8.6", v:false, t:["Cheapest"], note:"A single privately let unit inside the Kiahuna grounds, not the resort front desk. Cheapest thing in Poipu for your dates."},
+      {n:"Poipu Plantation Vacation Rentals", p:1175, r:"7.9", v:false, t:["In band"], note:"Small inn and cottages, a short walk back from the water."},
+      {n:"Hideaway Cove Poipu Beach", p:2819, r:"8.9", v:false, t:["Above band"], note:"Well reviewed condos, quiet lane one street off Poipu Beach."},
+      {n:"Koa Kea Resort on Poipu Beach", p:3456, r:"8.8", v:false, t:["Above band","Beachfront"], note:"The small luxury option, directly on the sand. This is the honest Kauai equivalent of a Kaanapali beachfront room, at nearly triple the price."},
+      {n:"Grand Hyatt Kauai Resort & Spa", p:4744, r:"8.8", v:true, t:["5 star","Poipu"], note:"Saltwater lagoon, river pool, Shipwreck Beach. Re-pulled from the hotel's own page on 2026-08-21: $4,744, one room type left, a two-queen ocean view."}
     ],
-    pick:1712, pickName:"Grand Hyatt Kauai Resort & Spa", credit:0, creditNote:"1 Hotel Hanalei Bay is the Chase Edit property here, and it is far above your band.",
+    pick:1408, pickName:"Kiahuna Plantation - Poipu", credit:0, creditNote:"1 Hotel Hanalei Bay is the Chase Edit property here and it is far above your band. No Amex property lands in budget either, so no hotel credit fires on Kauai.",
     food:720, trans:320, act:300,
-    costNote:"Rental car is closer to mandatory here than on Maui."
+    costNote:"Read this as Kauai's BEST case, not its typical one. Every other destination here is priced on a mid-band property; Kauai is priced on the cheapest real resort on the south shore, because nothing mid-band exists in your band. It scores 8.0, it is across the road rather than on the sand, and its card price moved $1,826 in a day. On the Grand Hyatt, like for like with the others, the trip is about $7,500. Rental car is closer to mandatory here than on Maui."
   },
   {
     k:"cun", n:"Cancun", sub:"Hotel Zone and Costa Mujeres",
@@ -385,9 +385,11 @@ function renderPanel(){
   var lodgeHtml = d.lodge.map(function(l){
     return '<div class="hotel"><div><div class="nm">'+esc(l.n)+'</div>'+
       '<div class="meta">'+esc(l.note)+'</div>'+
-      '<div class="tagrow">'+l.t.map(function(t){
-        var c = /Amex|Chase|Hyatt on/.test(t) ? ' credit' : '';
-        return '<span class="tag'+c+'">'+esc(t)+'</span>'; }).join("")+'</div></div>'+
+      '<div class="tagrow">'+
+        (l.v ? '<span class="tag credit">Verified</span>' : '')+
+        l.t.map(function(t){
+          var c = /Amex|Chase|Hyatt on/.test(t) ? ' credit' : '';
+          return '<span class="tag'+c+'">'+esc(t)+'</span>'; }).join("")+'</div></div>'+
       '<div class="pr">'+money(l.p)+'<small>'+esc(l.r)+' · 4 nights</small></div></div>';
   }).join("");
 
@@ -443,9 +445,15 @@ function renderPanel(){
       '<p class="sub" style="margin-top:10px">'+esc(d.costNote)+'</p></div>'+
   '</div>'+
 
-  '<div class="card"><h3>Real rooms, real prices, your exact dates</h3>'+
+  '<div class="card"><h3>Real rooms, your exact dates</h3>'+
     lodgeHtml+
-    '<p class="sub" style="margin-top:12px"><b>Credit note.</b> '+esc(d.creditNote)+'</p></div>';
+    '<p class="sub" style="margin-top:12px"><b>How much to trust these.</b> Every figure is the total '+
+    'Booking.com showed for your four nights. Unless it is tagged <b>Verified</b>, it is a search-results '+
+    'card price, which reflects whichever room type is cheapest at that instant and moves with the search '+
+    'area and the sort order. Both failure modes have already happened on this page: Grand Hyatt Kauai\'s '+
+    'card read $1,712 while its own property page read <b>$4,744</b>, and Kiahuna\'s card read $3,234 one '+
+    'day and <b>$1,408</b> the next. Re-pull any room on its own property page before you prepay it.</p>'+
+    '<p class="sub" style="margin-top:8px"><b>Credit note.</b> '+esc(d.creditNote)+'</p></div>';
 }
 
 function renderAll(){ renderCmp(); renderTabs(); renderPanel(); }

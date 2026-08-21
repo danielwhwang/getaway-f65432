@@ -332,7 +332,6 @@ function shown(d){
 // What is deliberately outside the "my flight and the room" number.
 function unallocated(d){ return Math.round((d.food + d.trans + d.act)*1.1); }
 function money(n){ return "$"+n.toLocaleString("en-US"); }
-function shownAll(d){ var t=raw(d)*1.1; if(cred==="on") t-=(d.credit+300); return Math.round(t/100)*100; }
 // Your flight + the room + you also picking up the shared spending as you go.
 function minePlus(d){ var t=(d.air.cash + d.pick + d.food + d.trans + d.act)*1.1;
   if(cred==="on") t-=(d.credit+300); return Math.round(t/100)*100; }
@@ -418,8 +417,8 @@ function renderPanel(){
     : '';
   var credNote = cred==="on"
     ? '<p class="sub" style="margin-top:6px">You are buying the room, so every hotel credit lands on '+
-      'you in both modes. The CSR $300 flexible travel credit is applied against your own airfare, '+
-      'which it fully covers on all five.</p>'
+      'you in both modes. The CSR $300 flexible travel credit goes against your own airfare, taking '+
+      '$300 off a fare of '+money(a.cash)+'.</p>'
     : '';
 
   document.getElementById("panel").innerHTML =

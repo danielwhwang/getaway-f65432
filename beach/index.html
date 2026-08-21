@@ -9,19 +9,22 @@
 :root{
   --bg:#fbf7f0; --card:#ffffff; --ink:#1d2b32; --mut:#5f7480; --line:#e2dcd1;
   --sea:#0d6f7d; --sea2:#0a5561; --sand:#c9873d; --good:#2f7d55; --bad:#a8433a;
-  --chip:#eef4f4; --shadow:0 1px 2px rgba(29,43,50,.05),0 6px 18px rgba(29,43,50,.06);
+  --chip:#eef4f4; --on-sea:#ffffff;
+  --shadow:0 1px 2px rgba(29,43,50,.05),0 6px 18px rgba(29,43,50,.06);
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
     --bg:#11181c; --card:#182126; --ink:#e8eef0; --mut:#93a7b0; --line:#26343a;
     --sea:#4fc0cf; --sea2:#7ad4e0; --sand:#e0a45f; --good:#63c48d; --bad:#e08079;
-    --chip:#1e2b31; --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.25);
+    --chip:#1e2b31; --on-sea:#06232a;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.25);
   }
 }
 :root[data-theme="dark"]{
   --bg:#11181c; --card:#182126; --ink:#e8eef0; --mut:#93a7b0; --line:#26343a;
   --sea:#4fc0cf; --sea2:#7ad4e0; --sand:#e0a45f; --good:#63c48d; --bad:#e08079;
-  --chip:#1e2b31; --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.25);
+  --chip:#1e2b31; --on-sea:#06232a;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.25);
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);
@@ -50,7 +53,7 @@ b,strong{font-weight:650}
   border-radius:10px;padding:9px 14px;font-size:14.5px;cursor:pointer;font-weight:550;
   font-family:inherit;transition:.12s}
 .tab:hover{border-color:var(--sea)}
-.tab[aria-selected="true"]{background:var(--sea);border-color:var(--sea);color:#fff}
+.tab[aria-selected="true"]{background:var(--sea);border-color:var(--sea);color:var(--on-sea);font-weight:650}
 .toggles{display:flex;flex-wrap:wrap;gap:18px;align-items:center;margin:0 0 6px}
 .tg{display:flex;flex-direction:column;gap:6px}
 .tg .lbl{font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--mut)}
@@ -58,8 +61,9 @@ b,strong{font-weight:650}
 .seg button{background:transparent;border:0;color:var(--mut);padding:7px 12px;font-size:13.5px;
   cursor:pointer;font-family:inherit;border-right:1px solid var(--line)}
 .seg button:last-child{border-right:0}
-.seg button[aria-pressed="true"]{background:var(--sea);color:#fff}
-.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 6px}
+.seg button[aria-pressed="true"]{background:var(--sea);color:var(--on-sea);font-weight:650}
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 6px;border-radius:8px}
+.tblwrap:focus-visible{outline:2px solid var(--sea);outline-offset:2px}
 table{border-collapse:collapse;width:100%;min-width:660px;font-size:14.5px}
 th,td{text-align:left;padding:10px 11px;border-bottom:1px solid var(--line);vertical-align:top}
 th{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);font-weight:650;
@@ -141,7 +145,7 @@ a{color:var(--sea)}
     eats a day of your decompress weekend. On cash the Saturday works.</li>
     <li><b>Cancun</b> is the longest travel day on the board, one stop each way, and the only one where
     a passport expiry actually matters.</li>
-    <li><b>Honolulu</b> has no strike. It is nonstop, cheapest to fly, and the only one that needs no
+    <li><b>Honolulu</b> has no strike. It is nonstop, among the cheapest to fly, and the only one that needs no
     rental car.</li>
   </ul>
 </div>
@@ -165,7 +169,7 @@ a{color:var(--sea)}
   </div>
 </div>
 <div class="card" style="padding-top:12px">
-  <div class="tblwrap">
+  <div class="tblwrap" tabindex="0" role="region" aria-label="All five destinations compared, scrolls sideways">
     <table id="cmp">
       <thead><tr>
         <th>Destination</th><th>Flight</th><th class="num">Air, 2 people</th>
@@ -178,8 +182,8 @@ a{color:var(--sea)}
 </div>
 
 <h2>Destination by destination</h2>
-<div class="tabs" id="tabs"></div>
-<div id="panel"></div>
+<div class="tabs" id="tabs" role="tablist" aria-label="Destination"></div>
+<div id="panel" role="tabpanel" tabindex="0"></div>
 
 <footer>
   <p><b>Where the numbers come from.</b> Award space and surcharges: seats.aero via award-search,
@@ -199,13 +203,13 @@ a{color:var(--sea)}
 var D = [
   {
     k:"hnl", n:"Honolulu", sub:"Oahu · Waikiki",
-    hi:"Nonstop, cheapest to fly, no rental car, and the only option with zero logistics against it.",
+    hi:"Nonstop, no rental car, and the only option on the board with zero logistics against it.",
     air:{cash:379, stops:"nonstop", carrier:"Alaska", miles:56400, tax:36, seats:"5 seats each way",
          note:"The only Hawaiian island with real award space for two out of PDX. Also the one where you should ignore that fact and pay cash."},
     strike:null,
     eff:1,
     water:"Waikiki is a calm, protected, gently shelving beach. It is the easiest water on this board for someone who is not a strong swimmer, and Hanauma Bay snorkeling is 25 minutes away.",
-    good:["Nonstop both directions, about 5h45 each way.","No rental car needed at all. Walkable, plus buses and rideshare.","Flattest option on the board, which matters for your toe.","Prince Waikiki and Outrigger Reef are Amex Hotel Collection, so the $300 credit lands here."],
+    good:["Nonstop both directions, about 5h45 each way. Maui is $3 cheaper and also nonstop, so this is a tie on airfare, not a win.","No rental car needed at all. Walkable, plus buses and rideshare.","Flattest option on the board, which matters for your toe.","Prince Waikiki and Outrigger Reef are Amex Hotel Collection, so the $300 credit lands here."],
     bad:["It is a city beach. High-rises, crowds, traffic, ABC Stores on every corner.","Least 'getaway' feeling of the three islands.","Resort fees are near-universal in Waikiki, roughly $40 a night on top."],
     lodge:[
       {n:"Prince Waikiki", p:1375, r:"9.0", t:["Amex THC","Harbor-front","Adults-friendly"], note:"Every room faces the harbor. Infinity pool. The THC pick."},
@@ -215,7 +219,7 @@ var D = [
       {n:"Hyatt Regency Waikiki", p:1007, r:"8.2", t:["Hyatt on points"], note:"The points-and-cancel option if you want a free hold."},
       {n:"Alohilani Resort", p:813, r:"8.1", t:["Cheapest in band"], note:"Big pool deck, across from Kuhio Beach."}
     ],
-    pick:1375, credit:400, creditNote:"Amex $300 plus THC $100 property credit at Prince Waikiki",
+    pick:1375, pickName:"Prince Waikiki", credit:400, creditNote:"Amex $300 plus THC $100 property credit at Prince Waikiki",
     food:720, trans:150, act:300,
     costNote:"No car line. Food is the big variable: Honolulu eats well at every price point."
   },
@@ -237,7 +241,7 @@ var D = [
       {n:"The Resort at Kapalua Bay", p:2741, r:"9.8", t:["Above band"], note:"Best-reviewed on the island. Kapalua Bay is the calmest swimming water on Maui."},
       {n:"Andaz Maui at Wailea", p:3479, r:"7.8", t:["Amex FHR","Above band"], note:"FHR, so the $300 lands, but it is double your ceiling."}
     ],
-    pick:1284, credit:0, creditNote:"Kaanapali condos are not FHR or THC. Westin Maui is THC and worth a rate check if you want the $300.",
+    pick:1284, pickName:"Aston Kaanapali Shores", credit:0, creditNote:"Kaanapali condos are not FHR or THC. Westin Maui is THC and worth a rate check if you want the $300.",
     food:720, trans:320, act:300,
     costNote:"Transport line is a rental car, roughly $70 a day plus gas."
   },
@@ -259,7 +263,7 @@ var D = [
       {n:"THE ISO HOTEL", p:1298, r:"7.9", t:["Kapaa"], note:"East side, newer, more of a base than a resort."},
       {n:"Timbers Kauai Ocean Club", p:7121, r:"10", t:["Far above band"], note:"Listed only so you can see where the ceiling is."}
     ],
-    pick:1712, credit:0, creditNote:"1 Hotel Hanalei Bay is the Chase Edit property here, and it is far above your band.",
+    pick:1712, pickName:"Grand Hyatt Kauai Resort & Spa", credit:0, creditNote:"1 Hotel Hanalei Bay is the Chase Edit property here, and it is far above your band.",
     food:720, trans:320, act:300,
     costNote:"Rental car is closer to mandatory here than on Maui."
   },
@@ -281,7 +285,7 @@ var D = [
       {n:"Grand Fiesta Americana Coral Beach", p:1595, r:"9.0", t:["All-inclusive"], note:"Best beach in the Hotel Zone proper."},
       {n:"Secrets Playa Blanca Costa Mujeres", p:2174, r:"9.1", t:["All-inclusive","Adults only","Above band"], note:"The stretch pick. Newer, quieter, adults only."}
     ],
-    pick:1595, credit:0, creditNote:"Hilton Cancun and Almare Isla Mujeres are Amex THC. Check their rates if you want the $300 to land here.",
+    pick:1595, pickName:"Hyatt Zilara Cancun", credit:0, creditNote:"Hilton Cancun and Almare Isla Mujeres are Amex THC. Check their rates if you want the $300 to land here.",
     food:120, trans:180, act:300,
     costNote:"Food line is near zero because all-inclusive covers both of you. The $120 is for going off-resort a couple of times."
   },
@@ -303,7 +307,7 @@ var D = [
       {n:"Secrets Puerto Los Cabos", p:1467, r:"8.6", t:["All-inclusive","Adults only"], note:"Adults only, golf resort, quiet."},
       {n:"Hotel El Ganzo", p:773, r:"9.2", t:["Adults only","Boutique","Cheapest"], note:"Small, arty, marina-side. Not a resort, and 9.2 for $773."}
     ],
-    pick:1165, credit:0, creditNote:"Switch to Hilton Los Cabos to trigger the Amex $300 plus the THC third-night and $125 credit.",
+    pick:1165, pickName:"Pueblo Bonito Pacifica", credit:0, creditNote:"Switch to Hilton Los Cabos to trigger the Amex $300 plus the THC third-night and $125 credit.",
     food:120, trans:180, act:300,
     costNote:"All-inclusive again, so the food line is nearly gone. No rental car assumed."
   }
@@ -319,7 +323,7 @@ function total(d){
 }
 function shown(d){
   var t = total(d);
-  if(pay==="split") return Math.round(t/2/100)*100;
+  if(pay==="split") return Math.round(t/2/50)*50;
   if(pay==="big"){
     var big=(d.air.cash*2 + d.pick)*1.1;
     if(cred==="on") big -= (d.credit + 300);
@@ -329,7 +333,7 @@ function shown(d){
 }
 function money(n){ return "$"+n.toLocaleString("en-US"); }
 function dots(n){
-  var s='<span class="dots">';
+  var s='<span class="dots" role="img" aria-label="Effort on you, '+n+' out of 5">';
   for(var i=1;i<=5;i++) s+='<span class="dot'+(i<=n?' on':'')+'"></span>';
   return s+'</span>';
 }
@@ -345,7 +349,7 @@ function renderCmp(){
       '<td><b>'+esc(d.n)+'</b><div class="sub">'+esc(d.sub)+'</div></td>'+
       '<td>'+esc(d.air.stops)+'<div class="sub">'+esc(d.air.carrier)+'</div></td>'+
       '<td class="num">'+money(d.air.cash*2)+'</td>'+
-      '<td>'+money(d.pick)+'<div class="sub">'+esc(d.lodge[0].n)+'</div></td>'+
+      '<td>'+money(d.pick)+'<div class="sub">'+esc(d.pickName)+'</div></td>'+
       '<td class="num"><b>'+money(shown(d))+'</b></td>'+
       '<td>'+dots(d.eff)+'</td>'+
       '<td class="sub" style="min-width:190px">'+esc(d.water.split(".")[0])+'.</td>'+
@@ -359,10 +363,14 @@ function renderCmp(){
   document.getElementById("cmpnote").textContent=n;
 }
 
-function renderTabs(){
+function renderTabs(refocus){
   document.getElementById("tabs").innerHTML = D.map(function(d){
-    return '<button class="tab" role="tab" data-k="'+d.k+'" aria-selected="'+(d.k===cur)+'">'+
+    var sel = d.k===cur;
+    return '<button class="tab" role="tab" id="tab-'+esc(d.k)+'" aria-controls="panel" '+
+      'tabindex="'+(sel?"0":"-1")+'" data-k="'+esc(d.k)+'" aria-selected="'+sel+'">'+
       esc(d.n)+'</button>'; }).join("");
+  document.getElementById("panel").setAttribute("aria-labelledby","tab-"+cur);
+  if(refocus){ var el=document.getElementById("tab-"+cur); if(el) el.focus(); }
 }
 
 function renderPanel(){
@@ -382,8 +390,26 @@ function renderPanel(){
       '<div class="pr">'+money(l.p)+'<small>'+esc(l.r)+' · 4 nights</small></div></div>';
   }).join("");
 
+  var isBig = pay==="big";
+  var base = isBig ? (a.cash*2 + d.pick) : raw(d);
+  var lines = [["Flights, both of you", a.cash*2], ["Room, 4 nights", d.pick]];
+  if(!isBig) lines.push(["Food", d.food], ["Getting around", d.trans], ["Things to do", d.act]);
+  lines.push(["10 percent buffer", Math.round(base*0.1)]);
+  var linesHtml = lines.map(function(l){
+    return '<div class="kv"><span>'+esc(l[0])+'</span><span class="v">'+money(l[1])+'</span></div>';
+  }).join("");
   var creditLine = cred==="on"
     ? '<div class="kv"><span>Credits applied</span><span class="v">-'+money(d.credit+300)+'</span></div>'
+    : '';
+  var otherNote = isBig
+    ? '<p class="sub" style="margin-top:10px"><b>Deliberately not in this number:</b> food, getting '+
+      'around and things to do, '+money(Math.round((d.food+d.trans+d.act)*1.1))+' across the trip, '+
+      'which the second traveler carries under this split.</p>'
+    : '';
+  var credNote = cred==="on"
+    ? '<p class="sub" style="margin-top:6px">Credits are subtracted before the split, so under '+
+      '"split evenly" both people share the benefit and under "you get flights + room" all of it '+
+      'lands on you.</p>'
     : '';
 
   document.getElementById("panel").innerHTML =
@@ -407,16 +433,12 @@ function renderPanel(){
       '<div class="kv"><span>On points instead</span><span class="v">'+ptsLine+'</span></div>'+
       '<p class="sub" style="margin-top:10px">'+esc(a.note)+'</p></div>'+
 
-    '<div class="card"><h3>What the trip costs</h3>'+
-      '<div class="kv"><span>Flights, both of you</span><span class="v">'+money(a.cash*2)+'</span></div>'+
-      '<div class="kv"><span>Room, 4 nights</span><span class="v">'+money(d.pick)+'</span></div>'+
-      '<div class="kv"><span>Food</span><span class="v">'+money(d.food)+'</span></div>'+
-      '<div class="kv"><span>Getting around</span><span class="v">'+money(d.trans)+'</span></div>'+
-      '<div class="kv"><span>Things to do</span><span class="v">'+money(d.act)+'</span></div>'+
-      '<div class="kv"><span>10 percent buffer</span><span class="v">'+money(Math.round(raw(d)*0.1))+'</span></div>'+
+    '<div class="card"><h3>What the trip costs · '+esc(d.pickName)+'</h3>'+
+      linesHtml+
       creditLine+
       '<div class="kv tot"><span>'+(pay==="all"?"Total":pay==="split"?"Your half":"Your share")+'</span>'+
       '<span class="v">'+money(shown(d))+'</span></div>'+
+      otherNote+ credNote+
       '<p class="sub" style="margin-top:10px">'+esc(d.costNote)+'</p></div>'+
   '</div>'+
 
@@ -444,6 +466,15 @@ document.getElementById("segCred").addEventListener("click",function(e){
 document.getElementById("tabs").addEventListener("click",function(e){
   var b=e.target.closest(".tab"); if(!b)return;
   cur=b.dataset.k; renderTabs(); renderPanel();
+});
+document.getElementById("tabs").addEventListener("keydown",function(e){
+  var keys=D.map(function(d){return d.k;}), i=keys.indexOf(cur), n=keys.length, j=-1;
+  if(e.key==="ArrowRight") j=(i+1)%n;
+  else if(e.key==="ArrowLeft") j=(i-1+n)%n;
+  else if(e.key==="Home") j=0;
+  else if(e.key==="End") j=n-1;
+  if(j<0) return;
+  e.preventDefault(); cur=keys[j]; renderTabs(true); renderPanel();
 });
 
 renderAll();

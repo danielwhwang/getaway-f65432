@@ -135,18 +135,19 @@ a{color:var(--sea)}
 </div>
 
 <div class="card flag">
-  <h2>Before you scroll: the honest state of the board</h2>
-  <p>You asked for five. Four of them carry a real strike, and the page shows them rather than
-  flattening everything into a tie:</p>
+  <h2>Before you scroll: everything here is priced on cash flights</h2>
+  <p>Award seats do not filter this board and never should have. Once the conclusion is "pay cash",
+  award availability stops being a reason to prefer or drop a destination, so the only flight facts
+  that matter are price and stops. <b>All five leave on Saturday Sep 19.</b></p>
   <ul>
-    <li><b>Maui and Kauai</b> have only one award seat from PDX, so they were never a points play for
-    two. On cash they are fine, and cheap.</li>
-    <li><b>Cabo</b> cannot leave on your Saturday. One award seat on 9/19, so it shifts to Sun 9/20 and
-    eats a day of your decompress weekend. On cash the Saturday works.</li>
-    <li><b>Cancun</b> is the longest travel day on the board, one stop each way, and the only one where
-    a passport expiry actually matters.</li>
-    <li><b>Honolulu</b> has no strike. It is nonstop, among the cheapest to fly, and the only one that needs no
-    rental car.</li>
+    <li><b>Nonstop from PDX:</b> Honolulu $379 and Maui $376. These two buy you the most actual
+    holiday out of four nights, which matters more here than anywhere, because four nights is short.</li>
+    <li><b>One stop:</b> Kauai $371, Cancun $501, Cabo $506. Kauai is the cheapest of all five to fly
+    despite the connection.</li>
+    <li><b>No nonstop exists</b> from Portland to Kauai, Cancun or Cabo in September. For Cabo that is
+    a seasonal winter route, so it is one stop on any day of the week, not a Saturday problem.</li>
+    <li><b>Award space is a footnote now</b>, shown per destination so you can see what you are turning
+    down. The best of them is Honolulu at 0.61 cents per point, against your 2.0 bar.</li>
   </ul>
 </div>
 
@@ -205,7 +206,7 @@ var D = [
     k:"hnl", n:"Honolulu", sub:"Oahu · Waikiki",
     hi:"Nonstop, no rental car, and the only option on the board with zero logistics against it.",
     air:{cash:379, stops:"nonstop", carrier:"Alaska", miles:56400, tax:36, seats:"5 seats each way",
-         note:"The only Hawaiian island with real award space for two out of PDX. Also the one where you should ignore that fact and pay cash."},
+         note:"Nonstop both ways on Alaska. Award space exists here and nowhere else in Hawaii for two, but at 0.61 cents per point you should ignore it and pay cash."},
     strike:null,
     eff:1,
     water:"Waikiki is a calm, protected, gently shelving beach. It is the easiest water on this board for someone who is not a strong swimmer, and Hanauma Bay snorkeling is 25 minutes away.",
@@ -226,12 +227,12 @@ var D = [
   {
     k:"ogg", n:"Maui", sub:"Kaanapali and Wailea",
     hi:"The postcard. Better beach than Waikiki by a wide margin, nonstop, and cheaper to fly than Honolulu.",
-    air:{cash:376, stops:"nonstop", carrier:"Alaska", miles:null, tax:null, seats:"1 award seat only",
-         note:"One award seat from PDX, so this was never a points trip for two. At $376 nonstop that does not matter."},
-    strike:"One award seat from PDX. Cash only for two.",
+    air:{cash:376, stops:"nonstop", carrier:"Alaska", miles:null, tax:null, seats:"nonstop both ways",
+         note:"Cheapest fare on the whole board and nonstop. Award space is thin, which is irrelevant once you are paying cash anyway."},
+    strike:null,
     eff:2,
     water:"Black Rock at Kaanapali has snorkeling straight off the sand, no boat needed. Turtles most mornings. This is the strongest water on the board for a beginner who wants to actually see something.",
-    good:["Nonstop from PDX and the cheapest flight of all five.","Resort beach rather than city beach. This is what a first-time visitor pictures.","Black Rock snorkeling is walk-in, which beats booking a boat.","Kaanapali condos land well inside your budget."],
+    good:["Nonstop from PDX and the cheapest flight of all five at $376.","Resort beach rather than city beach. This is what a first-time visitor pictures.","Black Rock snorkeling is walk-in, which beats booking a boat.","Kaanapali condos land well inside your budget."],
     bad:["You want a rental car here. Normal for Maui, but it is a line item and a small load.","Wailea and Kapalua luxury tiers are all far above your band. The value is at Kaanapali.","Lahaina is still rebuilding. Worth knowing before you go."],
     lodge:[
       {n:"Sheraton Maui Resort & Spa", p:1856, r:"8.6", t:["Black Rock","Stretch"], note:"Sits on Black Rock itself. Snorkeling is 30 seconds from your towel."},
@@ -248,9 +249,9 @@ var D = [
   {
     k:"lih", n:"Kauai", sub:"Poipu and the south shore",
     hi:"The most beautiful of the three, and the Grand Hyatt is unexpectedly inside your budget.",
-    air:{cash:371, stops:"1 stop", carrier:"Alaska", miles:null, tax:null, seats:"1 award seat only",
-         note:"One award seat from PDX. Cheapest cash fare of the five, but it is the only Hawaii option that is not nonstop."},
-    strike:"One award seat, and no nonstop from PDX.",
+    air:{cash:371, stops:"1 stop", carrier:"Alaska", miles:null, tax:null, seats:"1 stop each way",
+         note:"Cheapest cash fare of the five at $371, but the only Hawaii island without a nonstop, so it is the longest Hawaii travel day."},
+    strike:"No nonstop from PDX, so it is the longest Hawaii travel day.",
     eff:3,
     water:"Poipu Beach is protected and calm, and monk seals haul out on it regularly. North shore water in late September starts getting rough, so south shore is the right base.",
     good:["Grand Hyatt Kauai at $1,712 for four nights is a genuine anomaly. It is normally far more.","Least developed and best looking of the three islands.","Poipu is flat, calm, and easy."],
@@ -271,8 +272,8 @@ var D = [
     k:"cun", n:"Cancun", sub:"Hotel Zone and Costa Mujeres",
     hi:"The genuinely foreign one, and all-inclusive means the room rate is very nearly the whole trip.",
     air:{cash:501, stops:"1 stop", carrier:"Volaris", miles:96400, tax:196, seats:"5 seats each way",
-         note:"Award space exists for two, but at 96,400 miles round trip it is 0.32 cents per point. Pay cash."},
-    strike:"One stop each way, longest travel day, and passport validity actually matters.",
+         note:"One stop each way on Volaris. Award space exists for two but at 0.32 cents per point it is the worst redemption on the board. Pay cash."},
+    strike:"Longest travel day on the board, and the only one where passport validity actually matters.",
     eff:4,
     water:"Caribbean. Warm, clear, turquoise, and the single biggest visual step up on this board. Costa Mujeres water is calmer than the Hotel Zone.",
     good:["It is unmistakably abroad. Passport, another language, another currency.","All-inclusive removes every daily decision, which is the actual definition of restful.","Adults-only resorts at 9.1 review scores sit inside your budget with food and drink included.","NOAA has the Atlantic below normal this season, so this is the calmer Mexico bet in 2026."],
@@ -292,9 +293,9 @@ var D = [
   {
     k:"sjd", n:"Los Cabos", sub:"Cabo San Lucas and San Jose del Cabo",
     hi:"Cheapest total on the board, driest weather in Mexico, and adults-only all-inclusive under budget.",
-    air:{cash:474, stops:"1 stop", carrier:"Volaris", miles:64300, tax:220, seats:"4 seats, must leave 9/20",
-         note:"On cash your Saturday works. On points it does not: only one award seat on 9/19, so the trip would shift to Sun 9/20 to Thu 9/24."},
-    strike:"On points it costs you the Saturday. On cash it does not.",
+    air:{cash:506, stops:"1 stop", carrier:"United", miles:64300, tax:220, seats:"Saturday Sep 19 available on cash",
+         note:"Saturday works: $506, one stop, 6h30 on United. There is no nonstop PDX to Cabo in September at all, that route is seasonal winter, so it is one stop on any day. Leaving Sunday saves about $32 and is not worth a day."},
+    strike:"One stop each way. No nonstop from PDX in September, the route is seasonal winter.",
     eff:3,
     water:"Desert meets ocean, and it is dramatic. Important caveat: much of the Cabo San Lucas coast has dangerous surf and is not swimmable. Medano Beach and the San Jose hotel zone are the swimmable stretches, so the property choice does more work here than anywhere else.",
     good:["Cheapest all-in total of the five at roughly $3,000.","Shortest flight to Mexico and the driest of the Mexican beach options.","Adults-only all-inclusive at 8.9 for $1,165 total, food and drink included.","Hilton Los Cabos is Amex THC with a free third night plus a $125 credit, which is real money on four nights."],

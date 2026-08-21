@@ -105,7 +105,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px;colo
     <span class="chip"><b>Window</b> Sat Sep 19 to Sun Sep 27</span>
     <span class="chip"><b>Away</b> 3 to 5 nights</span>
     <span class="chip"><b>Rest</b> the remaining days at home</span>
-    <span class="chip"><b>Flights</b> live seats.aero, pulled 2026-08-19</span>
+    <span class="chip"><b>Flights</b> live seats.aero, pulled 2026-08-20</span>
   </div>
 </header>
 
@@ -195,7 +195,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px;colo
 <footer class="wrap">
   <p>Costs are estimates for two people, with a 10 percent buffer, rounded to the nearest $50.
   Lodging is one shared room and does not double. Flight availability is a seats.aero snapshot from
-  2026-08-19 and is not held until it is ticketed. Private page, not indexed.</p>
+  2026-08-20 and is not held until it is ticketed. Private page, not indexed.</p>
 </footer>
 
 <script>
@@ -432,7 +432,7 @@ function renderCity(){
     + '<tr class="tot"><td>Your total</td><td class="n">'+fmt(t.yp)+'</td><td class="n">'+fmt(t.yc)+"</td></tr>";
   $("hersNote").textContent = t.herLabel;
 
-  $("flyStamp").textContent = "Live seats.aero snapshot, 2026-08-19. Cheapest fare with at least 2 seats left. Miles are per person, one way.";
+  $("flyStamp").textContent = "Live seats.aero snapshot, 2026-08-20. Cheapest fare with at least 2 seats left. Miles are per person, one way.";
   $("flyTbl").innerHTML = '<thead><tr><th>Leg</th><th class="c">Out</th><th class="c">Back</th></tr></thead><tbody>'
     + "<tr><td>Economy</td>" + legCell(f.out) + legCell(f.back) + "</tr></tbody>";
   $("flyNote").textContent = f.note;

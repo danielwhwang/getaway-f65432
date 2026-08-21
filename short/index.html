@@ -1,0 +1,461 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>The Short Version · September 2026</title>
+<style>
+:root{
+  --bg:#FAF7F2; --card:#FFFFFF; --ink:#2B2622; --mid:#6F6459; --line:#E7DED2;
+  --clay:#B4553A; --clay-soft:#F4E7E1; --gold:#B8893B; --green:#5B7A4E;
+  --shadow:0 1px 2px rgba(43,38,34,.06),0 8px 24px rgba(43,38,34,.07);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+.serif{font-family:Georgia,"Iowan Old Style","Times New Roman",serif}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{padding:44px 0 28px;border-bottom:1px solid var(--line)}
+h1{font-family:Georgia,serif;font-size:clamp(30px,5vw,44px);line-height:1.12;margin:0 0 10px;letter-spacing:-.4px}
+.dek{color:var(--mid);max-width:66ch;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 13px;font-size:13px;color:var(--mid)}
+.chip b{color:var(--ink);font-weight:600}
+.controls{position:sticky;top:0;z-index:20;background:rgba(250,247,242,.94);
+  backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line);padding:14px 0;margin-bottom:30px}
+.ctrow{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tab{font:inherit;font-size:15px;font-weight:600;cursor:pointer;border:1px solid var(--line);
+  background:#fff;color:var(--mid);padding:9px 17px;border-radius:999px}
+.tab[aria-selected="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.seg{display:flex;gap:0;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:#fff}
+.seg button{font:inherit;font-size:13px;font-weight:600;cursor:pointer;border:0;background:#fff;
+  color:var(--mid);padding:9px 14px;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--clay);color:#fff}
+.seglab{font-size:12px;color:var(--mid);letter-spacing:.06em;text-transform:uppercase;font-weight:700;margin-right:2px}
+.segwrap{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.tagline{display:inline-block;background:var(--clay-soft);color:var(--clay);font-size:12.5px;font-weight:700;
+  letter-spacing:.07em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+.lede{font-size:19px;line-height:1.6;margin:14px 0 26px;max-width:70ch}
+.cols{display:grid;grid-template-columns:1.25fr 1fr;gap:22px;align-items:start}
+@media(max-width:860px){.cols{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card h2{font-family:Georgia,serif;font-size:20px;margin:0 0 14px;letter-spacing:-.2px}
+.cnote{font-size:13px;color:var(--mid);margin:-6px 0 16px;max-width:74ch}
+ol.days{list-style:none;counter-reset:d;padding:0;margin:0}
+ol.days li{counter-increment:d;padding:11px 0 11px 42px;position:relative;border-bottom:1px solid var(--line)}
+ol.days li:last-child{border-bottom:0;padding-bottom:0}
+ol.days li::before{content:counter(d);position:absolute;left:0;top:12px;width:27px;height:27px;border-radius:50%;
+  background:var(--clay-soft);color:var(--clay);font-size:12.5px;font-weight:700;display:grid;place-items:center}
+ol.days b{display:block;font-size:15px}
+ol.days span{color:var(--mid);font-size:14.5px}
+.flag{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+.flag:last-child{border-bottom:0;padding-bottom:0}
+.flag i{font-style:normal;font-size:19px;line-height:1.3}
+.flag b{font-size:14.5px}
+.flag span{color:var(--mid);font-size:14px}
+.big{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.big>div{border-radius:11px;padding:14px}
+.pts{background:#F1F5EE;border:1px solid #D8E4D2}
+.csh{background:#FBF3E8;border:1px solid #EFE0C9}
+.big small{display:block;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--mid)}
+.big strong{display:block;font-family:Georgia,serif;font-size:27px;line-height:1.2;margin:3px 0 2px}
+.big em{font-style:normal;font-size:12px;color:var(--mid)}
+table{width:100%;border-collapse:collapse}
+th,td{text-align:left;padding:8px 0;border-bottom:1px solid var(--line);font-size:14.5px;vertical-align:top}
+th{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mid)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.tot td{font-weight:700;border-bottom:0;border-top:2px solid var(--ink);font-size:16px}
+.sub{display:block;font-size:11.5px;color:var(--mid);font-weight:400;letter-spacing:0}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -4px;padding:0 4px}
+table.cmp{min-width:720px;font-size:14px}
+table.cmp th.c,table.cmp td.c{text-align:right;font-variant-numeric:tabular-nums;padding-left:14px;white-space:nowrap}
+table.cmp th:first-child,table.cmp td:first-child{position:sticky;left:0;background:var(--card);z-index:1;padding-right:14px;max-width:230px}
+table.cmp th.c{color:var(--ink);font-size:12.5px}
+table.cmp th.c span{display:block;font-weight:400;color:var(--mid);font-size:11px;letter-spacing:0;text-transform:none}
+table.cmp td.c .sub{white-space:normal;max-width:150px;margin-left:auto}
+.win{color:var(--green);font-weight:700}
+.dots{letter-spacing:2px;font-size:13px}
+.dots b{color:var(--clay)}
+.dots span{color:var(--line)}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 60px;color:var(--mid);font-size:13px}
+</style>
+
+<header class="wrap">
+  <h1 class="serif">The short version</h1>
+  <p class="dek">Half the week away with her, half the week at home. Three to five nights, somewhere a
+  flight gets you to, sized so that a trip going sideways costs a long weekend and not the whole
+  vacation. Six options, priced for two people, with the cost split three ways because that part
+  is not decided yet.</p>
+  <div class="meta">
+    <span class="chip"><b>Window</b> Sat Sep 19 to Sun Sep 27</span>
+    <span class="chip"><b>Away</b> 3 to 5 nights</span>
+    <span class="chip"><b>Rest</b> the remaining days at home</span>
+    <span class="chip"><b>Flights</b> live seats.aero, pulled 2026-08-19</span>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="wrap ctrow">
+    <div class="tabs" id="tabs" role="tablist"></div>
+    <div class="segwrap">
+      <span class="seglab">Who pays</span>
+      <div class="seg" id="seg">
+        <button data-s="all" aria-pressed="true">You cover it</button>
+        <button data-s="lodging" aria-pressed="false">You: lodging</button>
+        <button data-s="split" aria-pressed="false">Split evenly</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div id="cityView">
+    <span class="tagline" id="tagline"></span>
+    <p class="lede serif" id="lede"></p>
+    <div class="cols">
+      <div>
+        <div class="card">
+          <h2 id="doTitle">What you would actually do</h2>
+          <p class="cnote" id="doNote"></p>
+          <ol class="days" id="days"></ol>
+        </div>
+        <div class="card">
+          <h2>Effort on you</h2>
+          <p class="cnote" id="effNote"></p>
+          <div id="effRows"></div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <h2>What it costs</h2>
+          <p class="cnote" id="whoNote"></p>
+          <div class="big">
+            <div class="pts"><small>Flight on points</small><strong id="tPts"></strong><em id="ePts"></em></div>
+            <div class="csh"><small>Flight on cash</small><strong id="tCash"></strong><em id="eCash"></em></div>
+          </div>
+          <table><thead><tr><th>Line item</th><th class="n">Points</th><th class="n">Cash</th></tr></thead>
+            <tbody id="rows"></tbody></table>
+          <p class="cnote" id="hersNote" style="margin:14px 0 0"></p>
+        </div>
+        <div class="card">
+          <h2>Getting there</h2>
+          <p class="cnote" id="flyStamp"></p>
+          <div class="scroll"><table class="cmp" id="flyTbl"></table></div>
+          <p class="cnote" id="flyNote" style="margin:12px 0 0"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cmpView" hidden>
+    <div class="card">
+      <h2>What each one is actually for</h2>
+      <p class="cnote">The honest character of each place, not the brochure version. Pick on this first,
+      then check that the cost is not silly.</p>
+      <div class="scroll"><table class="cmp" id="cA"></table></div>
+    </div>
+    <div class="card">
+      <h2>Cost and logistics</h2>
+      <p class="cnote" id="cBnote"></p>
+      <div class="scroll"><table class="cmp" id="cB"></table></div>
+    </div>
+    <div class="card">
+      <h2>Effort required from you</h2>
+      <p class="cnote">You said the hosting load was the thing you kept running into. Lower is easier.
+      This is the axis the eight-night version was quietly failing on.</p>
+      <div class="scroll"><table class="cmp" id="cC"></table></div>
+    </div>
+    <div class="card">
+      <h2>What is not in these numbers</h2>
+      <div id="levers"></div>
+    </div>
+  </div>
+</div>
+
+<footer class="wrap">
+  <p>Costs are estimates for two people, with a 10 percent buffer, rounded to the nearest $50.
+  Lodging is one shared room and does not double. Flight availability is a seats.aero snapshot from
+  2026-08-19 and is not held until it is ticketed. Private page, not indexed.</p>
+</footer>
+
+<script>
+const D = {
+ vancouver:{
+  name:"Vancouver", sub:"4 nights", tag:"The easy yes",
+  lede:"One hour from PDX, nonstop, and her passport gets used. It is the lowest-effort way to make a trip feel like a trip, and the Asian food is the real reason to go rather than a consolation prize. You said there is not much you want to see there. That is fine, and it is the point.",
+  doNote:"You called this an eating trip. Built that way on purpose.",
+  days:[
+   ["Land and eat","One hour in the air. Drop bags, walk to dinner. The day is not eaten by travel, which is the whole argument for this one."],
+   ["Richmond","Arguably the best Chinese food outside Asia, and the night market runs through September. This is the day that justifies the trip."],
+   ["Flat and slow","Stanley Park seawall and Granville Island. All flat, all walkable, no hills and no hike."],
+   ["Gastown and Chinatown","Dim sum, the old blocks, coffee. A short day with nothing booked in it."],
+   ["Loose","Sushi, a long lunch, whatever you skipped. Late checkout and an evening flight home."]],
+  eff:{score:1, note:"The least demanding option on the page by a wide margin.",
+   rows:[["Travel time","1 hour nonstop from PDX, no positioning"],
+         ["Car","Not needed. SkyTrain and Ubers cover it"],
+         ["Support load","English, safe, familiar systems. Nothing to orient her through"],
+         ["Planning","Almost none. Pick restaurants, show up"],
+         ["Bail cost","Lowest here. You can be home the same day"]]},
+  c:{fc:280, fm:12000, fp:116, lodge:800, car:0, food:800, local:120, act:150}},
+
+ mexico:{
+  name:"Mexico City", sub:"5 nights", tag:"The foreign one",
+  lede:"The only option here that feels genuinely like another country the moment you land, which is the thing you actually want to give her. It costs you the most in travel time and in hosting, because there is no PDX award space and everything routes through LAX. Five nights, not four, precisely because two of them go to airports.",
+  doNote:"Neither of you has been. That is a feature: you are both figuring it out, so you are not the guide.",
+  days:[
+   ["Get there","PDX to LAX to MEX. A full travel day. Land, eat something near the hotel, go to bed early and let the altitude settle."],
+   ["Roma and Condesa","Flat, leafy, walkable, and where you will want to eat. Ease in rather than sightseeing hard on day two."],
+   ["Centro","Museums and markets. The Anthropology museum is the one thing worth planning around."],
+   ["Coyoacan","Markets, the old streets, a long lunch. The most charming day of the trip."],
+   ["Slow","Nothing booked. Eat well twice, walk the neighborhood, do not add a sixth thing."],
+   ["Loose, then fly","Morning free, afternoon flight, back through LAX. Another travel day, so do not plan anything into it."]],
+  eff:{score:5, note:"The highest hosting load on the page, and you named this yourself.",
+   rows:[["Travel time","No PDX award space. Roughly 8 to 9 hours door to door via LAX"],
+         ["Car","Not needed, and you would not want one. Ubers are cheap"],
+         ["Support load","Highest here. Spanish, water caution, and a safety perception you will end up managing whether or not it is warranted"],
+         ["Altitude","7,350 feet. Day one is slower than you expect"],
+         ["Bail cost","Highest. You are two flights from home"]]},
+  c:{fc:450, fm:28000, fp:214, lodge:750, car:0, food:780, local:150, act:250}},
+
+ vegas:{
+  name:"Las Vegas", sub:"3 nights", tag:"The zero-planning one",
+  lede:"Two hours nonstop, and the city does the work for you. For someone who has essentially never taken a trip, Vegas reads as unambiguously a big deal, and you can make it feel special without planning a single thing. Three nights is the ceiling. September still runs near 95F, so this is a pool-and-indoors trip, not a walking one.",
+  doNote:"The one place where doing no planning is the correct strategy rather than laziness.",
+  days:[
+   ["Arrive","Two hour flight, check in, pool before dinner. The spectacle does the heavy lifting from minute one."],
+   ["Pool and a show","Daytime is too hot to be outside for long. Pool, a long dinner, then a show. Book exactly one thing."],
+   ["Eat","The restaurant scene is genuinely world class now. This is the day to spend money on one very good meal."],
+   ["Home","Late checkout, afternoon flight. Short enough that nobody is tired of anybody."]],
+  eff:{score:1, note:"Tied for easiest. The city is designed to remove decisions from you.",
+   rows:[["Travel time","About 2 hours nonstop from PDX"],
+         ["Car","Not needed. Strip plus Ubers"],
+         ["Support load","Very low. English, everything is signposted, nothing to explain"],
+         ["Heat","Near 95F in late September. Plan indoors and pool, not walking"],
+         ["Bail cost","Low. Short flight, frequent service"]]},
+  c:{fc:200, fm:29900, fp:12, lodge:660, car:0, food:800, local:150, act:400}},
+
+ honolulu:{
+  name:"Honolulu", sub:"5 nights", tag:"The big one",
+  lede:"The option that most unambiguously reads as a real vacation to someone who has not had one. Nonstop from PDX, no rental car needed, and the whole thing can be beach and food with no itinerary at all. It is the most expensive here, and it is also the one she would remember.",
+  doNote:"Waikiki as a base means you can do nothing for five days without it feeling like a waste.",
+  days:[
+   ["Arrive","Nonstop from PDX, land in the afternoon. Beach, dinner, early night. Three hour time change westbound, so barely any jetlag."],
+   ["Nothing","Deliberately. Beach, pool, a long lunch. The trip does not start until you have had one useless day."],
+   ["Kaimuki and Chinatown","The food that is not on the beach. Short bus or Uber, flat, no hike."],
+   ["Water","Snorkel, catamaran, or just the beach again. The one day to book something."],
+   ["Nothing again","Same as day two. Read something, swim, eat shave ice. This is what the five nights are for."],
+   ["Loose, then fly","Morning at the beach, afternoon flight, home the same day."]],
+  eff:{score:2, note:"Long flight, but almost nothing to manage once you land.",
+   rows:[["Travel time","About 5.5 hours nonstop from PDX"],
+         ["Car","Not needed if you stay in Waikiki. This is why Honolulu and not Kauai"],
+         ["Support load","Low. English, domestic, easy"],
+         ["Your toe","Skip Diamond Head. It is a real climb and there is nothing there you need"],
+         ["Bail cost","Moderate. One long flight home"]]},
+  c:{fc:550, fm:56400, fp:36, lodge:1350, car:0, food:1080, local:120, act:300}},
+
+ sandiego:{
+  name:"San Diego", sub:"4 nights", tag:"The low-risk one",
+  lede:"Mid-70s and dry in late September, flat, and close enough that nothing is a commitment. It is the least exciting option on this page and the hardest one to get wrong. If what you want is four pleasant days with someone you have known seven weeks, this is the unglamorous right answer.",
+  doNote:"The only city here where a rental car genuinely helps, which you have said is fine.",
+  days:[
+   ["Arrive","Two and a half hours nonstop. Pick up the car, get to the water, eat in Little Italy."],
+   ["Beaches","La Jolla, the coast, the seals. Flat, short drives, nothing strenuous."],
+   ["Balboa Park","Gardens and museums, all walkable and level. A slow day that still feels like something."],
+   ["North Park","The food and coffee side of the city, away from the water. Flat, easy, no plan needed."],
+   ["Loose, then fly","Morning at the beach, afternoon flight. Home for dinner."]],
+  eff:{score:2, note:"Very low effort, with a car doing the work instead of transit.",
+   rows:[["Travel time","About 2.5 hours nonstop from PDX"],
+         ["Car","Worth renting. Short drives between flat places, not driving for photographs"],
+         ["Support load","Very low. Domestic, English, mild weather, no surprises"],
+         ["Weather","Mid-70s and dry. The most comfortable option on the page"],
+         ["Bail cost","Low"]]},
+  c:{fc:280, fm:32200, fp:12, lodge:920, car:280, food:850, local:0, act:250}},
+
+ chicago:{
+  name:"Chicago", sub:"4 nights", tag:"The city one",
+  lede:"Nonstop from PDX with nine award seats each way, genuinely flat, and the transit is the kind you said you like. Late September is its best month by some distance. It is a serious eating city that is not Asia, and it gives her a big American city without New York prices or New York walking.",
+  doNote:"Flat, transit-first, and the sitting-down version of sightseeing is unusually good here.",
+  days:[
+   ["Arrive","Four hours nonstop, train in from the airport. Dinner in the neighborhood, no agenda."],
+   ["The river","Architecture boat tour, which is the rare sightseeing thing you do sitting down. Then Millennium Park and the Loop."],
+   ["Neighborhoods","Pilsen or Logan Square for the food that is not downtown. All flat, all reachable on the L."],
+   ["Art and home","Art Institute in the morning, then one more neighborhood. Nothing strenuous."],
+   ["Loose, then fly","A last long breakfast, evening nonstop home."]],
+  eff:{score:2, note:"Easy, with the only real cost being four hours each way.",
+   rows:[["Travel time","About 4 hours nonstop from PDX, 9 award seats each way"],
+         ["Car","Not needed. The L covers everything you would do"],
+         ["Support load","Low. Domestic, and the city is easy to read"],
+         ["Weather","Late September is reliably its best stretch. Mid-70s days"],
+         ["Bail cost","Moderate"]]},
+  c:{fc:330, fm:30000, fp:12, lodge:840, car:0, food:950, local:120, act:250}}
+};
+
+const FLY = {
+ vancouver:{out:{mi:6000,cash:39,seats:9,al:"AC",ns:true,pair:"PDX-YVR"},
+            back:{mi:6000,cash:77,seats:8,al:"AC",ns:true,pair:"YVR-PDX"},
+            note:"Nonstop from PDX both ways, no positioning. At one hour, cash is also cheap, so points here are a convenience rather than a saving."},
+ mexico:{out:{mi:14000,cash:90,seats:7,al:"AM",ns:true,pair:"LAX-MEX"},
+         back:{mi:14000,cash:124,seats:9,al:"AM, DL",ns:true,pair:"MEX-LAX"},
+         note:"No PDX award space at all. These start at LAX, so add a positioning flight each way. That is the real cost of this option, and it is why five nights rather than four."},
+ vegas:{out:{mi:13800,cash:6,seats:3,al:"AA, AS",ns:false,pair:"PDX-LAS"},
+        back:{mi:16100,cash:6,seats:3,al:"AA, AS",ns:true,pair:"LAS-PDX"},
+        note:"Pay cash for this one. About 30k miles round trip for a two hour flight is poor value when the cash fare is low. Save the points."},
+ honolulu:{out:{mi:28200,cash:18,seats:5,al:"AS, HA",ns:false,pair:"PDX-HNL"},
+           back:{mi:28200,cash:18,seats:5,al:"AA, AS, HA",ns:true,pair:"HNL-PDX"},
+           note:"The best points value on this page. Roughly 56k miles round trip against a cash fare near $550 is a genuinely good use of the balance."},
+ sandiego:{out:{mi:16100,cash:6,seats:5,al:"AS",ns:true,pair:"PDX-SAN"},
+           back:{mi:16100,cash:6,seats:5,al:"AS",ns:true,pair:"SAN-PDX"},
+           note:"Award space from PDX is thin in economy and the cash fare is low. Like Vegas, this is a cash booking."},
+ chicago:{out:{mi:15000,cash:6,seats:9,al:"UA",ns:true,pair:"PDX-ORD"},
+          back:{mi:15000,cash:6,seats:9,al:"UA",ns:true,pair:"ORD-PDX"},
+          note:"Nonstop both ways on United with nine seats each direction and almost no fees. The cleanest redemption on the page after Honolulu."}
+};
+
+const LEVERS = [
+ ["💳","The two credits that expire on 12/31.","A prepaid three or four night hotel is exactly the vehicle for the Chase select-hotel $250 and the Amex Platinum Jul-Dec $300. Neither triggers on a points booking. Roughly $550 that would otherwise be forfeited, which covers most of a second flight. Book lodging prepaid through a portal rather than on Hyatt points."],
+ ["🏨","Lodging is the softest number here.","Every room rate is a mid-range estimate for one shared room. A points night or a portal deal moves these more than anything else on the page."],
+ ["✈️","Points are not always the right call.","Vegas and San Diego are cash bookings: short flights with low fares where the mileage price is poor. Honolulu and Chicago are the two worth spending points on."],
+ ["🏠","The home half is not priced.","Whatever is left of the week after the trip is at home and costs nothing. Which half comes first is still open, and the flights do not care."],
+ ["🕚","Nothing here uses the full week.","That is the point. The longest option is five nights, so a trip that goes badly costs a long weekend rather than the whole vacation."]
+];
+
+const ORDER = ["vancouver","mexico","vegas","honolulu","sandiego","chicago"];
+let city = "vancouver", split = "all";
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt = n => "$" + Math.round(n).toLocaleString();
+const r50 = n => Math.round(n/50)*50;
+
+function calc(c){
+  const ground = c.lodge + c.car + c.food + c.local + c.act;
+  const cashAll = (ground + c.fc*2) * 1.1;
+  const ptsAll  = (ground + c.fp*2) * 1.1;
+  let yc, yp, her = 0, herLabel = "";
+  if(split === "all"){ yc = cashAll; yp = ptsAll; }
+  else if(split === "lodging"){
+    yc = (ground + c.fc) * 1.1; yp = (ground + c.fp) * 1.1;
+    her = c.fc * 1.1; herLabel = "Her flight, booked by her: about " + fmt(r50(her)) + " in cash, or " + (c.fm/1000) + "k miles plus " + fmt(c.fp) + " if you transfer her the points.";
+  } else { yc = cashAll/2; yp = ptsAll/2;
+    herLabel = "She pays the same again: " + fmt(r50(yc)) + " on the cash version.";
+  }
+  return {yc:r50(yc), yp:r50(yp), ground, cashAll:r50(cashAll), ptsAll:r50(ptsAll), herLabel};
+}
+
+const SPLITLAB = {
+  all:"Everything for both of you, on you.",
+  lodging:"Your share: lodging, car, food, activities, and your own flight. She books hers.",
+  split:"Your half of an evenly split trip."
+};
+
+function dots(n){
+  let s = "";
+  for(let i=1;i<=5;i++) s += i<=n ? "<b>●</b>" : "<span>●</span>";
+  return '<span class="dots">'+s+"</span>";
+}
+
+function legCell(r){
+  if(!r) return '<td class="c">none</td>';
+  const fee = r.cash === 0 ? "no fees" : "+$"+r.cash;
+  return '<td class="c">'+(Math.round(r.mi/100)/10)+'k<span class="sub">'+fee+" · "+r.seats+" seats · "+esc(r.al)+" · "+(r.ns?"nonstop":"1 stop")+" · "+esc(r.pair)+"</span></td>";
+}
+
+function renderCity(){
+  const d = D[city], c = d.c, t = calc(c), f = FLY[city];
+  $("tagline").textContent = d.tag;
+  $("lede").textContent = d.lede;
+  $("doTitle").textContent = d.name + " · " + d.sub;
+  $("doNote").textContent = d.doNote;
+  $("days").innerHTML = d.days.map(x => "<li><b>"+esc(x[0])+"</b><span>"+esc(x[1])+"</span></li>").join("");
+
+  $("effNote").innerHTML = esc(d.eff.note) + " &nbsp; " + dots(d.eff.score);
+  $("effRows").innerHTML = d.eff.rows.map(x =>
+    '<div class="flag"><i>·</i><div><b>'+esc(x[0])+"</b><br><span>"+esc(x[1])+"</span></div></div>").join("");
+
+  $("whoNote").textContent = SPLITLAB[split];
+  $("tPts").textContent = fmt(t.yp);
+  $("tCash").textContent = fmt(t.yc);
+  $("ePts").textContent = (c.fm/1000) + "k miles per person";
+  $("eCash").textContent = "Economy fare in cash";
+
+  const flightCount = split === "lodging" ? 1 : (split === "split" ? 1 : 2);
+  const sc = split === "split" ? 0.5 : 1;
+  const rows = [
+   ["Flights" + (flightCount===2?" (x2)":""), c.fp*flightCount*sc*(split==="split"?2:1), c.fc*flightCount*sc*(split==="split"?2:1), (c.fm/1000)+"k miles each"],
+   ["Lodging", c.lodge*sc, c.lodge*sc, d.sub + ", one room"]
+  ];
+  if(c.car) rows.push(["Rental car", c.car*sc, c.car*sc, "flat, short drives"]);
+  rows.push(["Food", c.food*sc, c.food*sc, "two people"]);
+  if(c.local) rows.push(["Local transport", c.local*sc, c.local*sc, ""]);
+  rows.push(["Activities", c.act*sc, c.act*sc, ""]);
+  const bp = t.yp - (rows.reduce((a,r)=>a+r[1],0));
+  const bc = t.yc - (rows.reduce((a,r)=>a+r[2],0));
+  rows.push(["Buffer (10%)", bp, bc, ""]);
+  $("rows").innerHTML = rows.map(r =>
+    "<tr><td>"+esc(r[0])+(r[3]?'<br><span class="sub">'+esc(r[3])+"</span>":"")+
+    '</td><td class="n">'+fmt(r[1])+'</td><td class="n">'+fmt(r[2])+"</td></tr>").join("")
+    + '<tr class="tot"><td>Your total</td><td class="n">'+fmt(t.yp)+'</td><td class="n">'+fmt(t.yc)+"</td></tr>";
+  $("hersNote").textContent = t.herLabel;
+
+  $("flyStamp").textContent = "Live seats.aero snapshot, 2026-08-19. Cheapest fare with at least 2 seats left. Miles are per person, one way.";
+  $("flyTbl").innerHTML = '<thead><tr><th>Leg</th><th class="c">Out</th><th class="c">Back</th></tr></thead><tbody>'
+    + "<tr><td>Economy</td>" + legCell(f.out) + legCell(f.back) + "</tr></tbody>";
+  $("flyNote").textContent = f.note;
+}
+
+function cmpHead(){
+  return "<thead><tr><th></th>" + ORDER.map(k =>
+    '<th class="c">'+esc(D[k].name)+"<span>"+esc(D[k].sub)+"</span></th>").join("") + "</tr></thead>";
+}
+
+function renderCmp(){
+  $("cA").innerHTML = cmpHead() + "<tbody>"
+   + "<tr><td>What it is</td>" + ORDER.map(k => '<td class="c">'+esc(D[k].tag)+"</td>").join("") + "</tr>"
+   + "<tr><td>The day you would remember</td>" + ORDER.map(k => '<td class="c"><span class="sub" style="max-width:170px">'+esc(D[k].days[1][0])+": "+esc(D[k].days[1][1].slice(0,90))+"</span></td>").join("") + "</tr>"
+   + "<tr><td>Feels like abroad</td>" + ORDER.map(k => '<td class="c">'+(k==="mexico"?"Completely":k==="vancouver"?"Somewhat":"No, but it is a flight")+"</td>").join("") + "</tr>"
+   + "</tbody>";
+
+  $("cBnote").textContent = "Your cost, on the split currently selected: " + SPLITLAB[split].toLowerCase();
+  const tots = ORDER.map(k => calc(D[k].c));
+  const minC = Math.min(...tots.map(t=>t.yc)), minP = Math.min(...tots.map(t=>t.yp));
+  $("cB").innerHTML = cmpHead() + "<tbody>"
+   + "<tr><td>Nights</td>" + ORDER.map(k => '<td class="c">'+D[k].sub.replace(" nights","")+"</td>").join("") + "</tr>"
+   + "<tr><td>Flight on points</td>" + tots.map(t => '<td class="c'+(t.yp===minP?" win":"")+'">'+fmt(t.yp)+"</td>").join("") + "</tr>"
+   + "<tr><td>Flight on cash</td>" + tots.map(t => '<td class="c'+(t.yc===minC?" win":"")+'">'+fmt(t.yc)+"</td>").join("") + "</tr>"
+   + "<tr><td>Miles round trip, each</td>" + ORDER.map(k => '<td class="c">'+(D[k].c.fm/1000)+"k</td>").join("") + "</tr>"
+   + "<tr><td>Nonstop from PDX</td>" + ORDER.map(k => '<td class="c">'+(k==="mexico"?"No, via LAX":FLY[k].out.ns?"Yes":"Out connects")+"</td>").join("") + "</tr>"
+   + "</tbody>";
+
+  $("cC").innerHTML = cmpHead() + "<tbody>"
+   + "<tr><td>Effort on you</td>" + ORDER.map(k => '<td class="c">'+dots(D[k].eff.score)+"</td>").join("") + "</tr>"
+   + "<tr><td>Travel each way</td>" + ORDER.map(k => '<td class="c"><span class="sub" style="max-width:150px">'+esc(D[k].eff.rows[0][1])+"</span></td>").join("") + "</tr>"
+   + "<tr><td>Car needed</td>" + ORDER.map(k => '<td class="c">'+(D[k].c.car?"Worth one":"No")+"</td>").join("") + "</tr>"
+   + "<tr><td>How easily you bail</td>" + ORDER.map(k => '<td class="c"><span class="sub" style="max-width:150px">'+esc(D[k].eff.rows[4][1])+"</span></td>").join("") + "</tr>"
+   + "</tbody>";
+
+  $("levers").innerHTML = LEVERS.map(l =>
+    '<div class="flag"><i>'+l[0]+"</i><div><b>"+esc(l[1])+"</b><br><span>"+esc(l[2])+"</span></div></div>").join("");
+}
+
+function render(){
+  const isCmp = city === "compare";
+  $("cityView").hidden = isCmp;
+  $("cmpView").hidden = !isCmp;
+  if(isCmp) renderCmp(); else renderCity();
+  [...$("tabs").children].forEach(b => b.setAttribute("aria-selected", b.dataset.k === city));
+  [...$("seg").children].forEach(b => b.setAttribute("aria-pressed", b.dataset.s === split));
+  document.title = (isCmp ? "Compare" : D[city].name) + " · The Short Version";
+}
+
+$("tabs").innerHTML = ORDER.map(k =>
+  '<button class="tab" role="tab" data-k="'+k+'">'+esc(D[k].name)+"</button>").join("")
+  + '<button class="tab" role="tab" data-k="compare">Compare</button>';
+$("tabs").addEventListener("click", e => {
+  const b = e.target.closest("[data-k]"); if(!b) return;
+  city = b.dataset.k; render(); window.scrollTo({top:0,behavior:"smooth"});
+});
+$("seg").addEventListener("click", e => {
+  const b = e.target.closest("[data-s]"); if(!b) return;
+  split = b.dataset.s; render();
+});
+render();
+</script>

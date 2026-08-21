@@ -1,3 +1,4 @@
+<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
@@ -328,17 +329,22 @@ const r50 = n => Math.round(n/50)*50;
 
 function calc(c){
   const ground = c.lodge + c.car + c.food + c.local + c.act;
-  const cashAll = (ground + c.fc*2) * 1.1;
-  const ptsAll  = (ground + c.fp*2) * 1.1;
-  let yc, yp, her = 0, herLabel = "";
+  const cashAll = r50((ground + c.fc*2) * 1.1);
+  const ptsAll  = r50((ground + c.fp*2) * 1.1);
+  let yc, yp, herLabel = "";
   if(split === "all"){ yc = cashAll; yp = ptsAll; }
   else if(split === "lodging"){
-    yc = (ground + c.fc) * 1.1; yp = (ground + c.fp) * 1.1;
-    her = c.fc * 1.1; herLabel = "Her flight, booked by her: about " + fmt(r50(her)) + " in cash, or " + (c.fm/1000) + "k miles plus " + fmt(c.fp) + " if you transfer her the points.";
-  } else { yc = cashAll/2; yp = ptsAll/2;
-    herLabel = "She pays the same again: " + fmt(r50(yc)) + " on the cash version.";
+    yc = r50((ground + c.fc) * 1.1);
+    yp = r50((ground + c.fp) * 1.1);
+    herLabel = "Her flight, booked by her: about " + fmt(cashAll - yc) + " in cash, or "
+      + (c.fm/1000) + "k miles plus " + fmt(c.fp) + " if you transfer her the points.";
+  } else {
+    // Halve the already-rounded whole-trip total so the two shares add back to it exactly.
+    yc = cashAll/2; yp = ptsAll/2;
+    herLabel = "She pays the same again: " + fmt(yc) + " on the cash version, so the two halves add up to the "
+      + fmt(cashAll) + " whole-trip figure.";
   }
-  return {yc:r50(yc), yp:r50(yp), ground, cashAll:r50(cashAll), ptsAll:r50(ptsAll), herLabel};
+  return {yc, yp, ground, cashAll, ptsAll, herLabel};
 }
 
 const SPLITLAB = {

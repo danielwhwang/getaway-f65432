@@ -154,11 +154,10 @@ a{color:var(--sea)}
 <h2>All five, side by side</h2>
 <div class="toggles">
   <div class="tg">
-    <span class="lbl">Who pays</span>
+    <span class="lbl">What you pay for</span>
     <div class="seg" id="segPay">
-      <button data-v="all" aria-pressed="true">You cover it</button>
-      <button data-v="split">Split evenly</button>
-      <button data-v="big">You get flights + room</button>
+      <button data-v="mine" aria-pressed="true">My flight and the room</button>
+      <button data-v="all">I cover everything</button>
     </div>
   </div>
   <div class="tg">
@@ -173,7 +172,7 @@ a{color:var(--sea)}
   <div class="tblwrap" tabindex="0" role="region" aria-label="All five destinations compared, scrolls sideways">
     <table id="cmp">
       <thead><tr>
-        <th>Destination</th><th>Flight</th><th class="num">Air, 2 people</th>
+        <th>Destination</th><th>Flight</th><th class="num">Air</th>
         <th>Room, 4 nights</th><th class="num">Your cost</th><th>Effort</th><th>The water</th>
       </tr></thead>
       <tbody></tbody>
@@ -314,7 +313,7 @@ var D = [
   }
 ];
 
-var pay="all", cred="off", cur=D[0].k;
+var pay="mine", cred="off", cur=D[0].k;
 
 function raw(d){ return d.air.cash*2 + d.pick + d.food + d.trans + d.act; }
 function total(d){
@@ -323,16 +322,20 @@ function total(d){
   return Math.round(t/100)*100;
 }
 function shown(d){
-  var t = total(d);
-  if(pay==="split") return Math.round(t/2/50)*50;
-  if(pay==="big"){
-    var big=(d.air.cash*2 + d.pick)*1.1;
-    if(cred==="on") big -= (d.credit + 300);
-    return Math.round(big/100)*100;
+  if(pay==="mine"){
+    var m=(d.air.cash + d.pick)*1.1;
+    if(cred==="on") m -= (d.credit + 300);
+    return Math.round(m/100)*100;
   }
-  return t;
+  return total(d);
 }
+// What is deliberately outside the "my flight and the room" number.
+function unallocated(d){ return Math.round((d.food + d.trans + d.act)*1.1); }
 function money(n){ return "$"+n.toLocaleString("en-US"); }
+function shownAll(d){ var t=raw(d)*1.1; if(cred==="on") t-=(d.credit+300); return Math.round(t/100)*100; }
+// Your flight + the room + you also picking up the shared spending as you go.
+function minePlus(d){ var t=(d.air.cash + d.pick + d.food + d.trans + d.act)*1.1;
+  if(cred==="on") t-=(d.credit+300); return Math.round(t/100)*100; }
 function dots(n){
   var s='<span class="dots" role="img" aria-label="Effort on you, '+n+' out of 5">';
   for(var i=1;i<=5;i++) s+='<span class="dot'+(i<=n?' on':'')+'"></span>';
@@ -349,7 +352,8 @@ function renderCmp(){
     h+='<tr'+(shown(d)===min?' class="win"':'')+'>'+
       '<td><b>'+esc(d.n)+'</b><div class="sub">'+esc(d.sub)+'</div></td>'+
       '<td>'+esc(d.air.stops)+'<div class="sub">'+esc(d.air.carrier)+'</div></td>'+
-      '<td class="num">'+money(d.air.cash*2)+'</td>'+
+      '<td class="num">'+money(pay==="mine"?d.air.cash:d.air.cash*2)+
+        '<div class="sub">'+(pay==="mine"?"your seat":"both seats")+'</div></td>'+
       '<td>'+money(d.pick)+'<div class="sub">'+esc(d.pickName)+'</div></td>'+
       '<td class="num"><b>'+money(shown(d))+'</b></td>'+
       '<td>'+dots(d.eff)+'</td>'+
@@ -357,9 +361,8 @@ function renderCmp(){
     '</tr>';
   });
   document.querySelector("#cmp tbody").innerHTML=h;
-  var n={all:"Full cost of the trip for both of you, four nights, cash flights.",
-         split:"Your half if you split everything down the middle.",
-         big:"You take flights and the room, the second traveler covers their own food, transport and activities."}[pay];
+  var n={mine:"What you have actually agreed to: your own flight plus the room for the four nights. She books and pays for her own flight. Food, getting around and things to do are not in this number and are not allocated to either of you.",
+         all:"Everything for both of you, four nights, cash flights. Shown for comparison, not as the plan."}[pay];
   if(cred==="on") n+=" Credits applied: the CSR $300 flexible travel credit on every option, plus any property-specific Amex credit.";
   document.getElementById("cmpnote").textContent=n;
 }
@@ -393,10 +396,12 @@ function renderPanel(){
       '<div class="pr">'+money(l.p)+'<small>'+esc(l.r)+' · 4 nights</small></div></div>';
   }).join("");
 
-  var isBig = pay==="big";
-  var base = isBig ? (a.cash*2 + d.pick) : raw(d);
-  var lines = [["Flights, both of you", a.cash*2], ["Room, 4 nights", d.pick]];
-  if(!isBig) lines.push(["Food", d.food], ["Getting around", d.trans], ["Things to do", d.act]);
+  var isMine = pay==="mine";
+  var base = isMine ? (a.cash + d.pick) : raw(d);
+  var lines = isMine
+    ? [["Your flight, one seat", a.cash], ["Room, 4 nights", d.pick]]
+    : [["Flights, both of you", a.cash*2], ["Room, 4 nights", d.pick]];
+  if(!isMine) lines.push(["Food", d.food], ["Getting around", d.trans], ["Things to do", d.act]);
   lines.push(["10 percent buffer", Math.round(base*0.1)]);
   var linesHtml = lines.map(function(l){
     return '<div class="kv"><span>'+esc(l[0])+'</span><span class="v">'+money(l[1])+'</span></div>';
@@ -404,15 +409,17 @@ function renderPanel(){
   var creditLine = cred==="on"
     ? '<div class="kv"><span>Credits applied</span><span class="v">-'+money(d.credit+300)+'</span></div>'
     : '';
-  var otherNote = isBig
-    ? '<p class="sub" style="margin-top:10px"><b>Deliberately not in this number:</b> food, getting '+
-      'around and things to do, '+money(Math.round((d.food+d.trans+d.act)*1.1))+' across the trip, '+
-      'which the second traveler carries under this split.</p>'
+  var otherNote = isMine
+    ? '<p class="sub" style="margin-top:10px"><b>Not in this number, on purpose.</b> Her flight, '+
+      money(a.cash)+', which she books and pays for herself. And food, getting around and things to '+
+      'do, about '+money(unallocated(d))+' across the four days for the two of you, which nobody has '+
+      'assigned yet. If you end up picking most of that up as you go, your number becomes '+
+      money(minePlus(d))+'.</p>'
     : '';
   var credNote = cred==="on"
-    ? '<p class="sub" style="margin-top:6px">Credits are subtracted before the split, so under '+
-      '"split evenly" both people share the benefit and under "you get flights + room" all of it '+
-      'lands on you.</p>'
+    ? '<p class="sub" style="margin-top:6px">You are buying the room, so every hotel credit lands on '+
+      'you in both modes. The CSR $300 flexible travel credit is applied against your own airfare, '+
+      'which it fully covers on all five.</p>'
     : '';
 
   document.getElementById("panel").innerHTML =
@@ -436,10 +443,10 @@ function renderPanel(){
       '<div class="kv"><span>On points instead</span><span class="v">'+ptsLine+'</span></div>'+
       '<p class="sub" style="margin-top:10px">'+esc(a.note)+'</p></div>'+
 
-    '<div class="card"><h3>What the trip costs · '+esc(d.pickName)+'</h3>'+
+    '<div class="card"><h3>'+(isMine?"What you pay · ":"What the trip costs · ")+esc(d.pickName)+'</h3>'+
       linesHtml+
       creditLine+
-      '<div class="kv tot"><span>'+(pay==="all"?"Total":pay==="split"?"Your half":"Your share")+'</span>'+
+      '<div class="kv tot"><span>'+(pay==="mine"?"What you pay":"Total, both of you")+'</span>'+
       '<span class="v">'+money(shown(d))+'</span></div>'+
       otherNote+ credNote+
       '<p class="sub" style="margin-top:10px">'+esc(d.costNote)+'</p></div>'+

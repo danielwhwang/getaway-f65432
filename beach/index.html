@@ -70,7 +70,6 @@ th{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--mu
   white-space:nowrap}
 td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 th.num{text-align:right}
-tr.win td{background:color-mix(in srgb,var(--sea) 7%,transparent)}
 .pill{display:inline-block;border-radius:999px;padding:2px 9px;font-size:11.5px;font-weight:650;
   border:1px solid}
 .pill.g{color:var(--good);border-color:color-mix(in srgb,var(--good) 40%,transparent);
@@ -152,6 +151,7 @@ a{color:var(--sea)}
 </div>
 
 <h2>All five, side by side</h2>
+<p class="sub" style="max-width:70ch;margin:0 0 14px">Ordered by what you pay, because it has to be ordered by something. <b>That is a sort, not a ranking, and the cheapest row is not the winner.</b> The cost column is not comparable across the two groups. Cancun and Cabo are all-inclusive, so resort meals and drinks for both of you are already inside the room rate, and only a small allowance is added for eating off the resort. The Hawaii rooms are room-only, and the Honolulu and Maui picks both charge a resort fee of roughly $40 a night that sits outside every total on this page. Read the room column first.
 <div class="toggles">
   <div class="tg">
     <span class="lbl">What you pay for</span>
@@ -173,7 +173,7 @@ a{color:var(--sea)}
     <table id="cmp">
       <thead><tr>
         <th>Destination</th><th>Flight</th><th class="num">Air</th>
-        <th>Room, 4 nights</th><th class="num">Your cost</th><th>Effort</th><th>The water</th>
+        <th>Room, 4 nights</th><th>What the room is</th><th class="num">Your cost</th><th>Effort</th><th>The water</th>
       </tr></thead>
       <tbody></tbody>
     </table>
@@ -219,7 +219,7 @@ var D = [
       {n:"Hyatt Regency Waikiki", p:1007, r:"8.2", t:["Hyatt on points"], note:"The points-and-cancel option if you want a free hold."},
       {n:"Alohilani Resort", p:813, r:"8.1", t:["Cheapest in band"], note:"Big pool deck, across from Kuhio Beach."}
     ],
-    pick:1375, pickName:"Prince Waikiki", credit:400, creditNote:"Amex $300 plus THC $100 property credit at Prince Waikiki",
+    what:"Harbor-front tower room, 9.0. No kitchen. Amex Hotel Collection, so the $300 plus a $100 property credit both land here. Waikiki resort fee of about $40 a night is on top.", pick:1375, pickName:"Prince Waikiki", credit:400, creditNote:"Amex $300 plus THC $100 property credit at Prince Waikiki",
     food:720, trans:150, act:300,
     costNote:"No car line. Food is the big variable: Honolulu eats well at every price point."
   },
@@ -241,7 +241,7 @@ var D = [
       {n:"The Resort at Kapalua Bay", p:2741, r:"9.8", t:["Above band"], note:"Best-reviewed on the island. Kapalua Bay is the calmest swimming water on Maui."},
       {n:"Andaz Maui at Wailea", p:3479, r:"7.8", t:["Amex FHR","Above band"], note:"FHR, so the $300 lands, but it is double your ceiling."}
     ],
-    pick:1284, pickName:"Aston Kaanapali Shores", credit:0, creditNote:"Kaanapali condos are not FHR or THC. Westin Maui is THC and worth a rate check if you want the $300.",
+    what:"Beachfront condo with a full kitchen, 8.7. Sand and Black Rock snorkeling on foot. No hotel credit fires here. Resort fee on top.", pick:1284, pickName:"Aston Kaanapali Shores", credit:0, creditNote:"Kaanapali condos are not FHR or THC. Westin Maui is THC and worth a rate check if you want the $300.",
     food:720, trans:320, act:300,
     costNote:"Transport line is a rental car, roughly $70 a day plus gas."
   },
@@ -263,7 +263,7 @@ var D = [
       {n:"Koa Kea Resort on Poipu Beach", p:3456, r:"8.8", v:false, t:["Above band","Beachfront"], note:"The small luxury option, directly on the sand. This is the honest Kauai equivalent of a Kaanapali beachfront room, at nearly triple the price."},
       {n:"Grand Hyatt Kauai Resort & Spa", p:4744, r:"8.8", v:true, t:["5 star","Poipu"], note:"Saltwater lagoon, river pool, Shipwreck Beach. Re-pulled from the hotel's own page on 2026-08-21: $4,744, one room type left, a two-queen ocean view."}
     ],
-    pick:1408, pickName:"Kiahuna Plantation - Poipu", credit:0, creditNote:"1 Hotel Hanalei Bay is the Chase Edit property here and it is far above your band. No Amex property lands in budget either, so no hotel credit fires on Kauai.",
+    what:"Condo across the road from Poipu Beach Park, 8.0. Lowest-rated pick on the board and the only one not on the sand. Card price only, and it moved $1,826 in a day.", pick:1408, pickName:"Kiahuna Plantation - Poipu", credit:0, creditNote:"1 Hotel Hanalei Bay is the Chase Edit property here and it is far above your band. No Amex property lands in budget either, so no hotel credit fires on Kauai.",
     food:720, trans:320, act:300,
     costNote:"Read this as Kauai's BEST case, not its typical one. Every other destination here is priced on a mid-band property; Kauai is priced on the cheapest real resort on the south shore, because nothing mid-band exists in your band. It scores 8.0, it is across the road rather than on the sand, and its card price moved $1,826 in a day. On the Grand Hyatt, like for like with the others, the trip is about $7,500. Rental car is closer to mandatory here than on Maui."
   },
@@ -285,19 +285,19 @@ var D = [
       {n:"Grand Fiesta Americana Coral Beach", p:1595, r:"9.0", t:["All-inclusive"], note:"Best beach in the Hotel Zone proper."},
       {n:"Secrets Playa Blanca Costa Mujeres", p:2174, r:"9.1", t:["All-inclusive","Adults only","Above band"], note:"The stretch pick. Newer, quieter, adults only."}
     ],
-    pick:1595, pickName:"Hyatt Zilara Cancun", credit:0, creditNote:"Hilton Cancun and Almare Isla Mujeres are Amex THC. Check their rates if you want the $300 to land here.",
+    what:"All-inclusive, adults only, 9.1. Every meal and every drink for BOTH of you is already inside this number, which is why its food line is near zero.", pick:1595, pickName:"Hyatt Zilara Cancun", credit:0, creditNote:"Hilton Cancun and Almare Isla Mujeres are Amex THC. Check their rates if you want the $300 to land here.",
     food:120, trans:180, act:300,
     costNote:"Food line is near zero because all-inclusive covers both of you. The $120 is for going off-resort a couple of times."
   },
   {
     k:"sjd", n:"Los Cabos", sub:"Cabo San Lucas and San Jose del Cabo",
-    hi:"Cheapest total on the board, driest weather in Mexico, and adults-only all-inclusive under budget.",
+    hi:"Adults-only all-inclusive inside budget, the driest weather in Mexico, and the one place where the room rate really is close to the whole trip.",
     air:{cash:506, stops:"1 stop", carrier:"United", miles:64300, tax:220, seats:"Saturday Sep 19 available on cash",
          note:"Saturday works: $506, one stop, 6h30 on United. There is no nonstop PDX to Cabo in September at all, that route is seasonal winter, so it is one stop on any day. Leaving Sunday saves about $32 and is not worth a day."},
     strike:"One stop each way. No nonstop from PDX in September, the route is seasonal winter.",
     eff:3,
     water:"Desert meets ocean, and it is dramatic. Important caveat: much of the Cabo San Lucas coast has dangerous surf and is not swimmable. Medano Beach and the San Jose hotel zone are the swimmable stretches, so the property choice does more work here than anywhere else.",
-    good:["Cheapest all-in total of the five at roughly $3,000.","Shortest flight to Mexico and the driest of the Mexican beach options.","Adults-only all-inclusive at 8.9 for $1,165 total, food and drink included.","Hilton Los Cabos is Amex THC with a free third night plus a $125 credit, which is real money on four nights."],
+    good:["Adults-only all-inclusive at 8.9, food and drink for both of you included in the room rate.","Shortest flight to Mexico and the driest of the Mexican beach options.","Hilton Los Cabos is Amex THC with a free third night plus a $125 credit, which is real money on four nights.","It also happens to come out lowest on total cost, at roughly $3,000 if you covered everything."],
     bad:["Eastern Pacific is the basin NOAA has running above normal this year, 15 to 22 named storms.","Swimmable beach is not a given. You have to pick the property for the water.","One stop each way.","Feels more like a resort strip than a place, if that matters to you."],
     lodge:[
       {n:"Pueblo Bonito Pacifica", p:1165, r:"8.9", t:["All-inclusive","Adults only","Best value"], note:"Adults only, quiet, spa-forward. Pacific side, so the pool is the swimming."},
@@ -307,7 +307,7 @@ var D = [
       {n:"Secrets Puerto Los Cabos", p:1467, r:"8.6", t:["All-inclusive","Adults only"], note:"Adults only, golf resort, quiet."},
       {n:"Hotel El Ganzo", p:773, r:"9.2", t:["Adults only","Boutique","Cheapest"], note:"Small, arty, marina-side. Not a resort, and 9.2 for $773."}
     ],
-    pick:1165, pickName:"Pueblo Bonito Pacifica", credit:0, creditNote:"Switch to Hilton Los Cabos to trigger the Amex $300 plus the THC third-night and $125 credit.",
+    what:"All-inclusive, adults only, 8.9, all meals and drinks for two included. Pacific side, so the POOL is the swimming, not the sea. Hilton Los Cabos at $1,323 is the swimmable-beach version and triggers the Amex $300.", pick:1165, pickName:"Pueblo Bonito Pacifica", credit:0, creditNote:"Switch to Hilton Los Cabos to trigger the Amex $300 plus the THC third-night and $125 credit.",
     food:120, trans:180, act:300,
     costNote:"All-inclusive again, so the food line is nearly gone. No rental car assumed."
   }
@@ -345,15 +345,15 @@ function esc(s){ return String(s).replace(/[&<>"]/g,function(c){
 
 function renderCmp(){
   var rows = D.slice().sort(function(a,b){ return shown(a)-shown(b); });
-  var min = shown(rows[0]);
   var h="";
   rows.forEach(function(d){
-    h+='<tr'+(shown(d)===min?' class="win"':'')+'>'+
+    h+='<tr>'+
       '<td><b>'+esc(d.n)+'</b><div class="sub">'+esc(d.sub)+'</div></td>'+
       '<td>'+esc(d.air.stops)+'<div class="sub">'+esc(d.air.carrier)+'</div></td>'+
       '<td class="num">'+money(pay==="mine"?d.air.cash:d.air.cash*2)+
         '<div class="sub">'+(pay==="mine"?"your seat":"both seats")+'</div></td>'+
       '<td>'+money(d.pick)+'<div class="sub">'+esc(d.pickName)+'</div></td>'+
+      '<td class="sub" style="min-width:230px">'+esc(d.what)+'</td>'+
       '<td class="num"><b>'+money(shown(d))+'</b></td>'+
       '<td>'+dots(d.eff)+'</td>'+
       '<td class="sub" style="min-width:190px">'+esc(d.water.split(".")[0])+'.</td>'+
@@ -448,7 +448,8 @@ function renderPanel(){
       '<div class="kv tot"><span>'+(pay==="mine"?"What you pay":"Total, both of you")+'</span>'+
       '<span class="v">'+money(shown(d))+'</span></div>'+
       otherNote+ credNote+
-      '<p class="sub" style="margin-top:10px">'+esc(d.costNote)+'</p></div>'+
+      '<p class="sub" style="margin-top:10px"><b>What this room is.</b> '+esc(d.what)+'</p>'+
+      '<p class="sub" style="margin-top:8px">'+esc(d.costNote)+'</p></div>'+
   '</div>'+
 
   '<div class="card"><h3>Real rooms, your exact dates</h3>'+

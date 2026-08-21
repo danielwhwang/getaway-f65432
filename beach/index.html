@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>September Getaway · Beach Options</title>
+<style>
+:root{
+  --bg:#fbf7f0; --card:#ffffff; --ink:#1d2b32; --mut:#5f7480; --line:#e2dcd1;
+  --sea:#0d6f7d; --sea2:#0a5561; --sand:#c9873d; --good:#2f7d55; --bad:#a8433a;
+  --chip:#eef4f4; --shadow:0 1px 2px rgba(29,43,50,.05),0 6px 18px rgba(29,43,50,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#11181c; --card:#182126; --ink:#e8eef0; --mut:#93a7b0; --line:#26343a;
+    --sea:#4fc0cf; --sea2:#7ad4e0; --sand:#e0a45f; --good:#63c48d; --bad:#e08079;
+    --chip:#1e2b31; --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#11181c; --card:#182126; --ink:#e8eef0; --mut:#93a7b0; --line:#26343a;
+  --sea:#4fc0cf; --sea2:#7ad4e0; --sand:#e0a45f; --good:#63c48d; --bad:#e08079;
+  --chip:#1e2b31; --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-text-size-adjust:100%}
+.wrap{max-width:1120px;margin:0 auto;padding:22px 18px 70px}
+header{margin:6px 0 20px}
+h1{font-size:26px;line-height:1.2;margin:0 0 8px;letter-spacing:-.01em}
+h2{font-size:19px;margin:30px 0 12px;letter-spacing:-.01em}
+h3{font-size:15px;margin:20px 0 8px;text-transform:uppercase;letter-spacing:.07em;color:var(--mut)}
+p{margin:0 0 12px}
+.sub{color:var(--mut);font-size:14.5px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0 0}
+.chip{background:var(--chip);border:1px solid var(--line);color:var(--mut);
+  border-radius:999px;padding:4px 11px;font-size:12.5px;white-space:nowrap}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:18px 18px;box-shadow:var(--shadow);margin:0 0 16px}
+.verdict{border-left:4px solid var(--sea)}
+.verdict h2{margin-top:0}
+.flag{border-left:4px solid var(--sand)}
+ul{margin:0 0 12px;padding-left:20px}
+li{margin:0 0 7px}
+b,strong{font-weight:650}
+.tabs{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 16px}
+.tab{background:var(--card);border:1px solid var(--line);color:var(--ink);
+  border-radius:10px;padding:9px 14px;font-size:14.5px;cursor:pointer;font-weight:550;
+  font-family:inherit;transition:.12s}
+.tab:hover{border-color:var(--sea)}
+.tab[aria-selected="true"]{background:var(--sea);border-color:var(--sea);color:#fff}
+.toggles{display:flex;flex-wrap:wrap;gap:18px;align-items:center;margin:0 0 6px}
+.tg{display:flex;flex-direction:column;gap:6px}
+.tg .lbl{font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--mut)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:var(--card)}
+.seg button{background:transparent;border:0;color:var(--mut);padding:7px 12px;font-size:13.5px;
+  cursor:pointer;font-family:inherit;border-right:1px solid var(--line)}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--sea);color:#fff}
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 6px}
+table{border-collapse:collapse;width:100%;min-width:660px;font-size:14.5px}
+th,td{text-align:left;padding:10px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);font-weight:650;
+  white-space:nowrap}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+th.num{text-align:right}
+tr.win td{background:color-mix(in srgb,var(--sea) 7%,transparent)}
+.pill{display:inline-block;border-radius:999px;padding:2px 9px;font-size:11.5px;font-weight:650;
+  border:1px solid}
+.pill.g{color:var(--good);border-color:color-mix(in srgb,var(--good) 40%,transparent);
+  background:color-mix(in srgb,var(--good) 10%,transparent)}
+.pill.b{color:var(--bad);border-color:color-mix(in srgb,var(--bad) 40%,transparent);
+  background:color-mix(in srgb,var(--bad) 10%,transparent)}
+.pill.n{color:var(--mut);border-color:var(--line);background:var(--chip)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:760px){.grid2{grid-template-columns:1fr}}
+.big{font-size:30px;font-weight:680;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.kv{display:flex;justify-content:space-between;gap:14px;padding:6px 0;border-bottom:1px dashed var(--line);
+  font-size:14.5px}
+.kv:last-child{border-bottom:0}
+.kv .v{font-variant-numeric:tabular-nums;white-space:nowrap}
+.kv.tot{border-top:2px solid var(--line);border-bottom:0;margin-top:6px;padding-top:10px;font-weight:680}
+.hotel{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line)}
+.hotel:last-child{border-bottom:0}
+.hotel .nm{font-weight:600}
+.hotel .meta{color:var(--mut);font-size:13px;margin-top:2px}
+.hotel .pr{font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right;font-weight:650}
+.hotel .pr small{display:block;font-weight:400;color:var(--mut);font-size:11.5px}
+.tagrow{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.tag{font-size:11px;border:1px solid var(--line);background:var(--chip);color:var(--mut);
+  border-radius:5px;padding:1px 6px}
+.tag.credit{color:var(--sand);border-color:color-mix(in srgb,var(--sand) 40%,transparent)}
+.dots{display:inline-flex;gap:3px;vertical-align:middle}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--line)}
+.dot.on{background:var(--sand)}
+footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);color:var(--mut);font-size:13px}
+.hide{display:none}
+a{color:var(--sea)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>September getaway · the beach five</h1>
+  <p class="sub">Four nights away, then home to decompress. Real flight and lodging
+  prices for these exact dates, both people, pulled 2026-08-20.</p>
+  <div class="chips">
+    <span class="chip">Out Sat Sep 19 · back Wed Sep 23</span>
+    <span class="chip">4 nights · 2 people</span>
+    <span class="chip">Lodging target $1,200 to $1,800</span>
+    <span class="chip" id="stamp">Prices live 2026-08-20</span>
+  </div>
+</header>
+
+<div class="card verdict">
+  <h2>Two findings that change the plan</h2>
+  <p><b>1. Do not spend miles on this trip.</b> Portland to Honolulu is <b>$379 round trip in cash,
+  nonstop.</b> Burning 56,400 miles plus $36 to avoid that fare is <b>0.61 cents per point</b>, against
+  your 2.0 bar. Cancun is worse at 0.32 and Cabo at 0.40. Every one of these is a cash flight.
+  The 430k Chase points and 372k Amex points stay parked for the November Japan trip, where a
+  business seat actually clears the bar.</p>
+  <p><b>2. You cannot harvest both expiring credits on one stay.</b> The CSR $250 only fires through
+  Chase's The Edit; the Amex $300 only fires through Amex Travel FHR or Hotel Collection. Different
+  portals, one booking, one credit. Clean split: take the <b>Amex $300 here in September</b>, send the
+  <b>CSR $250 to November in Tokyo</b> on your IHG status, and put the <b>CSR $300 flexible travel
+  credit</b> against these flights, since that one is not portal-locked. That is $600 used across both
+  trips instead of $550 fought over in one.</p>
+</div>
+
+<div class="card flag">
+  <h2>Before you scroll: the honest state of the board</h2>
+  <p>You asked for five. Four of them carry a real strike, and the page shows them rather than
+  flattening everything into a tie:</p>
+  <ul>
+    <li><b>Maui and Kauai</b> have only one award seat from PDX, so they were never a points play for
+    two. On cash they are fine, and cheap.</li>
+    <li><b>Cabo</b> cannot leave on your Saturday. One award seat on 9/19, so it shifts to Sun 9/20 and
+    eats a day of your decompress weekend. On cash the Saturday works.</li>
+    <li><b>Cancun</b> is the longest travel day on the board, one stop each way, and the only one where
+    a passport expiry actually matters.</li>
+    <li><b>Honolulu</b> has no strike. It is nonstop, cheapest to fly, and the only one that needs no
+    rental car.</li>
+  </ul>
+</div>
+
+<h2>All five, side by side</h2>
+<div class="toggles">
+  <div class="tg">
+    <span class="lbl">Who pays</span>
+    <div class="seg" id="segPay">
+      <button data-v="all" aria-pressed="true">You cover it</button>
+      <button data-v="split">Split evenly</button>
+      <button data-v="big">You get flights + room</button>
+    </div>
+  </div>
+  <div class="tg">
+    <span class="lbl">Credits</span>
+    <div class="seg" id="segCred">
+      <button data-v="off" aria-pressed="true">Ignore credits</button>
+      <button data-v="on">Apply what qualifies</button>
+    </div>
+  </div>
+</div>
+<div class="card" style="padding-top:12px">
+  <div class="tblwrap">
+    <table id="cmp">
+      <thead><tr>
+        <th>Destination</th><th>Flight</th><th class="num">Air, 2 people</th>
+        <th>Room, 4 nights</th><th class="num">Your cost</th><th>Effort</th><th>The water</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <p class="sub" id="cmpnote" style="margin:10px 0 0"></p>
+</div>
+
+<h2>Destination by destination</h2>
+<div class="tabs" id="tabs"></div>
+<div id="panel"></div>
+
+<footer>
+  <p><b>Where the numbers come from.</b> Award space and surcharges: seats.aero via award-search,
+  pulled 2026-08-20, filtered to routes with 2 or more seats out of PDX. Cash fares: Kayak, lowest
+  round trip per person, 2026-08-20. Lodging: Booking.com, 4 stars and up, 2 adults, 1 room, exact
+  dates, totals as displayed 2026-08-20.</p>
+  <p>Room totals as shown by Booking generally include tax but <b>not</b> Hawaii resort fees, which run
+  roughly $35 to $50 a night at Waikiki and Kaanapali properties. Every total on this page carries a
+  10 percent buffer on top and is rounded to the nearest $100. Mexico all-inclusive rates include food
+  and drink for two, which is why their food line is near zero and why they land lower than the room
+  rate alone suggests.</p>
+  <p>Prices move. Re-pull before booking anything prepaid.</p>
+</footer>
+
+</div>
+<script>
+var D = [
+  {
+    k:"hnl", n:"Honolulu", sub:"Oahu · Waikiki",
+    hi:"Nonstop, cheapest to fly, no rental car, and the only option with zero logistics against it.",
+    air:{cash:379, stops:"nonstop", carrier:"Alaska", miles:56400, tax:36, seats:"5 seats each way",
+         note:"The only Hawaiian island with real award space for two out of PDX. Also the one where you should ignore that fact and pay cash."},
+    strike:null,
+    eff:1,
+    water:"Waikiki is a calm, protected, gently shelving beach. It is the easiest water on this board for someone who is not a strong swimmer, and Hanauma Bay snorkeling is 25 minutes away.",
+    good:["Nonstop both directions, about 5h45 each way.","No rental car needed at all. Walkable, plus buses and rideshare.","Flattest option on the board, which matters for your toe.","Prince Waikiki and Outrigger Reef are Amex Hotel Collection, so the $300 credit lands here."],
+    bad:["It is a city beach. High-rises, crowds, traffic, ABC Stores on every corner.","Least 'getaway' feeling of the three islands.","Resort fees are near-universal in Waikiki, roughly $40 a night on top."],
+    lodge:[
+      {n:"Prince Waikiki", p:1375, r:"9.0", t:["Amex THC","Harbor-front","Adults-friendly"], note:"Every room faces the harbor. Infinity pool. The THC pick."},
+      {n:"Halepuna Waikiki by Halekulani", p:1266, r:"9.1", t:["No resort fee"], note:"Halekulani's quieter sibling. Best-run hotel in this band."},
+      {n:"Outrigger Reef Waikiki Beach", p:1297, r:"8.8", t:["Amex THC","Beachfront"], note:"Directly on the sand. The most beach-forward THC option."},
+      {n:"Waikiki Beach Marriott", p:1375, r:"8.5", t:["Chase Edit"], note:"Diamond Head end, quieter stretch. The Edit pick if you go Chase."},
+      {n:"Hyatt Regency Waikiki", p:1007, r:"8.2", t:["Hyatt on points"], note:"The points-and-cancel option if you want a free hold."},
+      {n:"Alohilani Resort", p:813, r:"8.1", t:["Cheapest in band"], note:"Big pool deck, across from Kuhio Beach."}
+    ],
+    pick:1375, credit:400, creditNote:"Amex $300 plus THC $100 property credit at Prince Waikiki",
+    food:720, trans:150, act:300,
+    costNote:"No car line. Food is the big variable: Honolulu eats well at every price point."
+  },
+  {
+    k:"ogg", n:"Maui", sub:"Kaanapali and Wailea",
+    hi:"The postcard. Better beach than Waikiki by a wide margin, nonstop, and cheaper to fly than Honolulu.",
+    air:{cash:376, stops:"nonstop", carrier:"Alaska", miles:null, tax:null, seats:"1 award seat only",
+         note:"One award seat from PDX, so this was never a points trip for two. At $376 nonstop that does not matter."},
+    strike:"One award seat from PDX. Cash only for two.",
+    eff:2,
+    water:"Black Rock at Kaanapali has snorkeling straight off the sand, no boat needed. Turtles most mornings. This is the strongest water on the board for a beginner who wants to actually see something.",
+    good:["Nonstop from PDX and the cheapest flight of all five.","Resort beach rather than city beach. This is what a first-time visitor pictures.","Black Rock snorkeling is walk-in, which beats booking a boat.","Kaanapali condos land well inside your budget."],
+    bad:["You want a rental car here. Normal for Maui, but it is a line item and a small load.","Wailea and Kapalua luxury tiers are all far above your band. The value is at Kaanapali.","Lahaina is still rebuilding. Worth knowing before you go."],
+    lodge:[
+      {n:"Sheraton Maui Resort & Spa", p:1856, r:"8.6", t:["Black Rock","Stretch"], note:"Sits on Black Rock itself. Snorkeling is 30 seconds from your towel."},
+      {n:"Aston Kaanapali Shores", p:1284, r:"8.7", t:["In band","Kitchen"], note:"Beachfront, roomy units, the sane-value pick."},
+      {n:"AEI at The Whaler Kaanapali", p:1270, r:"10", t:["In band","Kitchen"], note:"On Kaanapali Beach next to Whalers Village."},
+      {n:"Aston Maui Kaanapali Villas", p:1253, r:"8.8", t:["In band"], note:"Quieter north end, big lawn to the sand."},
+      {n:"The Resort at Kapalua Bay", p:2741, r:"9.8", t:["Above band"], note:"Best-reviewed on the island. Kapalua Bay is the calmest swimming water on Maui."},
+      {n:"Andaz Maui at Wailea", p:3479, r:"7.8", t:["Amex FHR","Above band"], note:"FHR, so the $300 lands, but it is double your ceiling."}
+    ],
+    pick:1284, credit:0, creditNote:"Kaanapali condos are not FHR or THC. Westin Maui is THC and worth a rate check if you want the $300.",
+    food:720, trans:320, act:300,
+    costNote:"Transport line is a rental car, roughly $70 a day plus gas."
+  },
+  {
+    k:"lih", n:"Kauai", sub:"Poipu and the south shore",
+    hi:"The most beautiful of the three, and the Grand Hyatt is unexpectedly inside your budget.",
+    air:{cash:371, stops:"1 stop", carrier:"Alaska", miles:null, tax:null, seats:"1 award seat only",
+         note:"One award seat from PDX. Cheapest cash fare of the five, but it is the only Hawaii option that is not nonstop."},
+    strike:"One award seat, and no nonstop from PDX.",
+    eff:3,
+    water:"Poipu Beach is protected and calm, and monk seals haul out on it regularly. North shore water in late September starts getting rough, so south shore is the right base.",
+    good:["Grand Hyatt Kauai at $1,712 for four nights is a genuine anomaly. It is normally far more.","Least developed and best looking of the three islands.","Poipu is flat, calm, and easy."],
+    bad:["No nonstop from PDX, so it is the longest Hawaii travel day.","You will drive more here than anywhere else on the board, and driving to see things is exactly what you have ruled out before.","Most expensive total of the five once the car and the room are in."],
+    lodge:[
+      {n:"Grand Hyatt Kauai Resort & Spa", p:1712, r:"8.8", t:["5 star","Poipu","Best value here"], note:"Saltwater lagoon, river pool, on Shipwreck Beach. Priced like a 4-star this week."},
+      {n:"Royal Sonesta Kauai Resort", p:1692, r:"8.3", t:["Lihue"], note:"Kalapaki Bay, closest to the airport, calm swimming."},
+      {n:"Kiahuna Plantation", p:1438, r:"9.3", t:["Poipu","Kitchen"], note:"Garden cottages across from Poipu Beach Park."},
+      {n:"Kauai Beach Resort", p:1220, r:"9.0", t:["Cheapest in band"], note:"Lihue, four pools, long beach that is better for walking than swimming."},
+      {n:"THE ISO HOTEL", p:1298, r:"7.9", t:["Kapaa"], note:"East side, newer, more of a base than a resort."},
+      {n:"Timbers Kauai Ocean Club", p:7121, r:"10", t:["Far above band"], note:"Listed only so you can see where the ceiling is."}
+    ],
+    pick:1712, credit:0, creditNote:"1 Hotel Hanalei Bay is the Chase Edit property here, and it is far above your band.",
+    food:720, trans:320, act:300,
+    costNote:"Rental car is closer to mandatory here than on Maui."
+  },
+  {
+    k:"cun", n:"Cancun", sub:"Hotel Zone and Costa Mujeres",
+    hi:"The genuinely foreign one, and all-inclusive means the room rate is very nearly the whole trip.",
+    air:{cash:501, stops:"1 stop", carrier:"Volaris", miles:96400, tax:196, seats:"5 seats each way",
+         note:"Award space exists for two, but at 96,400 miles round trip it is 0.32 cents per point. Pay cash."},
+    strike:"One stop each way, longest travel day, and passport validity actually matters.",
+    eff:4,
+    water:"Caribbean. Warm, clear, turquoise, and the single biggest visual step up on this board. Costa Mujeres water is calmer than the Hotel Zone.",
+    good:["It is unmistakably abroad. Passport, another language, another currency.","All-inclusive removes every daily decision, which is the actual definition of restful.","Adults-only resorts at 9.1 review scores sit inside your budget with food and drink included.","NOAA has the Atlantic below normal this season, so this is the calmer Mexico bet in 2026."],
+    bad:["Longest travel day of the five, one stop each direction.","September is its hottest and most humid month.","Prepaid all-inclusive plus hurricane season is the combination that actually bites. Watch the cancellation terms.","Passports need validity through roughly late March 2027, not merely to exist."],
+    lodge:[
+      {n:"Hyatt Zilara Cancun", p:1595, r:"9.1", t:["All-inclusive","Adults only"], note:"Hotel Zone, adults only, food and drink included for both of you."},
+      {n:"Live Aqua Cancun", p:1595, r:"9.1", t:["All-inclusive","Adults only"], note:"The design-forward one. Same price, same score."},
+      {n:"Kempinski Hotel Cancun", p:1670, r:"9.2", t:["All-inclusive"], note:"Highest-rated at this price. Quieter end of the Zone."},
+      {n:"Riu Palace Costa Mujeres", p:936, r:"8.5", t:["All-inclusive","Cheapest"], note:"Costa Mujeres, calmer water, and startlingly cheap for four nights of everything."},
+      {n:"Grand Fiesta Americana Coral Beach", p:1595, r:"9.0", t:["All-inclusive"], note:"Best beach in the Hotel Zone proper."},
+      {n:"Secrets Playa Blanca Costa Mujeres", p:2174, r:"9.1", t:["All-inclusive","Adults only","Above band"], note:"The stretch pick. Newer, quieter, adults only."}
+    ],
+    pick:1595, credit:0, creditNote:"Hilton Cancun and Almare Isla Mujeres are Amex THC. Check their rates if you want the $300 to land here.",
+    food:120, trans:180, act:300,
+    costNote:"Food line is near zero because all-inclusive covers both of you. The $120 is for going off-resort a couple of times."
+  },
+  {
+    k:"sjd", n:"Los Cabos", sub:"Cabo San Lucas and San Jose del Cabo",
+    hi:"Cheapest total on the board, driest weather in Mexico, and adults-only all-inclusive under budget.",
+    air:{cash:474, stops:"1 stop", carrier:"Volaris", miles:64300, tax:220, seats:"4 seats, must leave 9/20",
+         note:"On cash your Saturday works. On points it does not: only one award seat on 9/19, so the trip would shift to Sun 9/20 to Thu 9/24."},
+    strike:"On points it costs you the Saturday. On cash it does not.",
+    eff:3,
+    water:"Desert meets ocean, and it is dramatic. Important caveat: much of the Cabo San Lucas coast has dangerous surf and is not swimmable. Medano Beach and the San Jose hotel zone are the swimmable stretches, so the property choice does more work here than anywhere else.",
+    good:["Cheapest all-in total of the five at roughly $3,000.","Shortest flight to Mexico and the driest of the Mexican beach options.","Adults-only all-inclusive at 8.9 for $1,165 total, food and drink included.","Hilton Los Cabos is Amex THC with a free third night plus a $125 credit, which is real money on four nights."],
+    bad:["Eastern Pacific is the basin NOAA has running above normal this year, 15 to 22 named storms.","Swimmable beach is not a given. You have to pick the property for the water.","One stop each way.","Feels more like a resort strip than a place, if that matters to you."],
+    lodge:[
+      {n:"Pueblo Bonito Pacifica", p:1165, r:"8.9", t:["All-inclusive","Adults only","Best value"], note:"Adults only, quiet, spa-forward. Pacific side, so the pool is the swimming."},
+      {n:"Hilton Los Cabos Beach & Golf", p:1323, r:"9.2", t:["Amex THC","Swimmable beach"], note:"One of the few genuinely swimmable beaches in Cabo. THC perks: 3rd night free plus $125."},
+      {n:"Nobu Hotel Los Cabos", p:1227, r:"8.6", t:["All-inclusive"], note:"The design pick, and cheaper than its name suggests."},
+      {n:"Hyatt Ziva Los Cabos", p:1470, r:"8.9", t:["All-inclusive","Swimmable beach"], note:"San Jose side, swimmable, and Hyatt if you want the loyalty tie-in."},
+      {n:"Secrets Puerto Los Cabos", p:1467, r:"8.6", t:["All-inclusive","Adults only"], note:"Adults only, golf resort, quiet."},
+      {n:"Hotel El Ganzo", p:773, r:"9.2", t:["Adults only","Boutique","Cheapest"], note:"Small, arty, marina-side. Not a resort, and 9.2 for $773."}
+    ],
+    pick:1165, credit:0, creditNote:"Switch to Hilton Los Cabos to trigger the Amex $300 plus the THC third-night and $125 credit.",
+    food:120, trans:180, act:300,
+    costNote:"All-inclusive again, so the food line is nearly gone. No rental car assumed."
+  }
+];
+
+var pay="all", cred="off", cur=D[0].k;
+
+function raw(d){ return d.air.cash*2 + d.pick + d.food + d.trans + d.act; }
+function total(d){
+  var t = raw(d)*1.1;
+  if(cred==="on") t -= (d.credit + 300);
+  return Math.round(t/100)*100;
+}
+function shown(d){
+  var t = total(d);
+  if(pay==="split") return Math.round(t/2/100)*100;
+  if(pay==="big"){
+    var big=(d.air.cash*2 + d.pick)*1.1;
+    if(cred==="on") big -= (d.credit + 300);
+    return Math.round(big/100)*100;
+  }
+  return t;
+}
+function money(n){ return "$"+n.toLocaleString("en-US"); }
+function dots(n){
+  var s='<span class="dots">';
+  for(var i=1;i<=5;i++) s+='<span class="dot'+(i<=n?' on':'')+'"></span>';
+  return s+'</span>';
+}
+function esc(s){ return String(s).replace(/[&<>"]/g,function(c){
+  return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+
+function renderCmp(){
+  var rows = D.slice().sort(function(a,b){ return shown(a)-shown(b); });
+  var min = shown(rows[0]);
+  var h="";
+  rows.forEach(function(d){
+    h+='<tr'+(shown(d)===min?' class="win"':'')+'>'+
+      '<td><b>'+esc(d.n)+'</b><div class="sub">'+esc(d.sub)+'</div></td>'+
+      '<td>'+esc(d.air.stops)+'<div class="sub">'+esc(d.air.carrier)+'</div></td>'+
+      '<td class="num">'+money(d.air.cash*2)+'</td>'+
+      '<td>'+money(d.pick)+'<div class="sub">'+esc(d.lodge[0].n)+'</div></td>'+
+      '<td class="num"><b>'+money(shown(d))+'</b></td>'+
+      '<td>'+dots(d.eff)+'</td>'+
+      '<td class="sub" style="min-width:190px">'+esc(d.water.split(".")[0])+'.</td>'+
+    '</tr>';
+  });
+  document.querySelector("#cmp tbody").innerHTML=h;
+  var n={all:"Full cost of the trip for both of you, four nights, cash flights.",
+         split:"Your half if you split everything down the middle.",
+         big:"You take flights and the room, the second traveler covers their own food, transport and activities."}[pay];
+  if(cred==="on") n+=" Credits applied: the CSR $300 flexible travel credit on every option, plus any property-specific Amex credit.";
+  document.getElementById("cmpnote").textContent=n;
+}
+
+function renderTabs(){
+  document.getElementById("tabs").innerHTML = D.map(function(d){
+    return '<button class="tab" role="tab" data-k="'+d.k+'" aria-selected="'+(d.k===cur)+'">'+
+      esc(d.n)+'</button>'; }).join("");
+}
+
+function renderPanel(){
+  var d = D.filter(function(x){return x.k===cur;})[0];
+  var a=d.air;
+  var ptsLine = a.miles
+    ? money(0).replace("$0", a.miles.toLocaleString("en-US")+" miles")+" + "+money(a.tax)+
+      ' <span class="pill b">'+ (Math.round(((a.cash-a.tax)/a.miles)*10000)/100) +' cpp</span>'
+    : '<span class="pill n">no award space for two</span>';
+
+  var lodgeHtml = d.lodge.map(function(l){
+    return '<div class="hotel"><div><div class="nm">'+esc(l.n)+'</div>'+
+      '<div class="meta">'+esc(l.note)+'</div>'+
+      '<div class="tagrow">'+l.t.map(function(t){
+        var c = /Amex|Chase|Hyatt on/.test(t) ? ' credit' : '';
+        return '<span class="tag'+c+'">'+esc(t)+'</span>'; }).join("")+'</div></div>'+
+      '<div class="pr">'+money(l.p)+'<small>'+esc(l.r)+' · 4 nights</small></div></div>';
+  }).join("");
+
+  var creditLine = cred==="on"
+    ? '<div class="kv"><span>Credits applied</span><span class="v">-'+money(d.credit+300)+'</span></div>'
+    : '';
+
+  document.getElementById("panel").innerHTML =
+  '<div class="card"><h2 style="margin-top:0">'+esc(d.n)+' <span class="sub" style="font-weight:400">· '+esc(d.sub)+'</span></h2>'+
+    '<p>'+esc(d.hi)+'</p>'+
+    (d.strike?'<p><span class="pill b">Strike</span> '+esc(d.strike)+'</p>':'<p><span class="pill g">No strike</span> Nothing on this one needs working around.</p>')+
+    '<p class="sub"><b>The water:</b> '+esc(d.water)+'</p>'+
+  '</div>'+
+
+  '<div class="grid2">'+
+    '<div class="card"><h3>What is good</h3><ul>'+
+      d.good.map(function(x){return "<li>"+esc(x)+"</li>";}).join("")+'</ul></div>'+
+    '<div class="card"><h3>What is not</h3><ul>'+
+      d.bad.map(function(x){return "<li>"+esc(x)+"</li>";}).join("")+'</ul></div>'+
+  '</div>'+
+
+  '<div class="grid2">'+
+    '<div class="card"><h3>Flights · PDX round trip, per person</h3>'+
+      '<div class="big">'+money(a.cash)+'</div>'+
+      '<p class="sub" style="margin-top:2px">'+esc(a.stops)+' on '+esc(a.carrier)+' · '+esc(a.seats)+'</p>'+
+      '<div class="kv"><span>On points instead</span><span class="v">'+ptsLine+'</span></div>'+
+      '<p class="sub" style="margin-top:10px">'+esc(a.note)+'</p></div>'+
+
+    '<div class="card"><h3>What the trip costs</h3>'+
+      '<div class="kv"><span>Flights, both of you</span><span class="v">'+money(a.cash*2)+'</span></div>'+
+      '<div class="kv"><span>Room, 4 nights</span><span class="v">'+money(d.pick)+'</span></div>'+
+      '<div class="kv"><span>Food</span><span class="v">'+money(d.food)+'</span></div>'+
+      '<div class="kv"><span>Getting around</span><span class="v">'+money(d.trans)+'</span></div>'+
+      '<div class="kv"><span>Things to do</span><span class="v">'+money(d.act)+'</span></div>'+
+      '<div class="kv"><span>10 percent buffer</span><span class="v">'+money(Math.round(raw(d)*0.1))+'</span></div>'+
+      creditLine+
+      '<div class="kv tot"><span>'+(pay==="all"?"Total":pay==="split"?"Your half":"Your share")+'</span>'+
+      '<span class="v">'+money(shown(d))+'</span></div>'+
+      '<p class="sub" style="margin-top:10px">'+esc(d.costNote)+'</p></div>'+
+  '</div>'+
+
+  '<div class="card"><h3>Real rooms, real prices, your exact dates</h3>'+
+    lodgeHtml+
+    '<p class="sub" style="margin-top:12px"><b>Credit note.</b> '+esc(d.creditNote)+'</p></div>';
+}
+
+function renderAll(){ renderCmp(); renderTabs(); renderPanel(); }
+
+document.getElementById("segPay").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b)return;
+  pay=b.dataset.v;
+  [].forEach.call(this.querySelectorAll("button"),function(x){
+    x.setAttribute("aria-pressed", x===b?"true":"false"); });
+  renderCmp(); renderPanel();
+});
+document.getElementById("segCred").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b)return;
+  cred=b.dataset.v;
+  [].forEach.call(this.querySelectorAll("button"),function(x){
+    x.setAttribute("aria-pressed", x===b?"true":"false"); });
+  renderCmp(); renderPanel();
+});
+document.getElementById("tabs").addEventListener("click",function(e){
+  var b=e.target.closest(".tab"); if(!b)return;
+  cur=b.dataset.k; renderTabs(); renderPanel();
+});
+
+renderAll();
+</script>
+</body>
+</html>
